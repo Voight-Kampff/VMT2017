@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  shortname: MyString
+  date: 2017-05-30 00:10:42
+  seating: 
+  location: MyString
+
+two:
+  name: MyString
+  shortname: MyString
+  date: 2017-05-30 00:10:42
+  seating: 
+  location: MyString
