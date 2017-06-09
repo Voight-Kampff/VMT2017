@@ -1,2 +1,28 @@
-<h1>Concerts#new</h1>
-<p>Find me in app/views/concerts/new.html.erb</p>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m9 l10">
+				<h4>Ajouter un concert</h4>
+				<%= form_for(@concert) do |f|%>
+					<%= f.label :shortname %>
+					<%= f.text_field :shortname %>
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+					<%= f.label :location %>
+					<%= f.text_field :location %>
+					<%= f.label :date %>
+					<%= f.datetime_local_field :date %>
+					<%= f.label "Cat A Price" %>
+					<%= f.number_field :cat_A_price %>
+					<%= f.label "Cat B Price" %>
+					<%= f.number_field :cat_B_price %>
+					<%= f.submit "Ajouter"%>
+					<%= f.label "Unnumbered?" %>
+					<%= f.check_box :seating %>
+					<%= f.submit "Ajouter"%>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</main>
+

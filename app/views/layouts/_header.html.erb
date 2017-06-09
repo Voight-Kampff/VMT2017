@@ -1,0 +1,29 @@
+<header>
+      <nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper">
+              <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">menu</i>
+              </a>
+            <ul class="side-nav fixed" id="slide-out">
+              <li><div class="logoView">
+                <div class="background">
+                  <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "100x100")%>
+                </div>
+              </div></li>
+              <%@concerts.each do |c| %>
+              <li><a href="badges.html" class="concert"><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><%=c.name%><br/><span stlye="font'weight:normal"><%=(I18n.localize c.date, format: :concert).capitalize%></span></a></li>
+              <% end %>
+            </ul>
+        </div>
+      </nav>
+</header>
+
+<script>
+  $(".button-collapse").sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    });
+</script>

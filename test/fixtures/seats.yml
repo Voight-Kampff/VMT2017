@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  row: MyString
+  column: 1
+  price: 1
+  concert_id: 1
+  order_id: 1
+
+two:
+  row: MyString
+  column: 1
+  price: 1
+  concert_id: 1
+  order_id: 1

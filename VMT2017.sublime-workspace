@@ -1,0 +1,518 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mu",
+				"musicales-tannay"
+			],
+			[
+				"bill",
+				"billetterie_path"
+			],
+			[
+				"bile",
+				"Billetterie"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"pay",
+				"paymill_card_token"
+			],
+			[
+				"ticket",
+				"tickets_attributes"
+			],
+			[
+				"conc",
+				"concerts"
+			],
+			[
+				"concert",
+				"concert_id"
+			],
+			[
+				"Ite",
+				"item_order"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"html ra",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"set syntax ru",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"",
+				"Set Syntax: Ruby"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/config/routes.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/routes.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/reservations_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_header.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/application.css.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/order.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/create.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/seats_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/artist.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/concerts.scss",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/artists/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/artists/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/_concert_artist_fields.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170202005153_create_concerts.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert_artist.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170205213153_create_concert_artists.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/static/programme.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/static/home.html.erb",
+		"/Users/Voight-Kampff/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concert/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/static/index.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Downloads/starter-template 2/index.html",
+		"/Users/Voight-Kampff/Documents/VMT2017/vendor/assets/javascripts/init.js",
+		"/Users/Voight-Kampff/Downloads/parallax-template/css/style.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/static/index.html.erb.html",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/index_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/javascripts/application.js",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/application.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/app/assets/components/application.html",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/app/assets/components/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Documents/polyer-test/polymer-rails-example-master/app/assets/components/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/vendor/assets/bower.json",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/app/views/concert/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT/.bowerrc",
+		"/Users/Voight-Kampff/Documents/action-cable-example/Gemfile",
+		"/Users/Voight-Kampff/Documents/VMT/app/admin/seat.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/custom.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160601111020_create_unnumbered_reservations.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/unnumbered_reservation.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/unnumbered_reservation_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/deselection2.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/update.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/reservation.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.css.scss",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.css",
+		"/Users/Voight-Kampff/.Trash/ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/ticket_mailer/ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/config/initializers/stripe.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_concert.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/Script",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/layouts/_header.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/old_new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_selection2.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.scss",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_selection.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/seat.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_modal.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_testmodal.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_testmodal2.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/destroy.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/update.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_deselection2.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_test_array",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_unselection.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_seatarray.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/new.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160518190407_add_foreign_key.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_seatarray",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160516155439_create_reservations.rb",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20130613122451_add_username_to_prs.rb",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160518151848_add_reservation_id_to_seats.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/artists/_form.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/models/order.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_unselection",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/artists_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/static/billetterie.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/config/application.rb",
+		"/Users/Voight-Kampff/Documents/VMT/Gemfile",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/ccpayments/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/programme2016.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_line.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/application.scss",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/application_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/programme2015.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/config/initializers/active_admin.rb",
+		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160510084802_drop_table.rb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/fonts/pe-icon-7-stroke.scss",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/fonts/Rubik-Fonts.scss",
+		"/Users/Voight-Kampff/Documents/VMT2016/Gemfile",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/views/layouts/_header.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/rubick.css",
+		"/Users/Voight-Kampff/Documents/VMT2016/config/routes.rb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/views/static/home.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/views/concerts/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/models/concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT2016/config/application.rb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/custom.css",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/custom.scss",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/bootstrap.css",
+		"/Users/Voight-Kampff/Documents/VMT2016/db/migrate/20160305152836_create_concerts.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/edit.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_checkline.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/orders_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_handle.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/index.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/fonts/Rubik-Fonts.css",
+		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/application.css",
+		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/application.css",
+		"/Users/Voight-Kampff/Downloads/x_rubik_1.2.3/assets/css/fonts/Rubik-Fonts.css",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/_program_line.html.erb"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"align",
+			"\">\n",
+			">\n",
+			"nav",
+			"fiex",
+			"fixed",
+			"navbar",
+			"nav",
+			"side",
+			"1",
+			"img",
+			"js/",
+			"/js",
+			"js",
+			"button",
+			">\n",
+			">",
+			"redis",
+			"trigger",
+			"trig",
+			"create",
+			"btn-mini create",
+			"disabled",
+			"addresse",
+			"condition",
+			"free",
+			"@seat",
+			"ensure",
+			"render",
+			"partial",
+			"condition",
+			"magick",
+			"basket",
+			".build",
+			"local",
+			"basket",
+			"danger",
+			"dnger",
+			"concert",
+			"ff",
+			"large",
+			"parent",
+			"style",
+			"new",
+			"dialog",
+			"builder",
+			"fff",
+			"member",
+			"@import \"bootstrap\";",
+			"bootstrap",
+			"boot",
+			"register",
+			"paymill",
+			"sass",
+			"#c5a47e",
+			"C33",
+			"section-header h1",
+			"992",
+			"99",
+			"h1",
+			"4.5em",
+			"section-header h1",
+			"section-head",
+			"url",
+			"image_ta",
+			"images",
+			"face",
+			"/img",
+			"img/",
+			"img",
+			"/css",
+			"css",
+			".\n",
+			"rubik_back",
+			".p",
+			"bg.jpg",
+			"bg2.jpg",
+			"bg.jpg",
+			">\n",
+			"ssl",
+			"'",
+			"end",
+			"visited",
+			"a:",
+			"a:focus",
+			"a:hover",
+			"&hover",
+			"\">\n",
+			"ssl",
+			"http",
+			"ssl",
+			"succès",
+			"hidden",
+			"default",
+			"match",
+			"secret",
+			"!\n",
+			">\n",
+			"sortir.ch",
+			"status",
+			"nil",
+			"price",
+			"musicales",
+			"config.scoped_views = true",
+			"<dd>\n            jeudi 26 août 2010 : « Deux jours de musique classique et baroque dans la cour du château »<br /> » <a href=\"http://www.musicales-tannay.ch/uploads/images/presse/26082010.html\">Afficher</a>\n          </dd>",
+			"Tannay",
+			"variations",
+			"musicales",
+			"paiement",
+			"pay",
+			"pai",
+			"variations",
+			"tannay",
+			"musicales",
+			"tannay",
+			"variation",
+			"variations",
+			"paiement",
+			"paiement ",
+			"text",
+			"Concert",
+			"subname",
+			"head",
+			"û",
+			"8",
+			"à",
+			"è",
+			"é"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"btn-mini btn-success create ",
+			"btn-mini btn-sucess create ",
+			"btn-link",
+			"@concert",
+			"concert",
+			"fff",
+			"builder",
+			"#8f2424",
+			"font-url",
+			"/images",
+			"/stylesheets",
+			"get",
+			"Membership",
+			"avantage",
+			"name",
+			"û",
+			"ti",
+			"à",
+			"è",
+			"é",
+			"program_line",
+			"handle",
+			"@tickets",
+			"@order"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Voight-Kampff/Documents/VMT/app/views/orders/new.html.erb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
