@@ -31,8 +31,28 @@
 
 
 .seats {
-  .btn, .btn-large, .btn-flat {
-  padding: 0 0.5em;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;  
+    margin-bottom:5px;
+
+    max-width:900px;
+    
+    .btn, .btn-large, .btn-flat {
+    padding: 0 0 0 0rem;
+    margin-left: 1px;
+    margin-right: 1px;
+    line-height: 16px;
+    height:16px;
+    min-width: 3.0%;
+    max-width: 3.0%;
+    font-size:10.5px;
+    }
   }
+
+ 
 
 }

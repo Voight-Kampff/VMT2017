@@ -5,7 +5,11 @@ class ReservationsController < ApplicationController
 		@concerts=Concert.all
 		@rows=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S"]
 
-		@order=Order.new
+		if Order.find_by_id(session[:order_id]).nil?
+			@order=Order.new
+		else
+			@order = Order.find_by_id(session[:order_id])
+		end
 	
 
 		@reservation = Reservation.new
@@ -27,11 +31,11 @@ class ReservationsController < ApplicationController
 	def create
 		
 
-		if session[:order_id] == {}
+		if Order.find_by_id(session[:order_id]).nil?
 			@order=Order.create
 			session[:order_id] = @order.id
 		else
-			@order = Order.find(session[:order_id])
+			@order = Order.find_by_id(session[:order_id])
 		end
 		@reservation = Reservation.create(reservation_params)
 		@reservation.order_id=@order.id
@@ -46,14 +50,14 @@ class ReservationsController < ApplicationController
 
 	end
 
-	def show
-		@order = Order.find(session[:order_id])
-		@reservations = @order.reservations
-		@concerts=Concert.all
-	end
-
 	def edit
 	end
+
+	def basket
+    	@order = Order.find_by_id(session[:order_id])
+    	@reservations=@order.reservations
+    	@this_concert=0
+ 	end
 
 	def destroy
 		Seat.find(params[:reservation][:seat_id]).reservation.destroy

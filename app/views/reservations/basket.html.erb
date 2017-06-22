@@ -1,0 +1,40 @@
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<h4>Votre Commande</h4>
+				<table>
+				<% @reservations.each do |reservation| %>
+					<% if reservation.seat.concert.id != @this_concert %>
+					<thead>
+						<tr>
+							<td><%=reservation.seat.concert.name%></td>
+							<td> </td>
+							<td> </td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
+							<td> </td>
+							<td> </td>
+						</tr>
+					<% @this_concert= reservation.seat.concert.id %>
+					<% end %>
+						<tr>
+							<td>Categorie</td>
+							<td><%=reservation.seat.row%><%=reservation.seat.column%></td>
+							<td><%=reservation.seat.price%>.-</td>
+						</tr>
+					<% end %>
+						<tr>
+							<td>Total</td>
+							<td></td>
+							<td><%=@order.update_total%>.-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

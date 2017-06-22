@@ -1,23 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/new'
-
-  get 'orders/create'
-
-  get 'orders/edit'
-
-  get 'orders/update'
-
-  get 'orders/delete'
-
-  get 'orders/destroy'
-
-  get 'seats/new'
-
-  get 'seats/create'
-
-  get 'seats/edit'
-
-  get 'seats/destroy'
 
   get 'concerts/new'
 
@@ -32,6 +13,8 @@ Rails.application.routes.draw do
   get 'concerts/index'
 
   get 'concerts/show'
+
+  get 'reservations/basket', to: 'reservations#basket'
 
   resources :reservations
 
