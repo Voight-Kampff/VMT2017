@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'reservations/basket', to: 'reservations#basket'
 
+
+  resources :charges
   resources :reservations
 
   resources :seats do
