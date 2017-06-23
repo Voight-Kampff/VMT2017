@@ -39,6 +39,7 @@ class ReservationsController < ApplicationController
 		end
 		@reservation = Reservation.create(reservation_params)
 		@reservation.order_id=@order.id
+		@reservation.price=@reservation.seat.price
 
 		if @reservation.save
 			respond_to do |format|
@@ -48,6 +49,8 @@ class ReservationsController < ApplicationController
 			
     	end	
 
+    	@order.price=@order.calculate_price
+
 	end
 
 	def edit
@@ -56,7 +59,6 @@ class ReservationsController < ApplicationController
 	def basket
     	@order = Order.find_by_id(session[:order_id])
     	@reservations=@order.reservations
-    	@this_concert=0
  	end
 
 	def destroy

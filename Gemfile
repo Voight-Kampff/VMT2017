@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
-# Use sStripe for pazments
-gem 'stripe'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -60,3 +58,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+## Add-ons
+# Use Stripe for payments
+gem 'stripe'
+# Use Carriverwave for image uploads, mini-magick to manipulate and fog to retrieve storage
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'

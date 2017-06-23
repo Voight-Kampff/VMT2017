@@ -1,9 +1,9 @@
 <main>
 	<div class="container">
 		<div class="row">
-			<div class="col s6">
+			<div class="col s12 m9 l10">
 				<h4>Ajouter un concert</h4>
-				<%= form_for(@concert) do |f|%>
+				<%= form_for @concert, html: { multipart: true } do |f|%>
 					<%= f.label :shortname %>
 					<%= f.text_field :shortname %>
 					<%= f.label :name %>
@@ -16,9 +16,9 @@
 					<%= f.number_field :cat_A_price %>
 					<%= f.label "Cat B Price" %>
 					<%= f.number_field :cat_B_price %>
-					<%= f.submit "Ajouter"%>
 					<%= f.label "Unnumbered?" %>
 					<%= f.check_box :seating %>
+					<%= f.file_field :image %>
 					<%= f.submit "Ajouter"%>
 				<% end %>
 			</div>
