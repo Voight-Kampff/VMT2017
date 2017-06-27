@@ -1,0 +1,9 @@
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@import "materialize/components/global";

@@ -37,7 +37,9 @@ class ReservationsController < ApplicationController
 		else
 			@order = Order.find_by_id(session[:order_id])
 		end
+		
 		@reservation = Reservation.create(reservation_params)
+		
 		@reservation.order_id=@order.id
 		@reservation.price=@reservation.seat.price
 
@@ -49,7 +51,7 @@ class ReservationsController < ApplicationController
 			
     	end	
 
-    	@order.price=@order.calculate_price
+    	@order.total=@order.calculate_price
 
 	end
 

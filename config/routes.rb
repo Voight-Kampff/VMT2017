@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'concerts#index' 
+
   get 'concerts/new'
 
   get 'concerts/create'
@@ -17,7 +19,12 @@ Rails.application.routes.draw do
   get 'reservations/basket', to: 'reservations#basket'
 
 
+  resources :orders
+
   resources :charges
+
+  resources :concerts
+
   resources :reservations
 
   resources :seats do

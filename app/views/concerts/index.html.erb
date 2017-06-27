@@ -1,2 +1,9 @@
-<h1>Concerts#index</h1>
-<p>Find me in app/views/concerts/index.html.erb</p>
+<main>
+	<div class="container">
+		<h2>Billetterie</h2>
+		<div class="divider"></div>
+		<div class="row">
+			<%= render partial: "concert_card", collection: @concerts%>
+		</div>
+	</div>
+</main>

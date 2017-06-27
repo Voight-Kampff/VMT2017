@@ -1,11 +1,23 @@
 class ChargesController < ApplicationController
 
 	def new
+		if Order.find_by_id(session[:order_id]).nil?
+			redirect_to root_path
+		else
+			@order = Order.find_by_id(session[:order_id])
+		end
 	end
 
 	def create
-	  # Amount in cents
-	  @amount = 500
+
+		if Order.find_by_id(session[:order_id]).nil?
+			redirect_to 'concerts#index'
+		else
+			@order = Order.find_by_id(session[:order_id])
+		end
+
+		# Amount in cents
+	  @amount = @order.calculate_price*100
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -15,9 +27,14 @@ class ChargesController < ApplicationController
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
 	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
+	    :description => @order.id,
+	    :currency    => 'chf'
 	  )
+
+	  @order.pay_with_cc
+	  @order.save
+	  TicketMailer.send_ticket(@order).deliver
+	  session.delete(:order_id)
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

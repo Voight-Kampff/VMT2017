@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622225344) do
+ActiveRecord::Schema.define(version: 20170623034117) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170622225344) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name"
     t.string   "road"
     t.integer  "postcode"
     t.string   "town"
@@ -33,8 +32,19 @@ ActiveRecord::Schema.define(version: 20170622225344) do
     t.integer  "total"
     t.integer  "stripe_id"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "payment_type"
+    t.boolean  "paid"
+    t.boolean  "held"
+    t.string   "hold_type"
+    t.string   "code"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "telephone"
+    t.string   "title"
+    t.text     "notes"
+    t.boolean  "flagged"
   end
 
   create_table "reservations", force: :cascade do |t|

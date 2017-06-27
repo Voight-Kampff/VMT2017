@@ -1,5 +1,103 @@
+<script>$(document).ready(function() {
+    $('select').material_select();
+  });</script>
 <main>
   <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h2>Paiement</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="col s12 m12 l12">
+        <h4>Vos Coordonnées</h4>
+        <%= form_for @order, remote:true do |f| %>
+        <div class="row">
+          <div class ="input-field col s2">
+            <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>
+            <label>Civilité</label>
+          </div>
+          <div class ="input-field col s5">
+            <%= f.label :prénom%>
+            <%= f.text_field :first_name %>
+          </div>
+          <div class ="input-field col s5">
+            <%= f.label :nom%>
+            <%= f.text_field :last_name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s12">
+            <%= f.label :"Adresse"%>
+            <%= f.text_field :road %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s4">
+            <%= f.label :"Code Postal"%>
+            <%= f.text_field :postcode %>
+          </div>
+          <div class ="input-field col s4">
+            <%= f.label :Localité%>
+            <%= f.text_field :town %>
+          </div>
+          <div class ="input-field col s4">
+            <%= f.label :Pays%>
+            <%= f.text_field :country %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s6">
+            <%= f.label :"Adresse e-mail"%>
+            <%= f.text_field :email %>
+          </div>
+          <div class ="input-field col s6">
+            <%= f.label :Téléphone%>
+            <%= f.text_field :telephone %>
+          </div>
+        </div>
+        <div class="row right-align">
+          <%= f.submit "Payer par carte", :class => "btn", :id =>"customButton" %>
+          <%= f.submit "Send Tickets", :class => "btn", :id =>"customButton" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+<script>
+var handler = StripeCheckout.configure({
+  key: <%= Rails.configuration.stripe[:publishable_key] %>,
+  image: 'https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png',
+  locale: 'fr',
+  token: function(token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+
+document.getElementById('customButton').addEventListener('click', function(e) {
+  // Open Checkout with further options:
+  handler.open({
+    name: 'Variations Musicales de Tannay',
+    description: 'Vos billets',
+    zipCode: true,
+    currency: 'chf',
+    amount: <%=@order.calculate_price*100%>
+  });
+  e.preventDefault();
+});
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+</script>
+
+
     <%= form_tag charges_path do %>
       <article>
         <% if flash[:error].present? %>
@@ -8,15 +106,18 @@
           </div>
         <% end %>
         <label class="amount">
-          <span>Amount: $5.00</span>
+          <span><%=@order.calculate_price%></span>
         </label>
       </article>
 
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="500"
-              data-locale="auto"></script>
+              data-description="Vos billets"
+              data-image="https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png"
+              data-amount=<%=@order.calculate_price*100%>
+              data-currency="chf"
+              data-label="Payer par carte"
+              data-locale="fr"></script>
     <% end %>
   </div>
 </div>
