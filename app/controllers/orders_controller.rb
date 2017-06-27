@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     filename: "pdf_with_#{@hypdf[:pages]}_pages.pdf",
     type: 'application/pdf'
     )
-    TicketMailer.send_ticket(@order).deliver
+    
   end
 
   def delete
