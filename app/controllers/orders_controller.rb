@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.find_by_id(session[:order_id])
     @order.update(order_params)
     @hypdf = HyPDF.htmltopdf(
-    '<html><body><h1>Title</h1></body></html>',
+    '<html><head><%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %></head><body><h1>Title</h1></body></html>',
     orientation: 'Portrait',
     bucket: 'variations',
     key: 'some_file_name.pdf',
