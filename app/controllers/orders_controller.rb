@@ -16,8 +16,9 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     @hypdf = HyPDF.htmltopdf(
     '<html><body><h1>Title</h1></body></html>',
-    orientation: 'Landscape',
-    copies: 1,
+    orientation: 'Portrait',
+    bucket: 'variations',
+    key: 'some_file_name.pdf',
     test: true,
     # ... other options ...
     )
@@ -26,7 +27,7 @@ class OrdersController < ApplicationController
     filename: "pdf_with_#{@hypdf[:pages]}_pages.pdf",
     type: 'application/pdf'
     )
-    
+
   end
 
   def delete
