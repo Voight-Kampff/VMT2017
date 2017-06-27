@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     bucket: 'variations',
     key: 'some_file_name.pdf',
     test: true,
-    user_style_sheet: <%=(stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload')%>
+    user_style_sheet: <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload')%>
     # ... other options ...
     )
     send_data(
