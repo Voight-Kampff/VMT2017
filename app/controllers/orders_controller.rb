@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     bucket: 'variations',
     key: 'some_file_name.pdf',
     test: true,
-    user_style_sheet: "/assets/application-c9cf7f792f2164813e4cf25b0b1c29f1f06fad52d4ec2d461fec4e5ff3a2cf51.css"
+    user_style_sheet: "application.css.scss"
     # ... other options ...
     )
     send_data(
