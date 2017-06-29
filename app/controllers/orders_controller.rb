@@ -14,21 +14,8 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find_by_id(session[:order_id])
     @order.update(order_params)
-    @hypdf = HyPDF.htmltopdf(
-    "<html><head></head><body><h1>Title</h1></body></html>",
-    orientation: 'Portrait',
-    bucket: 'variations',
-    key: 'some_file_name.pdf',
-    test: true,
-    user_style_sheet: <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload')%>
-    # ... other options ...
-    )
-    send_data(
-    @hypdf[:pdf],
-    filename: "pdf_with_#{@hypdf[:pages]}_pages.pdf",
-    type: 'application/pdf'
-    )
-
+    @order.pay_with_cc
+    TicketMailer.ticket(@order).deliver
   end
 
   def delete
