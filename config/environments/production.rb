@@ -97,4 +97,6 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :openssl_verify_mode  => 'none' }
 
+  config.secret_key_base = '<%= ENV["SECRET_KEY_BASE"] %>'
+
 end
