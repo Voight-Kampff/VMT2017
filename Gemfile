@@ -70,6 +70,6 @@ gem 'mini_magick'
 gem 'fog'
 #for the QR Code
 gem 'rqrcode'
-# E-mail processing
+# E-mail processing. Using roadie rather than pre-mailer due to line height/padding issue with the latter
 gem 'nokogiri'
-gem 'premailer-rails'
+gem 'roadie-rails'
