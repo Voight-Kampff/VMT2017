@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623034117) do
+ActiveRecord::Schema.define(version: 20170702151408) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -47,13 +47,22 @@ ActiveRecord::Schema.define(version: 20170623034117) do
     t.boolean  "flagged"
   end
 
+  create_table "reservation_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "discount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "public"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "price"
     t.integer  "seat_id"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "reservation_type_id"
   end
 
   create_table "seats", force: :cascade do |t|

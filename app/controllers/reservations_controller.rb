@@ -90,7 +90,7 @@ class ReservationsController < ApplicationController
 	private
 		
 		def reservation_params
-			params.require(:reservation).permit(:seat_id)
+			params.require(:reservation).permit(:seat_id,:reservation_type_id)
 		end
 
 end
