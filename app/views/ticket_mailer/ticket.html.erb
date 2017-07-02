@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" data-premailer="ignore">
 
         <title>*|MC:SUBJECT|*</title>
         <style type="text/css">
@@ -581,37 +581,29 @@
                                         <tr>
                                             <td align="left" valign="top" class="bodyContent" mc:edit="body_content">
                                                 <h2>Votre Commande</h2>
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
                									<% @reservations.each do |reservation| %>
 			                                      <% if reservation.seat.concert.id != @this_concert %>
-			                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
 				                                        <tr style="border-top:1px solid #BBBBBB">
-				                                          <td><strong><%=reservation.seat.concert.name%></strong></td>
+				                                          <td colspan="4"><strong><%=reservation.seat.concert.name%></strong></td>
 				                                        </tr>
 				                                        <tr>
-				                                          <td><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
+				                                          <td colspan="4"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
 				                                        </tr>
-			                                       	</table>
 			                                      <% @this_concert= reservation.seat.concert.id %>
 			                                      <% end %>
-			                                      	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			                                        <tr>
 			                                         <td align="left">Tarif Normal</td>
-			                                          <td align="right"><%=reservation.seat.row%><%=reservation.seat.column%></td>
-			                                          <td>&nbsp;</td>
-			                                          <td align="right"><%=reservation.seat.price%>.-</td>
+			                                         <td align="right"><%=reservation.seat.row%><%=reservation.seat.column%></td>
+			                                         <td>&nbsp;</td>
+			                                         <td align="right"><%=reservation.seat.price%>.-</td>
 			                                        </tr>
 			                                      <% end %>
-			                                        <tr style="border-top:1px solid #BBBBBB">
-			                                         <td align="left"><strong>Total</strong></td>
-			                                          <td>&nbsp;</td>
-			                                          <td>&nbsp;</td>
-			                                          <td align="right"><strong><%=@order.total%>.-</strong></td>
-			                                        </tr>
-			                                    	</table>
+			                                    </table>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="left" valign="top" class="bodyContent" mc:edit="body_content">
+                                             <td align="left" valign="top" class="bodyContent" mc:edit="body_content">
                                                 <h2>Livré à:</h2>
 			                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
 				                                        <tr style="border-top:1px solid #BBBBBB">

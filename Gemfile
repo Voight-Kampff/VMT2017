@@ -69,5 +69,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 #for the QR Code
-gem 'rqrcode-with-patches'
+gem 'rqrcode'
 # E-mail processing
+gem 'nokogiri'
+gem 'premailer-rails'
