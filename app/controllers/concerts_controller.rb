@@ -8,7 +8,7 @@ class ConcertsController < ApplicationController
   def create
     @concert=Concert.create(concert_params)
     if @concert.save
-      if @concert.seating.nil?
+      if @concert.unnumbered.nil?
         rows=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S"]
         0..475.times do |i|
 
