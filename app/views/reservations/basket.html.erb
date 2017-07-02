@@ -8,29 +8,25 @@
 					<% if reservation.seat.concert.id != @this_concert %>
 					<thead>
 						<tr>
-							<td><%=reservation.seat.concert.name%></td>
-							<td> </td>
-							<td> </td>
+							<td colspan="3"><b><%=reservation.seat.concert.name%></b></td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
-							<td> </td>
-							<td> </td>
+							<td colspan="3"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
 						</tr>
 					<% @this_concert= reservation.seat.concert.id %>
 					<% end %>
 						<tr>
-							<td>Categorie</td>
-							<td><%=reservation.seat.row%><%=reservation.seat.column%></td>
-							<td><%=reservation.seat.price%>.-</td>
+							<td><%=reservation.reservation_type.name.humanize%></td>
+							<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
+							<td class="right-align"><%=reservation.seat.price%>.-</td>
 						</tr>
 					<% end %>
-						<tr>
-							<td>Total</td>
-							<td></td>
-							<td><%=@order.calculate_price%>.-</td>
+						<tr style="border-top:1px solid #d0d0d0">
+							<td><b>Total</b></td>
+							<td class="right-align"></td>
+							<td class="right-align"><b><%=@order.calculate_price%>.-</b></td>
 						</tr>
 					</tbody>
 				</table>

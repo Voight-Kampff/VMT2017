@@ -593,7 +593,7 @@
 			                                      <% @this_concert= reservation.seat.concert.id %>
 			                                      <% end %>
 			                                        <tr>
-			                                         <td align="left">Tarif Normal</td>
+			                                         <td align="left"><%=reservation.reservation_type.name%></td>
 			                                         <td align="right"><%=reservation.seat.row%><%=reservation.seat.column%></td>
 			                                         <td>&nbsp;</td>
 			                                         <td align="right"><%=reservation.seat.price%>.-</td>
