@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     @order.pay_with_cc
     TicketMailer.ticket(@order).deliver
+    @order.save
   end
 
   def delete
