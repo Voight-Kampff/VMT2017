@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.create(reservation_params)
 		
 		@reservation.order_id=@order.id
-		@reservation.reservation_type_id=5
+		@reservation.reservation_type_id=1
 		@reservation.price=@reservation.seat.price
 
 		if @reservation.save
