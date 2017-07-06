@@ -11,8 +11,8 @@
                   <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "150x150")%>
                 </div>
               </div></li>
-              <%@concerts.each do |c| %>
-              <li><a href="badges.html" class="concert" href=<%=new_concert_reservation_path(concert_card)%>><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><%=c.name%><br/><span stlye="font'weight:normal"><%=(I18n.localize c.date, format: :concert).capitalize%></span></a></li>
+              <%@concerts.each do |concert| %>
+              <li><a href="badges.html" class="concert" href=<%=new_concert_reservation_path(concert)%>><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><%=concert.name%><br/><span stlye="font'weight:normal"><%=(I18n.localize concert.date, format: :concert).capitalize%></span></a></li>
               <% end %>
             </ul>
           </div>
