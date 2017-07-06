@@ -59,6 +59,11 @@ class ReservationsController < ApplicationController
 	def edit
 	end
 
+	def update
+		@reservation=Reservation.find_by_id(params[:id])
+		@reservation.update(reservation_params)
+	end
+
 	def basket
     	@order = Order.find_by_id(session[:order_id])
     	@reservations=@order.reservations
@@ -81,7 +86,6 @@ class ReservationsController < ApplicationController
 	end
 
 	def delete_by_seat_id
-		
 		respond_to do |format|
 			format.html { render nothing: true } 
 			format.js { render nothing: true } 
