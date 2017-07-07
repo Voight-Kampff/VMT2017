@@ -10,6 +10,14 @@ class Reservation < ApplicationRecord
       "https://s3-eu-west-1.amazonaws.com/variations/r-#{self.id.to_s}-#{self.code.to_s}.png"
     end
 
+    def pdf_name
+    	(I18n.localize self.seat.concert.date, format: :short).to_s+" "+self.seat.row.to_s+self.seat.column.to_s
+    end
+
+    def pdf_url
+    	r
+    end
+
 	def generate_pdf
 
 		$docraptor = DocRaptor::DocApi.new
@@ -18,7 +26,7 @@ class Reservation < ApplicationRecord
 		  test:             true,                                         # test documents are free but watermarked
 		      # supply content directly
 		  document_url:   "http://vmt-tickets2.herokuapp.com/reservations/#{self.id}", # or use a url
-		  name:             "docraptor-ruby.pdf",                         # help you find a document later
+		  name:             self.pdf_name,                         # help you find a document later
 		  document_type:    "pdf",                                        # pdf or xls or xlsx
 		  javascript:       true,                                       # enable JavaScript processing
 		  # prince_options: {
@@ -27,7 +35,7 @@ class Reservation < ApplicationRecord
 		  # },
 		)
 
-		File.open("/tmp/docraptor-ruby.pdf", "wb") do |file|
+		File.open("/tmp/#{self.pdf_name}", "wb") do |file|
     		file.write(response)
     	end
 
@@ -44,8 +52,8 @@ class Reservation < ApplicationRecord
 		bucket = connection.directories.get('variations')
 
 		bucket.files.create(
-			:key    => "docraptor-ruby.pdf",
-			:body   => File.open("/tmp/docraptor-ruby.pdf"),
+			:key    => self.pdf_name,
+			:body   => File.open("/tmp/#{self.pdf_name}"),
 			:public => true
 			)
 
