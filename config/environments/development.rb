@@ -69,4 +69,6 @@ Rails.application.configure do
   ENV['HYPDF_USER'] = Rails.application.secrets.hypdf_user
   ENV["HYPDF_PASSWORD"] = Rails.application.secrets.hypdf_password
 
+  ENV["WEBTOPDF_API_KEY"] = Rails.application.secrets.webtopdf_api_key
+
 end
