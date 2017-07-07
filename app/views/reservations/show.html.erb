@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s5 m5 l5 center-align">
-				<img src="https://s3-eu-west-1.amazonaws.com/variations/r-#{@reservation.id.to_s}-#{@reservation.code.to_s}.png" style="max-width:200px;" id="QRImage"/>
+				<img src=<%=@reservation.code_url%> style="max-width:200px;" id="QRImage"/>
 				</br>
 				<p style="font-size:10px" class="center-align">r-<%=@reservation.id%>-<%=@reservation.code%></p>
 			</div>
