@@ -35,8 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'materialize-sass'
 
-gem 'hypdf'
-gem 'web_to_pdf', :git => "http://github.com/mbuckbee/Web-To-Pdf-Gem.git"
+gem 'docraptor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
