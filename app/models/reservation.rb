@@ -6,6 +6,10 @@ class Reservation < ApplicationRecord
 	before_update :update_price
 	before_create :update_price
 
+	def code_url
+      "https://s3-eu-west-1.amazonaws.com/variations/#{self.id.to_s}-#{self.code.to_s}.png"
+    end
+    
 	def generate_pdf
 
 		$docraptor = DocRaptor::DocApi.new

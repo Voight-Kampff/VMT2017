@@ -18,7 +18,7 @@ class Order < ApplicationRecord
     end
 
     def generate_code
-      
+
       self.code = SecureRandom.urlsafe_base64(20)
 
       require 'rqrcode'
