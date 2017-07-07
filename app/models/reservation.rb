@@ -13,7 +13,7 @@ class Reservation < ApplicationRecord
 		response = $docraptor.create_doc(
 		  test:             true,                                         # test documents are free but watermarked
 		      # supply content directly
-		  document_url:   "http://vmt-tickets2.herokuapp.com/concerts", # or use a url
+		  document_url:   "http://vmt-tickets2.herokuapp.com/reservations/#{self.id}", # or use a url
 		  name:             "docraptor-ruby.pdf",                         # help you find a document later
 		  document_type:    "pdf",                                        # pdf or xls or xlsx
 		  javascript:       true,                                       # enable JavaScript processing
@@ -80,7 +80,7 @@ class Reservation < ApplicationRecord
 
       bucket.files.create(
       :key    => "r-#{self.id.to_s}-#{self.code.to_s}.png",
-      :body   => File.open("/tmp/#{self.id.to_s}-#{self.code.to_s}.png"),
+      :body   => File.open("/tmp/r-#{self.id.to_s}-#{self.code.to_s}.png"),
       :public => true
       )
 

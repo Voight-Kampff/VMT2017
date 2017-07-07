@@ -56,6 +56,11 @@ class ReservationsController < ApplicationController
 
 	end
 
+	def show
+		@reservation=Reservation.find_by_id(params[:id])
+		render layout: "ticket"
+	end
+
 	def edit
 	end
 

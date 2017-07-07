@@ -1,18 +1,53 @@
-<main>
+<header style="padding-left:0px">
+	<div class="container">
+		<nav style="line-height:90px;height:90px;background-color:#00B1EB">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo"><img src="https://www.musicales-tannay.ch/templates/template_vmt/images/VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png" style="max-width90px;max-height:90px"></a>
+				<a><h5 class="right-align" style="padding-right:40px;padding-top:21px;font-size:20px;height:90px"><strong><%=@reservation.seat.concert.name%></strong></br><em style="font-size:16px"><%=(I18n.localize @reservation.seat.concert.date, format: :concert).capitalize%> au <%=@reservation.seat.concert.location%></em></h5></a>
+			</div>
+		</nav>
+	</div>
+</header>
+<main style="padding-left:0px;padding-top:20px">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m12 l12">
-				<h4>Votre Commande</h4>
-					<table>
-						<tbody>
-         					<tr>
-								<td>Alvin</td>
-								<td>Eclair</td>
-								<td>$0.87</td>
-							</tr>
-						</tbody>
-					</table>
+			<div class="col s5 m5 l5 center-align">
+				<img src=<%="https://s3-eu-west-1.amazonaws.com/variations/r-#{@reservation.id.to_s}-#{@reservation.code.to_s}.png"%> style="max-width:200px;" id="QRImage"/>
+				</br>
+				<p style="font-size:10px" class="center-align">r-<%=@reservation.id%>-<%=@reservation.code%></p>
+			</div>
+			<div class="col s3 m3 l3 left-align">
+				<h5>Siège:</h5>
+				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><b><%=@reservation.seat.column%> <%=@reservation.seat.row%></b></h1>
+				<p style="font-size:12px"><b>Envoyé à:</b></br>
+				<%=@reservation.order.title%> <%=@reservation.order.last_name%> <%=@reservation.order.first_name%></br>
+				<%=@reservation.order.email%></p>
+			</div>
+			<div class="col s4 m4 l4 left-align">
+				<p style="font-size:12px"><em>Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</em></p>
+				<p style="font-size:12px"><em>Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%></em></p>
 			</div>
 		</div>
 	</div>
 </main>
+<footer style="padding-left:0px">
+	<div class="container">
+		<div class="row center-align">
+			<div class="col s12 m12 l12">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/MazdaAtraAutomobiles.png" alt="MazdaAtraAutomobiles" style="margin: 20px; vertical-align: bottom;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/LoterieRomande.png" alt="LoterieRomande" style="vertical-align: middle; margin: 20px;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/Aeschbach.png" alt="Aeschbach" style="vertical-align: middle; margin: 20px;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationGandurPourLaJeunesse.png" alt="FondationGandurPourLaJeunesse" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/LaCote2.png" alt="LaCote2" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/ErnstGohner.png" alt="ErnstGohner" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationJuchum.png" alt="FondationJuchum" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/CommunesDeTerreSainte.png" alt="CommunesDeTerreSainte" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/Regionyon.png" alt="Regionyon" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/Gland2.png" alt="Gland2" style="vertical-align: middle; margin: 20px;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/Nyon.png" alt="Nyon" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationEngelberts.png" alt="FondationEngelberts" style="margin: 20px; vertical-align: middle;">
+			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationOtto.png" alt="FondationOtto" style="margin: 20px; vertical-align: middle;">
+			</div>
+		</div>
+	</div>
+</footer>
