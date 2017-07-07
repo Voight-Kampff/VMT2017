@@ -8,7 +8,7 @@ class Reservation < ApplicationRecord
 
 	def generate_pdf_test
 		@hypdf = HyPDF.htmltopdf(
-			render "concerts/edit",
+			'<html><body><h1>#{self.id}</h1></body></html>',
 			orientation: 'Portrait',
 			copies: 1,
 			test: true,
