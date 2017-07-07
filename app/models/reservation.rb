@@ -14,10 +14,6 @@ class Reservation < ApplicationRecord
     	(I18n.localize self.seat.concert.date, format: :short).to_s+" "+self.seat.row.to_s+self.seat.column.to_s
     end
 
-    def pdf_url
-    	r
-    end
-
 	def generate_pdf
 
 		$docraptor = DocRaptor::DocApi.new
