@@ -66,4 +66,7 @@ Rails.application.configure do
   ENV['AWS_ACCESS_KEY'] = Rails.application.secrets.amazon_access_key_id
   ENV["AWS_SECRET_ACCESS_KEY"] = Rails.application.secrets.amazon_secret_access_key
 
+  ENV['HYPDF_USER'] = Rails.application.secrets.hypdf_user
+  ENV["HYPDF_PASSWORD"] = Rails.application.secrets.hypdf_password
+
 end

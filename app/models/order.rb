@@ -2,7 +2,6 @@ class Order < ApplicationRecord
 	has_many :reservations, dependent: :destroy
 	has_many :seats, through: :reservations
 
-
     def pay_with_cc
       self.calculate_price
       self.generate_code

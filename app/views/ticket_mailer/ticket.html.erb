@@ -102,7 +102,6 @@
 				display:block;
 				/*@editable*/ font-family:'Lato',sans-serif;
 				/*@editable*/ font-size:16px;
-				/*@editable*/ font-style:italic;
 				/*@editable*/ font-weight:normal;
 				/*@editable*/ line-height:100%;
 				/*@editable*/ letter-spacing:normal;
@@ -582,7 +581,7 @@
 				                                          <td colspan="4"><strong><%=reservation.seat.concert.name%></strong></td>
 				                                        </tr>
 				                                        <tr>
-				                                          <td colspan="4"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
+				                                          <td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
 				                                        </tr>
 			                                      <% @this_concert= reservation.seat.concert.id %>
 			                                      <% end %>
@@ -639,7 +638,7 @@
                                         </tr>
                                         <tr>
                                             <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
-                                                <em>Copyright &copy; <%=Date.today.year%> Variations Musicales de Tannay</em>
+                                               Copyright &copy; <%=Date.today.year%> Variations Musicales de Tannay
                                                 <br />
                                                 <br />
                                                 <strong>Contact</strong>
