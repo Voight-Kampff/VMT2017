@@ -32,7 +32,7 @@ class Reservation < ApplicationRecord
 		  prince_options: {
 		      media: "screen",                                            # use screen styles instead of print styles
 		  #   baseurl: "http://hello.com",                                # pretend URL when using document_content
-		  # },
+		  },
 		)
 
 		File.open("/tmp/#{self.pdf_name}", "wb") do |file|
