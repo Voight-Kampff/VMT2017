@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
     @order.save
     @order.reservations.map(&:save)
     TicketMailer.ticket(@order).deliver
-    @order.save
   end
 
   def delete
