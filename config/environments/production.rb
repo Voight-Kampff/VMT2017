@@ -95,8 +95,7 @@ Rails.application.configure do
       :password             => ENV['EMAIL_PASSWORD'],
       :authentication       => :plain,
       :tls                  => true,
-      :enable_starttls_auto => true,
-      :openssl_verify_mode  => 'none' }
+      :enable_starttls_auto => true, }
 
   config.secret_key_base = '<%= ENV["SECRET_KEY_BASE"] %>'
 
