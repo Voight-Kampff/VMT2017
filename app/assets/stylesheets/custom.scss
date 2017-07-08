@@ -1,9 +1,16 @@
+ @page {
+  size: A4;
+  margin: 0; // full-bleed
+  padding: 2in;
+  background: #F5F5F6;
+}
+
  header, main, footer {
    padding-left: 240px;
  }
 
 footer {
-  background-color: #f5f5f6;
+  background-color: #F5F5F6;
   }
 
  @media only screen and (max-width : 992px) {
