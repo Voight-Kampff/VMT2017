@@ -30,17 +30,16 @@ class TicketMailer < ApplicationMailer
 
 		reservation = @reservations.first
 
-			tmp_file = Tempfile.new
-			tmp_file.binmode
+		tmp_file = Tempfile.new
+		tmp_file.binmode
 
-			open(reservation.pdf_url.to_s) do |url_file|
-	  			tmp_file.write(url_file.read)
-			end
+		open(@reservations.last.pdf_url.to_s) do |url_file|
+  			tmp_file.write(url_file.read)
+		end
 
-			tmp_file.rewind
+		tmp_file.rewind
 
-			attachments[reservation.pdf_name]= tmp_file.read
-
+		attachments['filename_for_user.pdf']= tmp_file.read
 
 		
     	mail(:to => @order.email, :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Vos billets pour les Variations Musicales de Tannay")
