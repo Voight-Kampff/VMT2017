@@ -28,7 +28,7 @@ class TicketMailer < ApplicationMailer
 		@order = order
 		@reservations=@order.reservations
 
-		@reservations = reservation|
+		@reservations = reservation
 
 			tmp_file = Tempfile.new
 			tmp_file.binmode
