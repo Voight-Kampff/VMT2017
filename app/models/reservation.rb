@@ -23,7 +23,7 @@ class Reservation < ApplicationRecord
 		$docraptor = DocRaptor::DocApi.new
 
 		response = $docraptor.create_doc(
-		  #test:             true,                                         # test documents are free but watermarked
+		  test:             false,                                         # test documents are free but watermarked
 		      # supply content directly
 		  document_url:   "http://vmt-tickets2.herokuapp.com/reservations/#{self.id}", # or use a url
 		  name:             self.pdf_name,                         # help you find a document later
