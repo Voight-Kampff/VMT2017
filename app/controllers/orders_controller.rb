@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
     @order = Order.find_by_id(session[:order_id])
     @order.update(order_params)
     @order.pay_with_cc
+    @order.save
+    @order.reservations.map(&:save)
     TicketMailer.ticket(@order).deliver
     @order.save
   end

@@ -10,8 +10,19 @@ class Reservation < ApplicationRecord
       "https://s3-eu-west-1.amazonaws.com/variations/r-#{self.id.to_s}-#{self.code.to_s}.png"
     end
 
+    def issue_ticket
+    	if self.code.nil?
+    		self.generate_code
+    	end
+    	self.generate_pdf
+    end
+
     def pdf_name
-    	(I18n.localize self.seat.concert.date, format: :short).to_s+" "+self.seat.row.to_s+self.seat.column.to_s
+    	(I18n.localize self.seat.concert.date, format: "%Y-%m-%d").to_s+"-"+self.seat.row.to_s+self.seat.column.to_s+".pdf"
+    end
+
+    def pdf_url
+    	"https://s3-eu-west-1.amazonaws.com/variations/"+self.pdf_name
     end
 
 	def generate_pdf

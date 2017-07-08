@@ -4,9 +4,9 @@ class Order < ApplicationRecord
 
     def pay_with_cc
       self.calculate_price
-      self.generate_code
       self.payment_type="credit card payment"
       self.paid=1
+      self.reservations.map(&:issue_ticket)
     end
 
     def calculate_price

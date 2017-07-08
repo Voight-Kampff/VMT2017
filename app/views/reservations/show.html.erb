@@ -11,14 +11,14 @@
 <main style="padding-left:0px;padding-top:20px">
 	<div class="container">
 		<div class="row">
-			<div class="col s5 m5 l5 center-align">
+			<div class="col s4 m4 l4 center-align">
 				<img src=<%=@reservation.code_url%> style="max-width:200px;" id="QRImage"/>
 				</br>
 				<p style="font-size:10px" class="center-align">r-<%=@reservation.id%>-<%=@reservation.code%></p>
 			</div>
-			<div class="col s3 m3 l3 left-align">
+			<div class="col s4 m4 l4 left-align">
 				<h5><%=@reservation.reservation_type.name.humanize%></h5>
-				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><b><%=@reservation.seat.column%> <%=@reservation.seat.row%></b></h1>
+				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><b><%=@reservation.seat.row%> <%=@reservation.seat.column%></b></h1>
 				<p style="font-size:12px"><b>Envoyé à:</b></br>
 				<%=@reservation.order.title%> <%=@reservation.order.first_name%> <%=@reservation.order.last_name%></br>
 				<%=@reservation.order.email%></p>
@@ -32,21 +32,21 @@
 </main>
 <footer style="padding-left:0px">
 	<div class="container" style="background-color:#F5F5F6">
-		<div class="row center-align" style="background-color:#F5F5F6">
+		<div class="row center-align" style="background-color:#F5F5F6;vertical-align:bottom">
 			<div class="col s12 m12 l12" style="background-color:#F5F5F6">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/MazdaAtraAutomobiles.png" alt="MazdaAtraAutomobiles" style="margin: 20px; vertical-align: bottom;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/LoterieRomande.png" alt="LoterieRomande" style="vertical-align: middle; margin: 20px;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/Aeschbach.png" alt="Aeschbach" style="vertical-align: middle; margin: 20px;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationGandurPourLaJeunesse.png" alt="FondationGandurPourLaJeunesse" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/LaCote2.png" alt="LaCote2" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/ErnstGohner.png" alt="ErnstGohner" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationJuchum.png" alt="FondationJuchum" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/CommunesDeTerreSainte.png" alt="CommunesDeTerreSainte" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/Regionyon.png" alt="Regionyon" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/Gland2.png" alt="Gland2" style="vertical-align: middle; margin: 20px;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/Nyon.png" alt="Nyon" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationEngelberts.png" alt="FondationEngelberts" style="margin: 20px; vertical-align: middle;">
-			<img src="https://www.musicales-tannay.ch/images/sponsors/FondationOtto.png" alt="FondationOtto" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/MazdaAtraAutomobiles.png" alt="MazdaAtraAutomobiles" style="margin: 20px; vertical-align: bottom;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/LoterieRomande.png" alt="LoterieRomande" style="vertical-align: middle; margin: 20px;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/Aeschbach.png" alt="Aeschbach" style="vertical-align: middle; margin: 20px;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/FondationGandurPourLaJeunesse.png" alt="FondationGandurPourLaJeunesse" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/LaCote2.png" alt="LaCote2" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/ErnstGohner.png" alt="ErnstGohner" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/FondationJuchum.png" alt="FondationJuchum" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/CommunesDeTerreSainte.png" alt="CommunesDeTerreSainte" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/Regionyon.png" alt="Regionyon" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/Gland2.png" alt="Gland2" style="vertical-align: middle; margin: 20px;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/Nyon.png" alt="Nyon" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/FondationEngelberts.png" alt="FondationEngelberts" style="margin: 20px; vertical-align: middle;">
+				<img src="https://www.musicales-tannay.ch/images/sponsors/FondationOtto.png" alt="FondationOtto" style="margin: 20px; vertical-align: middle;">
 			</div>
 		</div>
 	</div>
