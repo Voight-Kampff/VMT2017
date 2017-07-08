@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
     @order.pay_with_cc
     @order.save
     @order.reservations.map(&:save)
+    @order.reservations.mao(&:generate_pdf)
     TicketMailer.ticket(@order).deliver
   end
 

@@ -6,7 +6,7 @@ class Order < ApplicationRecord
       self.calculate_price
       self.payment_type="credit card payment"
       self.paid=1
-      self.reservations.map(&:issue_ticket)
+      self.reservations.map(&:generate_code)
     end
 
     def calculate_price
