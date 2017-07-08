@@ -28,7 +28,7 @@ class TicketMailer < ApplicationMailer
 		@order = order
 		@reservations=@order.reservations
 
-		@reservations.each do |reservation, index |
+		@reservations = reservation|
 
 			tmp_file = Tempfile.new
 			tmp_file.binmode
@@ -41,7 +41,7 @@ class TicketMailer < ApplicationMailer
 
 			attachments[reservation.pdf_name]= tmp_file.read
 
-		end
+
 		
     	mail(:to => @order.email, :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Vos billets pour les Variations Musicales de Tannay")
 	end
