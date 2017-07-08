@@ -37,6 +37,7 @@ Rails.application.configure do
       :user_name            => 'billetterie@musicales-tannay.ch',
       :password             => 'Grrg22z*', #Rails.application.secrets.billetterie_email_password,
       :authentication       => :plain,
+      :tls                  => true,
       :enable_starttls_auto => true,
       :openssl_verify_mode  => 'none' }
 

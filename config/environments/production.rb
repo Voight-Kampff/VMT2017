@@ -94,6 +94,7 @@ Rails.application.configure do
       :user_name            => 'billetterie@musicales-tannay.ch',
       :password             => ENV['EMAIL_PASSWORD'],
       :authentication       => :plain,
+      :tls                  => true,
       :enable_starttls_auto => true,
       :openssl_verify_mode  => 'none' }
 
