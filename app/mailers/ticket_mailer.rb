@@ -39,8 +39,8 @@ class TicketMailer < ApplicationMailer
 
 			tmp_file.rewind
 
-			attachments[index]= tmp_file.read
-			
+			attachments[index.to_s]= tmp_file.read
+
 		end
 		
     	mail(:to => @order.email, :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Vos billets pour les Variations Musicales de Tannay")
