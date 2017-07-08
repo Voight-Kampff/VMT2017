@@ -39,7 +39,7 @@ Rails.application.configure do
       :authentication       => :plain,
       :tls                  => true,
       :enable_starttls_auto => true,
-      :openssl_verify_mode  => 'none' }
+       }
 
   config.action_mailer.perform_caching = false
 
