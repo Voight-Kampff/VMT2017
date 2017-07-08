@@ -40,7 +40,7 @@ class TicketMailer < ApplicationMailer
 
 			tmp_file.rewind
 
-			attachments['filename_for_user.pdf']= tmp_file.read
+			attachments["#{reservation.pdf_name}"]= tmp_file.read
 
 		end
 		
