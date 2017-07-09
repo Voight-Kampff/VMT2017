@@ -8,11 +8,22 @@ class ConcertsController < ApplicationController
   def create
     @concert=Concert.create(concert_params)
     if @concert.save
-      if @concert.unnumbered.nil?
+      if @concert.unnumbered?
+
+        0..@concert.number_of_seats.to_i.times do |i|
+
+          s=Seat.new
+          s.column=(i % @concert.number_of_seats.to_i)+1
+          s.concert_id = @concert.id
+          s.price=@concert.single_price
+          s.save
+
+        end
+
       else
+
         rows=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S"]
         0..475.times do |i|
-
           s=Seat.new
 
           s.row=rows[i/25]
@@ -60,7 +71,7 @@ class ConcertsController < ApplicationController
   private
 
     def concert_params
-      params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :unnumbered)
+      params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :unnumbered, :number_of_seats,:single_price)
     end
 
 end

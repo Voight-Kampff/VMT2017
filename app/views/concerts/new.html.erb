@@ -1,25 +1,78 @@
+<script>
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+$(document).ready(function() {
+	$('unnumbered').fadeOut('1')
+});
+
+function ToggleNumberedFields() {
+	$('numbered').fadeToggle( "400", "linear", function () {$('unnumbered').fadeToggle( "400", "linear" )});
+	
+};
+	
+
+</script>
+
 <main>
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m9 l10">
 				<h4>Ajouter un concert</h4>
+			</div>
 				<%= form_for @concert, html: { multipart: true } do |f|%>
-					<%= f.label :shortname %>
-					<%= f.text_field :shortname %>
-					<%= f.label :name %>
-					<%= f.text_field :name %>
-					<%= f.label :location %>
-					<%= f.text_field :location %>
-					<%= f.label :date %>
-					<%= f.datetime_local_field :date %>
-					<%= f.label "Cat A Price" %>
-					<%= f.number_field :cat_A_price %>
-					<%= f.label "Cat B Price" %>
-					<%= f.number_field :cat_B_price %>
-					<%= f.label "Unnumbered?" %>
-					<%= f.check_box :unnumbered %>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :shortname %>
+						<%= f.text_field :shortname %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :name %>
+						<%= f.text_field :name %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :location %>
+						<%= f.text_field :location %>
+					</div>
+					<div class ="input-field col s6 m6 l6">
+						<%= f.label :date %>
+						<%= f.datetime_local_field :date, class: "datepicker"%>
+					</div>
+					<div class ="input-field col s6 m6 l6">
+						<%= f.check_box :unnumbered, id: "concert_unnumbered", onchange: "ToggleNumberedFields()"%>
+						<%= f.label :unnumbered, for: "concert_unnumbered", id: "concert_unnumbered" %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
 					<%= f.file_field :image %>
-					<%= f.submit "Ajouter"%>
+					</div>
+					<numbered>
+						<div class ="input-field col s6 m6 l6">
+							<%= f.label "Category A Price" %>
+							<%= f.number_field :cat_A_price %>
+						</div>
+						<div class ="input-field col s6 m6 l6">
+							<%= f.label "Category B Price" %>
+							<%= f.number_field :cat_B_price %>
+						</div>
+					</numbered>
+					<unnumbered>
+						<div class ="input-field col s6 m6 l6">
+							<%= f.label "Number of Seats" %>
+							<%= f.number_field :number_of_seats %>
+						</div>
+						<div class ="input-field col s6 m6 l6">
+							<%= f.label "Single Price" %>
+							<%= f.number_field :single_price %>
+						</div>
+					</unnumbered>
+				</div>
+				<div class="row">
+					<div class ="input-field col s6 m6 l6">
+					<%= f.submit "Ajouter", class: "btn"%>
+					</div>
+				</div>
 				<% end %>
 			</div>
 		</div>

@@ -6,5 +6,7 @@ class Concert < ApplicationRecord
 
 	attr_accessor :cat_A_price
 	attr_accessor :cat_B_price
+	attr_accessor :number_of_seats
+	attr_accessor :single_price
 
 end
