@@ -36,6 +36,14 @@ function ToggleNumberedFields() {
 						<%= f.label :location %>
 						<%= f.text_field :location %>
 					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label "Subhead" %>
+						<%= f.text_field :subline %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label "Footnote" %>
+						<%= f.text_field :footnote %>
+					</div>
 					<div class ="input-field col s6 m6 l6">
 						<%= f.label :date %>
 						<%= f.datetime_local_field :date, class: "datepicker"%>

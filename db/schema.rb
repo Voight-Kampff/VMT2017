@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707164325) do
+ActiveRecord::Schema.define(version: 20170710153913) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20170707164325) do
     t.datetime "updated_at", null: false
     t.string   "image"
     t.boolean  "unnumbered"
+    t.string   "subline"
+    t.string   "footnote"
   end
 
   create_table "orders", force: :cascade do |t|
