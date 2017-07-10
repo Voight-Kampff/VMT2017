@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"conc",
+				"concert_unnumbered"
+			],
+			[
 				"params",
 				"reservation_params"
 			],
@@ -32,10 +36,6 @@
 				"tickets_attributes"
 			],
 			[
-				"conc",
-				"concerts"
-			],
-			[
 				"concert",
 				"concert_id"
 			],
@@ -48,22 +48,6 @@
 	"buffers":
 	[
 		{
-			"file": "config/environments/development.rb",
-			"settings":
-			{
-				"buffer_size": 2596,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "                                        <% @reservations.each do |reservation| %>\n                                      <% if reservation.seat.concert.id != @this_concert %>\n                                        <tr>\n                                          <td valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content00\"><%=reservation.seat.concert.name%></td>\n                                          <td> </td>\n                                          <td> </td>\n                                        </tr>\n                                        <tr>\n                                          <td valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content00\"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>\n                                          <td> </td>\n                                          <td> </td>\n                                        </tr>\n                                      <% @this_concert= reservation.seat.concert.id %>\n                                      <% end %>\n                                        <tr>\n                                         <td valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content00\">Categorie</td>\n                                          <td><%=reservation.seat.row%><%=reservation.seat.column%></td>\n                                          <td><%=reservation.seat.price%>.-</td>\n                                        </tr>\n                                      <% end %>\n                                        <tr>\n                                         <td valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content00\">Total</td>\n                                          <td></td>\n                                          <td><%=@order.calculate_price%>.-</td>\n                                        </tr>",
-			"settings":
-			{
-				"buffer_size": 1858,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"contents": " <td align=\"right\"><%=reservation.seat.row%><%=reservation.seat.column%></td>\n			                                          <td>&nbsp;</td>\n			                                          <td align=\"right\"><%=reservation.seat.price%>.-</td>\n			                                        </tr>\n			                                      <% end %>\n			                                        <tr style=\"border-top:1px solid #BBBBBB\">\n			                                         <td align=\"left\"><strong>Total</strong></td>\n			                                          <td>&nbsp;</td>\n			                                          <td>&nbsp;</td>\n			                                          <td align=\"right\"><strong><%=@order.total%>.-</strong></td>\n\n\n\n			                                          <tr>\n                                            <td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\">\n                                                <h2>Livré à:</h2>\n			                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n				                                        <tr style=\"border-top:1px solid #BBBBBB\">\n				                                          <td><%=@order.title%> <%=@order.first_name%> <%=@order.last_name%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.email%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.road%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.postcode%> <%=@order.town%></td>\n				                                        </tr>\n				                                         <tr style=\"border-bottom:1px solid #BBBBBB\">\n				                                          <td><%=@order.country%></td>\n				                                        </tr>\n			                                       	</table>\n                                            </td>\n                                        </tr>",
 			"settings":
 			{
@@ -75,29 +59,7 @@
 			"file": "app/models/order.rb",
 			"settings":
 			{
-				"buffer_size": 1635,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "class Reservation < ApplicationRecord\n	belongs_to :order\n	belongs_to :seat\n	belongs_to :reservation_type\n\n	before_update :update_price\n	before_create :update_price\n\n	def code_url\n      \"http://s3-eu-west-1.amazonaws.com/variations/r-#{self.id.to_s}-#{self.code.to_s}.png\"\n    end\n\n    def pdf_name\n    	(I18n.localize self.seat.concert.date, format: \"%Y-%m-%d\").to_s+\"-\"+self.seat.row.to_s+self.seat.column.to_s+\".pdf\"\n    end\n\n    def pdf_url\n    	\"https://s3-eu-west-1.amazonaws.com/variations/\"+self.pdf_name\n    end\n\n	def generate_pdf\n\n		$docraptor = DocRaptor::DocApi.new\n\n		response = $docraptor.create_doc(\n		  test:             true,                                         # test documents are free but watermarked\n		      # supply content directly\n		  document_url:   \"http://vmt-tickets2.herokuapp.com/reservations/#{self.id}\", # or use a url\n		  name:             self.pdf_name,                         # help you find a document later\n		  document_type:    \"pdf\",                                        # pdf or xls or xlsx\n		  javascript:       true,                                       # enable JavaScript processing\n		  # prince_options: {\n		  #   media: \"screen\",                                            # use screen styles instead of print styles\n		  #   baseurl: \"http://hello.com\",                                # pretend URL when using document_content\n		  # },\n		)\n\n		File.open(\"/tmp/#{self.pdf_name}\", \"wb\") do |file|\n    		file.write(response)\n    	end\n\n    	# create a connection\n	    connection = Fog::Storage.new({\n	    	:provider                 => 'AWS',\n	    	:aws_access_key_id        => ENV['AWS_ACCESS_KEY'],\n	    	:aws_secret_access_key    => ENV['AWS_SECRET_ACCESS_KEY'],\n	    	:region                   => 'eu-west-1',\n	    	})\n\n		# First, a place to contain the glorious details\n	      \n		bucket = connection.directories.get('variations')\n\n		bucket.files.create(\n			:key    => self.pdf_name,\n			:body   => File.open(\"/tmp/#{self.pdf_name}\"),\n			:public => true\n			)\n\n	end\n\n	def generate_code\n\n		if self.code.nil?\n\n    	self.code = SecureRandom.urlsafe_base64(20)\n\n    	require 'rqrcode'\n\n    	qrcode= RQRCode::QRCode.new(\"r-\"+self.id.to_s+\"-\"+self.code.to_s)\n		qr_png = qrcode.as_png(\n			resize_gte_to: false,\n			resize_exactly_to: true,\n			fill: 'white',\n			color: 'black',\n			size: 260,\n			border_modules: 0,\n			module_px_size: 0,\n			file: nil, # path to write\n			)\n		qr_png.save(\"/tmp/r-#{self.id.to_s}-#{self.code.to_s}.png\", :interlace => true)\n      \n		# create a connection\n		connection = Fog::Storage.new({\n			:provider                 => 'AWS',\n			:aws_access_key_id        => ENV['AWS_ACCESS_KEY'],\n			:aws_secret_access_key    => ENV['AWS_SECRET_ACCESS_KEY'],\n			:region                   => 'eu-west-1',\n			})\n\n		# First, a place to contain the glorious details\n      \n		bucket = connection.directories.get('variations')\n\n		bucket.files.create(\n			:key    => \"r-#{self.id.to_s}-#{self.code.to_s}.png\",\n			:body   => File.open(\"/tmp/r-#{self.id.to_s}-#{self.code.to_s}.png\"),\n			:public => true\n		)\n\n		end\n\n	end\n\n\n	private\n		def update_price\n			self.price = self.reservation_type.discount*self.seat.price/100\n		end\nend\n",
-			"file": "app/models/reservation.rb",
-			"file_size": 3389,
-			"file_write_time": 1499476722000000,
-			"settings":
-			{
-				"buffer_size": 3173,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "class ReservationsController < ApplicationController\n\n	def new\n		@concert=Concert.find_by_id(params[:concert_id])\n		@concerts=Concert.all\n		@rows=[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"I\",\"J\",\"K\",\"L\",\"M\",\"N\",\"O\",\"P\",\"Q\",\"R\",\"S\"]\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.new\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n	\n\n		@reservation = Reservation.new\n		@reservation.order_id=@order.id\n\n		@seats= @concert.seats\n		@taken_seat_array=Array.new\n\n		0..475.times do |i|\n			if @seats[i].reservation.present?\n				@taken_seat_array[i]=1\n				if @seats[i].reservation.order_id == @order.id\n					@taken_seat_array[i]=2\n				end\n			end\n		end\n	end\n\n	def create\n		\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.create\n			session[:order_id] = @order.id\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n		\n		@reservation = Reservation.create(reservation_params)\n		\n		@reservation.order_id=@order.id\n		@reservation.reservation_type_id=1\n		@reservation.price=@reservation.seat.price\n\n		if @reservation.save\n			respond_to do |format|\n				format.html { render nothing: true } \n				format.js { } \n			end\n			\n    	end	\n\n    	@order.total=@order.calculate_price\n\n	end\n\n	def show\n		@reservation=Reservation.find_by_id(params[:id])\n		render layout: \"ticket\"	\n	end\n\n	def edit\n	end\n\n	def update\n		@reservation=Reservation.find_by_id(params[:id])\n		@reservation.update(reservation_params)\n	end\n\n	def basket\n    	@order = Order.find_by_id(session[:order_id])\n    	@reservations=@order.reservations\n 	end\n\n	def destroy\n		Seat.find(params[:reservation][:seat_id]).reservation.destroy\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete\n		Reservation.find(params[:seat_id]).delete\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete_by_seat_id\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	private\n		\n		def reservation_params\n			params.require(:reservation).permit(:seat_id,:reservation_type_id)\n		end\n\nend\n",
-			"file": "app/controllers/reservations_controller.rb",
-			"file_size": 2177,
-			"file_write_time": 1499451090000000,
-			"settings":
-			{
-				"buffer_size": 2178,
+				"buffer_size": 1643,
 				"line_ending": "Unix"
 			}
 		},
@@ -121,7 +83,7 @@
 			"file": "app/controllers/concerts_controller.rb",
 			"settings":
 			{
-				"buffer_size": 1091,
+				"buffer_size": 1380,
 				"line_ending": "Unix"
 			}
 		},
@@ -129,7 +91,7 @@
 			"file": "app/views/concerts/new.html.erb",
 			"settings":
 			{
-				"buffer_size": 764,
+				"buffer_size": 2533,
 				"line_ending": "Unix"
 			}
 		},
@@ -137,15 +99,7 @@
 			"file": "app/views/reservations/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 4175,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/environments/production.rb",
-			"settings":
-			{
-				"buffer_size": 4171,
+				"buffer_size": 4412,
 				"line_ending": "Unix"
 			}
 		},
@@ -153,7 +107,7 @@
 			"file": "app/controllers/orders_controller.rb",
 			"settings":
 			{
-				"buffer_size": 633,
+				"buffer_size": 692,
 				"line_ending": "Unix"
 			}
 		},
@@ -162,6 +116,14 @@
 			"settings":
 			{
 				"buffer_size": 1381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/environments/production.rb",
+			"settings":
+			{
+				"buffer_size": 4172,
 				"line_ending": "Unix"
 			}
 		},
@@ -177,7 +139,7 @@
 			"file": "app/views/reservations/basket.html.erb",
 			"settings":
 			{
-				"buffer_size": 1823,
+				"buffer_size": 1998,
 				"line_ending": "Unix"
 			}
 		},
@@ -230,7 +192,7 @@
 			}
 		},
 		{
-			"file": "app/views/ticket_mailer/ticket.html.erb",
+			"file": "app/views/ticket_mailer/singe_code_ticket.html.erb",
 			"settings":
 			{
 				"buffer_size": 30396,
@@ -241,7 +203,7 @@
 			"file": "app/assets/stylesheets/custom.scss",
 			"settings":
 			{
-				"buffer_size": 1017,
+				"buffer_size": 1107,
 				"line_ending": "Unix"
 			}
 		},
@@ -250,6 +212,101 @@
 			"settings":
 			{
 				"buffer_size": 1748,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/mailers/old_ticket_mailer.rb",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 464,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/ticket_mailer/ticket.html.erb",
+			"settings":
+			{
+				"buffer_size": 28312,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/concert.rb",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<script>\n\n  $(document).ready(function() {\n    $('select').material_select();\n  });\n\n  $(document).ready(function() {\n\n</script>\n<main>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col s12 m12 l12\">\n        <h2>Paiement</h2>\n        <div class=\"divider\"></div>\n      </div>\n      <div class=\"col s12 m12 l12\">\n        <h4>Vos Coordonnées</h4>\n        <%= form_for @order, remote:true do |f| %>\n        <div class=\"row\">\n          <div class =\"input-field col s2\">\n            <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>\n            <label>Civilité</label>\n          </div>\n          <div class =\"input-field col s5\">\n            <%= f.label :prénom%>\n            <%= f.text_field :first_name %>\n          </div>\n          <div class =\"input-field col s5\">\n            <%= f.label :nom%>\n            <%= f.text_field :last_name %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s12\">\n            <%= f.label :\"Adresse\"%>\n            <%= f.text_field :road %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s4\">\n            <%= f.label :\"Code Postal\"%>\n            <%= f.text_field :postcode %>\n          </div>\n          <div class =\"input-field col s4\">\n            <%= f.label :Localité%>\n            <%= f.text_field :town %>\n          </div>\n          <div class =\"input-field col s4\">\n            <%= f.label :Pays%>\n            <%= f.text_field :country %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s6\">\n            <%= f.label :\"Adresse e-mail\"%>\n            <%= f.text_field :email %>\n          </div>\n          <div class =\"input-field col s6\">\n            <%= f.label :Téléphone%>\n            <%= f.text_field :telephone %>\n          </div>\n        </div>\n        <div class=\"row right-align\">\n          <%= f.submit \"Payer par carte\", :class => \"btn\", :id =>\"customButton\" %>\n          <%= f.submit \"Send Tickets\", :class => \"btn\", :id =>\"customButton\" %>\n        </div>\n        <% end %>\n      </div>\n    </div>\n  </div>\n</main>\n\n<script src=\"https://checkout.stripe.com/checkout.js\"></script>\n\n\n<script>\nvar handler = StripeCheckout.configure({\n  key: <%= Rails.configuration.stripe[:publishable_key] %>,\n  image: 'https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png',\n  locale: 'fr',\n  token: function(token) {\n    // You can access the token ID with `token.id`.\n    // Get the token ID to your server-side code for use.\n  }\n});\n\ndocument.getElementById('customButton').addEventListener('click', function(e) {\n  // Open Checkout with further options:\n  handler.open({\n    name: 'Variations Musicales de Tannay',\n    description: 'Vos billets',\n    zipCode: true,\n    currency: 'chf',\n    amount: <%=@order.calculate_price*100%>\n  });\n  e.preventDefault();\n});\n\n// Close Checkout on page navigation:\nwindow.addEventListener('popstate', function() {\n  handler.close();\n});\n</script>\n\n\n    <%= form_tag charges_path do %>\n      <article>\n        <% if flash[:error].present? %>\n          <div id=\"error_explanation\">\n            <p><%= flash[:error] %></p>\n          </div>\n        <% end %>\n        <label class=\"amount\">\n          <span><%=@order.calculate_price%></span>\n        </label>\n      </article>\n\n      <script src=\"https://checkout.stripe.com/checkout.js\" class=\"stripe-button\"\n              data-key=\"<%= Rails.configuration.stripe[:publishable_key] %>\"\n              data-description=\"Vos billets\"\n              data-image=\"https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png\"\n              data-amount=<%=@order.calculate_price*100%>\n              data-currency=\"chf\"\n              data-label=\"Payer par carte\"\n              data-locale=\"fr\"></script>\n    <% end %>\n  </div>\n</div>",
+			"file": "app/views/charges/new.html.erb",
+			"file_size": 3970,
+			"file_write_time": 1498194209000000,
+			"settings":
+			{
+				"buffer_size": 4004,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "class ReservationsController < ApplicationController\n\n	def new\n		@concert=Concert.find_by_id(params[:concert_id])\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.new\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n\n		unless @concert.unnumbered?\n\n			@rows=[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"I\",\"J\",\"K\",\"L\",\"M\",\"N\",\"O\",\"P\",\"Q\",\"R\",\"S\"]\n\n			@reservation = Reservation.new\n			@reservation.order_id=@order.id\n\n			@seats= @concert.seats\n			@taken_seat_array=Array.new\n\n			0..475.times do |i|\n				if @seats[i].reservation.present?\n					@taken_seat_array[i]=1\n					if @seats[i].reservation.order_id == @order.id\n						@taken_seat_array[i]=2\n					end\n				end\n			end\n		end\n	end\n\n	def create\n		\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.create\n			session[:order_id] = @order.id\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n		\n		@reservation = Reservation.create(reservation_params)\n		\n		@reservation.order_id=@order.id\n		@reservation.reservation_type_id=1\n		@reservation.price=@reservation.seat.price\n\n		if @reservation.save\n			respond_to do |format|\n				format.html { render nothing: true } \n				format.js { } \n			end\n			\n    	end	\n\n    	@order.total=@order.calculate_price\n\n	end\n\n	def unnumbered\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.create\n			session[:order_id] = @order.id\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n\n		@concert=Concert.find_by_id(params[:id])\n\n		selection_count = params[:selection_count].to_i\n\n		if @order.reservations.select{ |reservation| reservation.seat.concert == @concert }\n\n		difference = (selection_count-@order.reservations.select{ |reservation| reservation.seat.concert == @concert }.count)\n\n		if difference > 0\n\n			@selected_seats=@concert.seats.select{ |seat| seat.reservation == nil }.first(difference)\n\n			difference.to_i.times do |index|\n\n				reservation=Reservation.new\n				reservation.order_id=@order.id\n				reservation.seat_id=@selected_seats[index].id\n				reservation.reservation_type_id=1\n				reservation.save\n\n			end\n		\n		elsif difference < 0\n\n			@current_concert_reservations=@order.reservations.select{ |reservation| reservation.seat.concert == @concert }\n\n			difference.abs.times do |reservation|\n				@current_concert_reservations[reservation].delete\n			end\n		else\n			#ensure no strange behaviour\n		end\n\n		redirect_to reservations_basket_path\n\n	end\n\n	def show\n		@reservation=Reservation.find_by_id(params[:id])\n		render layout: \"ticket\"\n	end\n\n	def edit\n	end\n\n	def update\n		@reservation=Reservation.find_by_id(params[:id])\n		@reservation.update(reservation_params)\n	end\n\n	def basket\n    	@order = Order.find_by_id(session[:order_id])\n    	@reservations=@order.reservations\n 	end\n\n	def destroy\n		Seat.find(params[:reservation][:seat_id]).reservation.destroy\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete\n		Reservation.find(params[:id]).delete\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete_by_seat_id\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	private\n		\n		def reservation_params\n			params.require(:reservation).permit(:seat_id,:reservation_type_id)\n		end\n\nend\n",
+			"file": "app/controllers/reservations_controller.rb",
+			"file_size": 3269,
+			"file_write_time": 1499677655000000,
+			"settings":
+			{
+				"buffer_size": 3356,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_unnumbered_selection.html.erb",
+			"settings":
+			{
+				"buffer_size": 208,
+				"line_ending": "Unix",
+				"name": "<%= form_tag unnumbered_path do %>"
+			}
+		},
+		{
+			"file": "app/views/concerts/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 74,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 3173,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 681,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/concerts/_concert_card.html.erb",
+			"settings":
+			{
+				"buffer_size": 513,
 				"line_ending": "Unix"
 			}
 		}
@@ -452,6 +509,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"by_id",
+			"concert",
+			"redirec",
+			" \"",
 			"/images",
 			"show",
 			"@reserv",
@@ -575,11 +636,7 @@
 			">\n",
 			"ssl",
 			"'",
-			"end",
-			"visited",
-			"a:",
-			"a:focus",
-			"a:hover"
+			"end"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -623,66 +680,11 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/environments/development.rb",
-					"settings":
-					{
-						"buffer_size": 2596,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1499,
-								1387
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 1858,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1422,
-								1422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"settings":
 					{
 						"buffer_size": 2233,
@@ -708,19 +710,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "app/models/order.rb",
 					"settings":
 					{
-						"buffer_size": 1635,
+						"buffer_size": 1643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								283,
-								283
+								201,
+								201
 							]
 						],
 						"settings":
@@ -736,61 +738,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/models/reservation.rb",
-					"settings":
-					{
-						"buffer_size": 3173,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								279,
-								279
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/controllers/reservations_controller.rb",
-					"settings":
-					{
-						"buffer_size": 2178,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 2,
 					"file": "db/migrate/20170702154219_change_concerts.rb",
 					"settings":
 					{
@@ -816,7 +764,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 3,
 					"file": "db/migrate/20170702151408_add_public_to_reservation_type.rb",
 					"settings":
 					{
@@ -842,19 +790,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 4,
 					"file": "app/controllers/concerts_controller.rb",
 					"settings":
 					{
-						"buffer_size": 1091,
+						"buffer_size": 1380,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								362,
-								362
+								1365,
+								1365
 							]
 						],
 						"settings":
@@ -864,25 +812,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 567.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 5,
 					"file": "app/views/concerts/new.html.erb",
 					"settings":
 					{
-						"buffer_size": 764,
+						"buffer_size": 2533,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6,
-								6
+								1205,
+								1205
 							]
 						],
 						"settings":
@@ -891,25 +839,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 735.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 6,
 					"file": "app/views/reservations/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 4175,
+						"buffer_size": 4412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2130,
-								2130
+								1729,
+								1729
 							]
 						],
 						"settings":
@@ -918,53 +866,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 517.0,
+						"translation.y": 406.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "config/environments/production.rb",
-					"settings":
-					{
-						"buffer_size": 4171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4103,
-								4103
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 948.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
+					"buffer": 7,
 					"file": "app/controllers/orders_controller.rb",
 					"settings":
 					{
-						"buffer_size": 633,
+						"buffer_size": 692,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								363,
-								363
+								271,
+								271
 							]
 						],
 						"settings":
@@ -974,13 +894,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 35.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 8,
 					"file": "app/views/layouts/_header.html.erb",
 					"settings":
 					{
@@ -1008,7 +928,35 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 9,
+					"file": "config/environments/production.rb",
+					"settings":
+					{
+						"buffer_size": 4172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3990,
+								3990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "config/secrets.yml",
 					"settings":
 					{
@@ -1036,19 +984,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 11,
 					"file": "app/views/reservations/basket.html.erb",
 					"settings":
 					{
-						"buffer_size": 1823,
+						"buffer_size": 1998,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								562,
-								562
+								883,
+								789
 							]
 						],
 						"settings":
@@ -1057,13 +1005,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 277.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 12,
 					"settings":
 					{
 						"buffer_size": 0,
@@ -1088,7 +1036,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 13,
 					"file": "config/initializers/filter_parameter_logging.rb",
 					"settings":
 					{
@@ -1114,7 +1062,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 14,
 					"file": "config/initializers/DocRaptor.rb",
 					"settings":
 					{
@@ -1141,7 +1089,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 15,
 					"file": "config/initializers/docraptor.rb",
 					"settings":
 					{
@@ -1167,7 +1115,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 16,
 					"file": "Gemfile",
 					"settings":
 					{
@@ -1195,7 +1143,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 17,
 					"file": "app/views/layouts/ticket.html.erb",
 					"settings":
 					{
@@ -1223,8 +1171,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 22,
-					"file": "app/views/ticket_mailer/ticket.html.erb",
+					"buffer": 18,
+					"file": "app/views/ticket_mailer/singe_code_ticket.html.erb",
 					"settings":
 					{
 						"buffer_size": 30396,
@@ -1244,25 +1192,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9586.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 19,
 					"file": "app/assets/stylesheets/custom.scss",
 					"settings":
 					{
-						"buffer_size": 1017,
+						"buffer_size": 1107,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								88
+								60,
+								60
 							]
 						],
 						"settings":
@@ -1278,7 +1226,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 20,
 					"file": "config/environments/test.rb",
 					"settings":
 					{
@@ -1301,6 +1249,304 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 3.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/mailers/old_ticket_mailer.rb",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								340,
+								340
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "app/views/ticket_mailer/ticket.html.erb",
+					"settings":
+					{
+						"buffer_size": 28312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23219,
+								23219
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6833.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "app/models/concert.rb",
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "app/views/charges/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 4004,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1665,
+								1665
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 473.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "app/controllers/reservations_controller.rb",
+					"settings":
+					{
+						"buffer_size": 3356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1603,
+								1603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1004.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "app/views/reservations/_unnumbered_selection.html.erb",
+					"settings":
+					{
+						"buffer_size": 208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<%= form_tag unnumbered_path do %>",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "app/views/concerts/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 74,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "app/views/reservations/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 3173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								214,
+								214
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 735.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 681,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								294
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 63.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "app/views/concerts/_concert_card.html.erb",
+					"settings":
+					{
+						"buffer_size": 513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

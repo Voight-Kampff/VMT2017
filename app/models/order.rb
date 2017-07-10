@@ -2,9 +2,10 @@ class Order < ApplicationRecord
 	has_many :reservations, dependent: :destroy
 	has_many :seats, through: :reservations
 
-    def pay_with_cc
+    def pay(method)
       self.calculate_price
-      self.payment_type="credit card payment"
+      self.payment_type=method.to_s
+      self.held=0
       self.paid=1
       self.reservations.map(&:generate_code)
     end

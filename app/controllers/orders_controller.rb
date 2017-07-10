@@ -13,8 +13,12 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find_by_id(session[:order_id])
+    if params[:commit] == 'Payment par carte'
+      @order.pay('credit card payment')
+    elsif params[:commit] == 'Virement bancaire'
+      @order.pay('bank transfer')
+    end
     @order.update(order_params)
-    @order.pay_with_cc
     @order.save
     @order.reservations.map(&:save)
     @order.reservations.map(&:generate_pdf)
