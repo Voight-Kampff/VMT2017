@@ -24,6 +24,11 @@ $(document).ready(function() {
 						<tr>
 							<td colspan="3"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
 						</tr>
+						<% if reservation.seat.concert.footnote.present?%>
+							<tr>
+								<td colspan="3"><em><%=reservation.seat.concert.footnote%></em></td>
+							</tr>
+						<% end %>
 					<% @this_concert= reservation.seat.concert.id %>
 					<% end %>
 						<tr>
