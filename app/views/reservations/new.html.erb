@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<%if @concert.unnumbered? %>
-			<%= render 'unnumbered_selection'%>
+			<%= render 'unnumbered_selection', concert: @concert%>
 		<% else %>
 			<div class="seats">
 				<div class="row">
