@@ -1,0 +1,5 @@
+<%= form_tag('/concerts/53/reservations/unnumbered') do %>
+  <label for="selection_count">Nombre de billets</label>
+  <%= number_field_tag :selection_count %>
+ <%= submit_tag "Submit" %>
+<% end %>

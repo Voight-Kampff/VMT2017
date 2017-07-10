@@ -5,46 +5,43 @@
 				<h4><%=@concert.name%></h4>
 			</div>
 		</div>
-		<div class="seats">
-			<div class="row">
-				<div class="col s12 m12 l12">
-					<div><b>Cat A: <%=@seats.first.price%>.-</b></div>
-						<% 0..475.times do |seat| %>
-							<% if seat % 25 ==0  && seat != 250 %>
-								<div class="row">
+		<%if @concert.unnumbered? %>
+			<%= render 'unnumbered_selection'%>
+		<% else %>
+			<div class="seats">
+				<div class="row">
+					<div class="col s12 m12 l12">
+						<div><b>Cat A: <%=@seats.first.price%>.-</b></div>
+							<% 0..475.times do |seat| %>
+								<% if seat % 25 ==0  && seat != 250 %>
+									<div class="row">
+										<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+								<% elsif seat == 250  %>
+									</br>
+									<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
+									<div class="row">
+										<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+								<% else %>
+								<% end %>
+								<% if @taken_seat_array[seat]== 1 %>
+										<button class="waves-effect waves-light btn disabled" style="" id=<%=@seats[seat].id%>><%=(seat % 25) +1%></button>
+								<% elsif @taken_seat_array[seat]== 2 %>
+										<button class="waves-effect waves-light btn blue" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+								<% else %>
+										<button class="waves-effect waves-light btn create" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+								<% end %>
+								<% if seat % 25 == 24 %>
 									<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
-							<% elsif seat == 250  %>
-								</br>
-								<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
-								<div class="row">
-									<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
-							<% else %>
+									</div>
+								<% elsif seat % 25 == 12%>
+									<button class="waves-effect waves-light btn-flat">  </button>
+									<button class="waves-effect waves-light btn-flat">  </button>
+								<% else %>
+								<% end %>
 							<% end %>
-							<% if @taken_seat_array[seat]== 1 %>
-									<button class="waves-effect waves-light btn disabled" style="" id=<%=@seats[seat].id%>><%=(seat % 25) +1%></button>
-							<% elsif @taken_seat_array[seat]== 2 %>
-									<button class="waves-effect waves-light btn blue" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
-							<% else %>
-									<button class="waves-effect waves-light btn create" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
-							<% end %>
-							<% if seat % 25 == 24 %>
-								<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
-								</div>
-							<% elsif seat % 25 == 12%>
-								<button class="waves-effect waves-light btn-flat">  </button>
-								<button class="waves-effect waves-light btn-flat">  </button>
-							<% else %>
-							<% end %>
-						<% end %>
+					</div>
 				</div>
 			</div>
-		</div>
-			</br>
-		<div class="row right-align">
-			<div class="col s12  m12 l12">
-				<%= link_to("Continuer", reservations_basket_path, :class => "waves-effect waves-light btn blue")%>
-			</div>
-		</div>
 			<%= form_for(@reservation, remote: true ) do |f| %>
 				<%= f.hidden_field :seat_id, :value => "", :id => "new_reservation_seat_id"%>
 				<%= f.submit "create reservation", class: "", :style => "display:none" %>
@@ -53,6 +50,13 @@
 				<%= f.hidden_field( :seat_id, :value => "waiting", :class=> "delete_reservation_seat_id", :id => "delete_reservation_seat_id") %>
 				<%= f.submit "delete reservation", class: "", :style => "display:none" %>
 			<% end %>
+		<% end %>
+		</br>
+		<div class="row right-align">
+			<div class="col s12  m12 l12">
+				<%= link_to("Continuer", reservations_basket_path, :class => "waves-effect waves-light btn blue")%>
+			</div>
+		</div>
 			
 		</div>
 	</div>

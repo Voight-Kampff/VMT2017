@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'reservations/basket', to: 'reservations#basket'
 
+  post 'concerts/:id/reservations/unnumbered', to: 'reservations#unnumbered'
+
 
   resources :orders
 
