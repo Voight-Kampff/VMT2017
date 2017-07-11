@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
     elsif params[:commit] == 'Virement bancaire'
       @order.pay('bank transfer')
     end
-    @order.update(order_params)
     @order.save
     @order.reservations.map(&:save)
     @order.reservations.map(&:generate_pdf)
