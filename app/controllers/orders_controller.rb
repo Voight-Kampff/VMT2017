@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
       @order.pay('bank transfer')
     end
     @order.update(order_params)
-    @order.save
     @order.reservations.map(&:save)
     @order.reservations.map(&:generate_pdf)
     TicketMailer.ticket(@order).deliver
