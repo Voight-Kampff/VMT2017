@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'invitation/new'
+
+  get 'invitation/create'
+
+  get 'invitation/show'
+
   root to: 'concerts#index' 
 
   get 'concerts/new'
@@ -22,6 +28,8 @@ Rails.application.routes.draw do
 
 
   resources :orders
+
+  resources :invitations, param: :slug
 
   resources :charges
 

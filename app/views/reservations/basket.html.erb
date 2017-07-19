@@ -33,18 +33,18 @@ $(document).ready(function() {
 					<% end %>
 						<tr>
 							<td class="col l8"><%=form_for(reservation, remote: true) do |f|%>
-								<%= f.select :reservation_type_id, options_from_collection_for_select(ReservationType.all, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
+								<%= f.select :reservation_type_id, options_from_collection_for_select(@options_for_select, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
 								<%= f.submit "submit", :id => "update-#{reservation.id}", :style => "display:none"%></td>
 								<% end %>
 
 							<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
-							<td class="right-align"><%=reservation.price%>.-</td>
+							<td class="right-align" id=<%=reservation.id%> ><%=reservation.price%>.-</td>
 						</tr>
 					<% end %>
 						<tr style="border-top:1px solid #d0d0d0">
 							<td><b>Total</b></td>
 							<td class="right-align"></td>
-							<td class="right-align"><b><%=@order.calculate_price%>.-</b></td>
+							<td class="right-align" id="order-total"><b><%=@order.calculate_price%>.-</b></td>
 						</tr>
 					</tbody>
 				</table>

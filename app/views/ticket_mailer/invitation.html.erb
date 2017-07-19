@@ -500,11 +500,11 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Vos billets de concert ont été livrés. 
+                                                Vos invitations. 
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                                Merci pour votre commande!<br /><%=mail_to("billetterie@musicaes-tannay.ch","Contact")%>.
+                                                Merci pour votre soutien!<br /><%=mail_to("billetterie@musicaes-tannay.ch","Contact")%>.
                                             </td>
                                             <!-- *|END:IF|* -->
                                         </tr>
@@ -522,7 +522,7 @@
                                             	<!-- <img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext /> -->
                                             </td>
                                             <td align="left" valign="top" class="headerContent" mc:edit="body_content">
-                                            	<h1 style="color:#ffffff">Vos billets pour les Variations Musicales de Tannay</h1>
+                                            	<h1 style="color:#ffffff">Vos invitations pour les Variations Musicales de Tannay</h1>
                                             </td>
                                         </tr>
                                     </table>
@@ -533,98 +533,17 @@
                             	<td align="center" valign="top">
                                 	<!-- BEGIN COLUMNS // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateColumns">
-                                    	<tr mc:repeatable>
-                                        	<td align="center" valign="top" class="templateColumnContainer" style="padding-top:20px;">
-                                            	<table border="0" cellpadding="20" cellspacing="0" width="100%">
-                                                	<tr>
-                                                    	<td class="leftColumnContent" align="center">
-                                                        	<img src=<%="https://s3-eu-west-1.amazonaws.com/variations/#{@order.id.to_s}-#{@order.code.to_s}.png"%> style="max-width:260px;" id="QRImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
-                                                        	<%=@order.id%>-<%=@order.code%>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        	<td align="center" valign="top" class="templateColumnContainer" style="padding-top:20px;">
-                                            	<table border="0" cellpadding="20" cellspacing="0" width="100%">
-                                                	<tr>
-                                                    	<td valign="center" class="rightColumnContent" mc:edit="right_column_content">
-                                                        	<br />
-                                                        	<h3>Merci pour votre commande</h3>
-                                                            <p>Vous pouvez accéder à tous vos concerts en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce courrier 
-                                                            <p/>
-                                                            <p>
-                                                            Ce code est valalbe pour tous vos billets. Si vous avez besoin de distribuer vos billets à d'autres, vous pouvez leur transmettre une copie de ce courrier
-                                                        	</p>
-                                                            <p>
-                                                            Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
+                                    	<tr>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;">
+                                                <h3>Merci pour votre commande</h3>
+                                                <p>Vos billets se trouvent en pièce-jointe à ce courrier</p>
+                                                <p>
+                                                	Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%>
+                                                </p>
+                                    		</td>
+                                    	</tr>
                                     </table>
                                     <!-- // END COLUMNS -->
-                                </td>
-                            </tr>
-                            <tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN BODY // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
-                                        <tr>
-                                            <td align="left" valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h2>Votre Commande</h2>
-                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-               									<% @reservations.each do |reservation| %>
-			                                      <% if reservation.seat.concert.id != @this_concert %>
-				                                        <tr style="border-top:1px solid #BBBBBB">
-				                                          <td colspan="4"><strong><%=reservation.seat.concert.name%></strong></td>
-				                                        </tr>
-				                                        <tr>
-				                                          <td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
-				                                        </tr>
-			                                      <% @this_concert= reservation.seat.concert.id %>
-			                                      <% end %>
-			                                        <tr>
-			                                         <td align="left"><%=reservation.reservation_type.name.humanize%></td>
-			                                         <td align="right"><%=reservation.seat.row%><%=reservation.seat.column%></td>
-			                                         <td>&nbsp;</td>
-			                                         <td align="right"><%=reservation.price%>.-</td>
-			                                        </tr>
-			                                    <% end %>
-			                                      <tr style="border-top:1px solid #BBBBBB">
-			                                         <td align="left"><strong>Total</strong></td>
-			                                         <td>&nbsp;</td>
-			                                         <td>&nbsp;</td>
-			                                          <td align="right"><strong><%=@order.calculate_price%>.-</strong></td>
-			                                        </tr>
-			                                    </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                             <td align="left" valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h2>Livré à:</h2>
-			                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-				                                        <tr style="border-top:1px solid #BBBBBB">
-				                                          <td><%=@order.title%> <%=@order.first_name%> <%=@order.last_name%></td>
-				                                        </tr>
-				                                        <tr>
-				                                          <td><%=@order.email%></td>
-				                                        </tr>
-				                                        <tr>
-				                                          <td><%=@order.road%></td>
-				                                        </tr>
-				                                        <tr>
-				                                          <td><%=@order.postcode%> <%=@order.town%></td>
-				                                        </tr>
-				                                         <tr style="border-bottom:1px solid #BBBBBB">
-				                                          <td><%=@order.country%></td>
-				                                        </tr>
-			                                       	</table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END BODY -->
                                 </td>
                             </tr>
                         	<tr>

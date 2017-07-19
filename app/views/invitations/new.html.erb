@@ -1,0 +1,74 @@
+<script>
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+
+</script>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h2>Invitations</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="col s12 m12 l12">
+        <h4>Envoyer une nouvelle invitation</h4>
+        <%= form_for @invitation do |f| %>
+        <div class="row">
+          <div class ="input-field col s2">
+            <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>
+            <label>Civilité</label>
+          </div>
+          <div class ="input-field col s5">
+            <%= f.label :prénom%>
+            <%= f.text_field :first_name %>
+          </div>
+          <div class ="input-field col s5">
+            <%= f.label :nom%>
+            <%= f.text_field :last_name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s12">
+            <%= f.label :"Adresse"%>
+            <%= f.text_field :road %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s4">
+            <%= f.label :"Code Postal"%>
+            <%= f.text_field :postcode %>
+          </div>
+          <div class ="input-field col s4">
+            <%= f.label :Localité%>
+            <%= f.text_field :town %>
+          </div>
+          <div class ="input-field col s4">
+            <%= f.label :Pays%>
+            <%= f.text_field :country %>
+          </div>
+        </div>
+        <div class="row">
+          <div class ="input-field col s5">
+            <%= f.label :"Adresse e-mail"%>
+            <%= f.text_field :email %>
+          </div>
+          <div class ="input-field col s5">
+            <%= f.label :Téléphone%>
+            <%= f.text_field :telephone %>
+          </div>
+          <div class ="input-field col s2">
+            <%= f.select :free_tickets, options_for_select(['1', '2','3', '4']) %>
+            <label>Billets</label>
+          </div>
+        </div>
+        <div class="row right-align">
+          <%= f.submit "Envoyer l'invitation", :class => "btn"%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

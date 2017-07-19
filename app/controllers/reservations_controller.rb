@@ -113,11 +113,19 @@ class ReservationsController < ApplicationController
 	def update
 		@reservation=Reservation.find_by_id(params[:id])
 		@reservation.update(reservation_params)
+
+		respond_to do |format|
+			if @reservation.update(reservation_params)
+				format.js 
+			else
+			end
+		end
 	end
 
 	def basket
     	@order = Order.find_by_id(session[:order_id])
-    	@reservations=@order.reservations
+    	@reservations = @order.reservations
+    	@options_for_select = @order.options_for_select
  	end
 
 	def destroy

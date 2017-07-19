@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 	has_many :reservations, dependent: :destroy
 	has_many :seats, through: :reservations
+  has_one :invitation
 
     def pay(method)
       self.calculate_price
@@ -56,6 +57,16 @@ class Order < ApplicationRecord
       )
 
 
+    end
+
+    def options_for_select
+      options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
+      unless self.invitation.nil?
+        #member_invitation = ReservationType.all.select {|reservation_type| reservation_type.name="Invitation membre" }
+        member_invitation = ReservationType.find_by_name("Invitation membre")
+        options.push(member_invitation)
+      end
+      return options
     end
 
 end

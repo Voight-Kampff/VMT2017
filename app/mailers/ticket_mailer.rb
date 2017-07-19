@@ -1,6 +1,6 @@
 class TicketMailer < ApplicationMailer
 
-	def send_ticket(order)
+	def invitation(order)
 
 		@order = order
 		@reservations=@order.reservations
