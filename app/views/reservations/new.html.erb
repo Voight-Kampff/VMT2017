@@ -20,15 +20,15 @@
 									</br>
 									<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
 									<div class="row">
-										<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+										<button class="waves-effect waves-light  btn-flat"><%=@rows[seat/25]%></button>
 								<% else %>
 								<% end %>
 								<% if @taken_seat_array[seat]== 1 %>
 										<button class="waves-effect waves-light btn disabled" style="" id=<%=@seats[seat].id%>><%=(seat % 25) +1%></button>
 								<% elsif @taken_seat_array[seat]== 2 %>
-										<button class="waves-effect waves-light btn blue" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+										<button class="waves-effect waves-light btn indigo darken-4" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
 								<% else %>
-										<button class="waves-effect waves-light btn create" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+										<button class="waves-effect waves-light btn blue lighten-2" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
 								<% end %>
 								<% if seat % 25 == 24 %>
 									<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
@@ -46,7 +46,7 @@
 				<%= f.hidden_field :seat_id, :value => "", :id => "new_reservation_seat_id"%>
 				<%= f.submit "create reservation", class: "", :style => "display:none" %>
 			<% end %>
-			<%= form_for(@reservation, remote: true, url: "delete_by_seat_id", html: {:method => "delete", class: "delete_reservation", id: "delete_reservation"}) do |f| %>
+			<%= form_for(@reservation, remote: true, url: "/delete_by_seat_id", html: {:method => "delete", class: "delete_reservation", id: "delete_reservation"}) do |f| %>
 				<%= f.hidden_field( :seat_id, :value => "waiting", :class=> "delete_reservation_seat_id", :id => "delete_reservation_seat_id") %>
 				<%= f.submit "delete reservation", class: "", :style => "display:none" %>
 			<% end %>
@@ -54,7 +54,7 @@
 		</br>
 		<div class="row right-align">
 			<div class="col s12  m12 l12">
-				<%= link_to("Continuer", reservations_basket_path, :class => "waves-effect waves-light btn blue")%>
+				<%= link_to("Continuer", reservations_basket_path, :class => "waves-effect waves-light btn")%>
 			</div>
 		</div>
 			
@@ -66,15 +66,15 @@
 <script>
 	function pushseat(button) {
 		current_seat=button.id
-		if ($(button).attr("class")=="waves-effect waves-light btn blue") {
-			$(button).removeClass('blue')
-			$(button).addClass('create')
+		if ($(button).attr("class")=="waves-effect waves-light btn indigo darken-4") {
+			$(button).removeClass('indigo darken-4')
+			$(button).addClass('blue lighten-2')
 			$('input#delete_reservation_seat_id')[0].value=current_seat
 			$('form#delete_reservation').trigger('submit.rails')
 		}
 		else {
-			$(button).removeClass('create')
-			$(button).addClass('blue')
+			$(button).removeClass('blue lighten-2')
+			$(button).addClass('indigo darken-4')
 			$('input#new_reservation_seat_id')[0].value=current_seat
 			$('form#new_reservation').trigger('submit.rails')
 		}

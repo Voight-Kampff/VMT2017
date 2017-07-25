@@ -1,7 +1,10 @@
 
 $("#<%= escape_javascript(@reservation.id.to_s) %>").fadeOut().html("<%= escape_javascript(@reservation.price.to_s)%>.-").fadeIn()
 $("#order-total").fadeOut().html("<b><%= escape_javascript(@reservation.order.calculate_price.to_s)%>.-</b>").fadeIn()
-<% if @reservation.order.invitation.free_tickets.to_i < (@reservation.order.reservations.select { |reservation| reservation.reservation_type.name == "Invitation membre" }).count %>
-		alert("Vous avez le droit à <%= escape_javascript(@reservation.order.invitation.free_tickets.to_s)%> invitations")
-<% else %>
+<% unless @reservation.order.invitation.nil? %>
+	<% if @reservation.order.invitation.free_tickets <= (@reservation.order.reservations.select { |reservation| reservation.reservation_type.name == "Invitation membre" }).count %>
+			<% #remove the membership from all none membership options %>
+	<% else %>
+			<% #addback the membership option%>
+	<% end %>
 <% end %>

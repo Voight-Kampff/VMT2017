@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   post 'concerts/:id/reservations/unnumbered', to: 'reservations#unnumbered'
 
+  delete 'delete_by_seat_id', to: 'reservations#delete_by_seat_id'
+
 
   resources :orders
 

@@ -59,6 +59,15 @@ class Order < ApplicationRecord
 
     end
 
+    def invitations_only?
+      if self.reservations.where(reservation_type: ReservationType.where(name: "Invitation membre")).count == self.reservations.count
+        return true
+      else
+        return false
+      end
+    end
+
+
     def options_for_select
       options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
       unless self.invitation.nil?

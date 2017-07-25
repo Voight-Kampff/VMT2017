@@ -1,31 +1,143 @@
 <header>
-      <nav class="top-nav">
+  <div class="navbar-fixed">
+    <ul id="programme" class="dropdown-content">
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2017">PROGRAMME 2017</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2016">PROGRAMME 2016</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2015">PROGRAMME 2015</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2014">PROGRAMME 2014</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2013">PROGRAMME 2013</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2012">PROGRAMME 2012</a></li>
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2011">PROGRAMME 2011</a></li>
+    </ul>
+    <ul id="association" class="dropdown-content">
+      <li><a href="https://www.musicales-tannay.ch/l-association/partenaires-amis">PARTENAIRES & AMIS</a></li>
+      <li><a href="https://www.musicales-tannay.ch/l-association/benevoles">BÉNÉVOLES</a></li>
+      <li><a href="https://www.musicales-tannay.ch/l-association/comite-statuts">COMITÉ & STATUS</a></li>
+    </ul>
+      <nav class="nav-extended">
         <div class="container">
-          <div class="nav-wrapper">
-              <a href="#" data-activates="slide-out" class="button-collapse">
-                <i class="material-icons">menu</i>
+          <div class="nav-wrapper" style="height:78px">
+            <div style="padding-left:26px;height:78px" class="hide-on-large-only">
+              <a class="right-align" id="hamburger" style="color:#96a0a7;font-size:40px;padding-right:28px;font-weight:800;width:100%" onclick="toggleNav()" >
+                ≡
               </a>
-            <ul class="side-nav fixed" id="slide-out" style="transform:translate(-100%)">
-              <li><div class="logoView">
-                <div class="background">
-                  <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "150x150")%>
-                </div>
-              </div></li>
-              <%@concerts.each do |concert| %>
-              <li><a href=<%=new_concert_reservation_path(concert)%> class="concert"><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><%=concert.name%><br/><span stlye="font'weight:normal"><%=(I18n.localize concert.date, format: :concert).capitalize%></span></a></li>
-              <% end %>
-            </ul>
           </div>
+
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="https://musicales-tannay.ch">ACCUEIL</a></li>
+                <li><a class="dropdown-button" href="#" data-constrainwidth="false" data-beloworigin="true" data-hover="true" data-activates="programme">PROGRAMME</a></li>
+                <li class="active"><a href="sass.html">BILLETTERIE</a></li>
+                <li><a href="https://www.musicales-tannay.ch/en-images">EN IMAGES</a></li>
+                <li><a class="dropdown-button" href="#" data-constrainwidth="false" data-beloworigin="true" data-hover="true" data-activates="association">L'ASSOCIATION</a></li>
+                <li><a href="https://www.musicales-tannay.ch/presse">PRESSE</a></li>
+                <li><a href="https://www.musicales-tannay.ch/newsletter">NEWSLETTER</a></li>
+                <li><a href="https://www.musicales-tannay.ch/contact">CONTACT</a></li>
+              </ul>
+            </div>
+            <div class="hide-on-large-only">
+                <div class="nav-content" id="nav-content" >
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch">Acceuil</a>
+                  </div>
+                  <div class="row right-align">
+                   <a href="https://www.musicales-tannay.ch/programme/programme-2017">Programme</a>
+                  </div>
+                  <div class="child-list">
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2017">Programme 2017</a>
+                    </div>
+                    <div class="row child right-align">
+                    <a href="https://www.musicales-tannay.ch/programme/programme-2016">Programme 2016</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2015">Programme 2015</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2014">Programme 2014</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2013">Programme 2013</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2012">Programme 2012</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2011">Programme 2011</a>
+                    </div>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/billetterie" style="text-decoration:underline">BILLETTERIE</a>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/en-images">EN IMAGES</a>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/l-association/partenaires-amis">L'ASSOCIATION</a>
+                  </div>
+                  <div class="child-list">
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/l-association/partenaires-amis">PARTENAIRES & AMIS</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/l-association/benevoles">Bénévoles</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/l-association/comite-statuts">Comité & Statuts</a>
+                    </div>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/presse">PRESSE</a>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/newsletter">NEWSLETTER</a>
+                  </div>
+                  <div class="row right-align">
+                    <a href="https://www.musicales-tannay.ch/CONTACT">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </nav>
         </div>
-      </nav>
+              <div class="container">
+            <ul class="side-nav fixed" id="slide-out" style="transform:translate(-100%)">
+              <li class="hide-on-med-and-down">
+                  <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "150x150")%>
+              </li>
+              <li class="hide-on-large-only" style="padding-left:26px">
+                  <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "78x78")%>
+              </li>
+          <%@concerts.each do |concert| %>
+          <li><a href=<%=new_concert_reservation_path(concert)%> class="concert waves-effect
+            "><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><b><%=concert.name%><br/><span stlye="font'weight:normal"></b><%=(I18n.localize concert.date, format: :concert).capitalize%></span></a>
+          </li>
+          <% end %>
+          </ul>
+          </div>
+          <a href="#" data-activates="slide-out" class="button-collapse" style="display:none"></a>
+          <div class="buffer"></div>
 </header>
 
 <script>
 
+  $( document ).ready(function() {
+    $('#nav-content').hide()
+    $('.buffer').hide()
+  });
+
+
   $(".button-collapse").sideNav({
-      menuWidth: 300, // Default is 300
+      menuWidth: 270, // Default is 300
       edge: 'left', // Choose the horizontal origin
       closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
       draggable: true // Choose whether you can drag to open on touch screens
     });
+
+  function toggleNav() {
+    $('#nav-content').toggle()
+    $('.buffer').toggle()
+    return false
+  }
+
+
 </script>

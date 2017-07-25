@@ -43,11 +43,22 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.create(reservation_params)
 		
 		@reservation.order_id=@order.id
-		@reservation.reservation_type_id=1
+
+		unless @order.invitation.nil?
+			if @order.invitation.free_tickets > @order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+				@reservation.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
+			else
+				@reservation.reservation_type_id=1
+			end
+		else
+			@reservation.reservation_type_id=1
+		end
+
 		@reservation.price=@reservation.seat.price
 
-		if @reservation.save
-			respond_to do |format|
+		
+		respond_to do |format|
+			if @reservation.save
 				format.html { render nothing: true } 
 				format.js { } 
 			end
@@ -98,7 +109,10 @@ class ReservationsController < ApplicationController
 			#ensure no strange behaviour
 		end
 
-		redirect_to reservations_basket_path
+		respond_to do |format|
+			format.html {redirect_to reservations_basket_path}
+			format.js 
+		end
 
 	end
 
@@ -118,6 +132,7 @@ class ReservationsController < ApplicationController
 			if @reservation.update(reservation_params)
 				format.js 
 			else
+				format.js { render 'test.js.erb' }
 			end
 		end
 	end
@@ -129,7 +144,7 @@ class ReservationsController < ApplicationController
  	end
 
 	def destroy
-		Seat.find(params[:reservation][:seat_id]).reservation.destroy
+		Reservation.find(params[:id]).destroy
 		respond_to do |format|
 			format.html { render nothing: true } 
 			format.js { render nothing: true } 
@@ -145,6 +160,8 @@ class ReservationsController < ApplicationController
 	end
 
 	def delete_by_seat_id
+		@reservation=Seat.find(params[:reservation][:seat_id]).reservation
+		@reservation.destroy
 		respond_to do |format|
 			format.html { render nothing: true } 
 			format.js { render nothing: true } 

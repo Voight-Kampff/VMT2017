@@ -3,57 +3,75 @@ $(document).ready(function() {
     $('select').material_select();
   });
 
-	function submitform(form) {
-		$('form#delete_reservation').trigger('submit.rails')
-		}
+	function showsidenav() {
+		$('.button-collapse').sideNav('show')
+	}
 </script>
 <main>
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
 				<h4>Votre Commande</h4>
-				<table>
-				<% @reservations.each do |reservation| %>
-					<% if reservation.seat.concert.id != @this_concert %>
-					<thead>
-						<tr>
-							<td colspan="3"><b><%=reservation.seat.concert.name%></b></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td colspan="3"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
-						</tr>
-						<% if reservation.seat.concert.footnote.present?%>
+				<% unless @order.reservations.present? %>
+					<div class="row">
+						<div class="col s12  m12 l12">
+							<p><b>Votre panier est vide</b></p>
+						</div>
+					</div>
+				<% else %>
+					<% unless @order.invitation.nil? %>
+						<h6>Vous avez le droit à <%= @order.invitation.free_tickets %> invitations</h6>
+					<% end %>
+					<table>
+					<% @reservations.each do |reservation| %>
+						<% if reservation.seat.concert.id != @this_concert %>
+						<thead>
 							<tr>
-								<td colspan="3"><em><%=reservation.seat.concert.footnote%></em></td>
+								<td colspan="4"><b><%=reservation.seat.concert.name%></b></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="4"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
+							</tr>
+							<% if reservation.seat.concert.footnote.present?%>
+								<tr>
+									<td colspan="4"><em><%=reservation.seat.concert.footnote%></em></td>
+								</tr>
+							<% end %>
+						<% @this_concert= reservation.seat.concert.id %>
+						<% end %>
+							<tr id="row-<%=reservation.id%>">
+								<td class="col l8"><%=form_for(reservation, remote: true) do |f|%>
+									<%= f.select :reservation_type_id, options_from_collection_for_select(@options_for_select, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
+									<%= f.submit "submit", :id => "update-#{reservation.id}", :style => "display:none"%></td>
+									<% end %>
+
+								<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
+								<td class="right-align" id="<%=reservation.id%>" ><%=reservation.price%>.-</td>
+								<td class="right-align">
+									<%= link_to "edit", new_concert_reservation_path(reservation.seat.concert), :class => "material-icons tooltipped", "data-position" => "top", "data-delay" => "50", "data-tooltip" => "Modifier" %>
+									<%= link_to "close", reservation_path(reservation), method: 'delete', :class => "material-icons tooltipped", "data-position" => "top", "data-delay" => "50", "data-tooltip" => "Supprimer", remote: true,  :onclick => "$('#row-#{reservation.id}').fadeOut()"%>
+								</td>
 							</tr>
 						<% end %>
-					<% @this_concert= reservation.seat.concert.id %>
-					<% end %>
-						<tr>
-							<td class="col l8"><%=form_for(reservation, remote: true) do |f|%>
-								<%= f.select :reservation_type_id, options_from_collection_for_select(@options_for_select, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
-								<%= f.submit "submit", :id => "update-#{reservation.id}", :style => "display:none"%></td>
-								<% end %>
+							<tr style="border-top:1px solid #d0d0d0">
+								<td><b>Total</b></td>
+								<td class="right-align"></td>
+								<td class="right-align" id="order-total"><b><%=@order.calculate_price%>.-</b></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
 
-							<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
-							<td class="right-align" id=<%=reservation.id%> ><%=reservation.price%>.-</td>
-						</tr>
-					<% end %>
-						<tr style="border-top:1px solid #d0d0d0">
-							<td><b>Total</b></td>
-							<td class="right-align"></td>
-							<td class="right-align" id="order-total"><b><%=@order.calculate_price%>.-</b></td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 		<div class="row right-align">
 			<div class="col s12  m12 l12">
-				<%= link_to("Continuer", new_charge_path, :class => "waves-effect waves-light btn blue")%>
+				<button href="#" class="waves-effect waves-light btn hide-on-large-only" onclick="showsidenav()">Réserver d'autres billets</button>
+				<%= link_to("PAIEMENT", new_charge_path, :class => "waves-effect waves-light btn")%>
 			</div>
 		</div>
+		<% end %>
 	</div>
 </main>

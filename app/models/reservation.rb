@@ -1,10 +1,16 @@
 class Reservation < ApplicationRecord
 	belongs_to :order
 	belongs_to :seat
+	belongs_to :seat
 	belongs_to :reservation_type
 
 	before_update :update_price
 	before_create :update_price
+	before_create :check_invitation_count
+	before_update :check_invitation_count
+	before_save :check_invitation_count
+
+	validates :seat_id, uniqueness: true
 
 	def code_url
       "http://s3-eu-west-1.amazonaws.com/variations/r-#{self.id.to_s}-#{self.code.to_s}.png"
@@ -102,9 +108,20 @@ class Reservation < ApplicationRecord
 
 	end
 
-
 	private
+
 		def update_price
 			self.price = self.reservation_type.discount*self.seat.price/100
 		end
+
+		def check_invitation_count
+			unless self.order.invitation.nil?
+				if self.order.invitation.free_tickets <= self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+					if self.reservation_type.name == "Invitation membre"
+						throw :abort
+					end
+				end
+			end
+		end
+
 end

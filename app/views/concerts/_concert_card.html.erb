@@ -1,4 +1,4 @@
-<div class="col s12 m10 l9">
+<div class="col s12 m12 l12">
 	<div class="card">
 		<div class="card-image">
 			<% unless concert_card.image.medium.url.nil? %>
@@ -10,7 +10,7 @@
 			<p><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></p>
 	    </div>
 	    <div class="card-action">
-	        <%=link_to("Réserver", new_concert_reservation_path(concert_card))%>
+	        <%=link_to("Réserver", new_concert_reservation_path(concert_card), :style => "color:#00B1EB")%>
 	    </div>
 	</div>
 </div>
