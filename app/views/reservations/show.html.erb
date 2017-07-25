@@ -4,7 +4,7 @@
 			<div class="nav-wrapper">
 						<a href="#" class="brand-logo left left-align"><img src="https://www.musicales-tannay.ch/templates/template_vmt/images/VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png" style="max-width90px;max-height:90px"></a>
 					<div class="col s10 m10 l10">
-						<a><h5 class="right-align" style="padding-right:40px;padding-top:21px;font-size:20px;height:90px"><strong><%=@reservation.seat.concert.name%></strong></br><em style="font-size:16px"><%=(I18n.localize @reservation.seat.concert.date, format: :concert).capitalize%> <%=@reservation.seat.concert.location%></em></h5></a>
+						<a><h5 class="right-align" style="padding-right:40px;padding-top:21px;font-size:20px;height:90px"><strong><%=@reservation.seat.concert.name%></strong></br><span style="font-size:16px"><%=(I18n.localize @reservation.seat.concert.date, format: :concert).capitalize%> <%=@reservation.seat.concert.location%></span></h5></a>
 					</div>
 				</div>
 			</div>
@@ -27,9 +27,9 @@
 				<%=@reservation.order.email%></p>
 			</div>
 			<div class="col s4 m4 l4 left-align">
-				<p style="font-size:12px;"><em style="font-color:#00B1EB"><%=@reservation.seat.concert.footnote%></em></p>
-				<p style="font-size:12px"><em>Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</em></p>
-				<p style="font-size:12px;"><em>Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%></em></p>
+				<p style="font-size:12px;font-color:#00B1EB"><%=@reservation.seat.concert.footnote%></p>
+				<p style="font-size:12px;font-color:#00B1EB">Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</p>
+				<p style="font-size:12px;font-color:#00B1EB">Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%></p>
 			</div>
 		</div>
 	</div>

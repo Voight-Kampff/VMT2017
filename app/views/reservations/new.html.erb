@@ -2,7 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<h4><%=@concert.name%></h4>
+				<h5><%=@concert.name%></h5>
+				<div class="divider"></div>
+				<h6><%=(I18n.localize @concert.date, format: :concert).capitalize%> <%=@concert.location%></h6>
 			</div>
 		</div>
 		<%if @concert.unnumbered? %>

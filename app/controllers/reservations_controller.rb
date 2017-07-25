@@ -145,6 +145,7 @@ class ReservationsController < ApplicationController
  	end
 
 	def destroy
+		@order = Order.find_by_id(session[:order_id])
 		Reservation.find(params[:id]).destroy
 		respond_to do |format|
 			format.html { render nothing: true } 

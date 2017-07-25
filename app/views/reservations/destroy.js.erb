@@ -1,1 +1,1 @@
-$("#order-total").fadeOut().html("<b><%= escape_javascript(@reservation.order.calculate_price.to_s)%>.-</b>").fadeIn()
+$("#order-total").fadeOut().html("<b><%= escape_javascript(@order.calculate_price.to_s)%>.-</b>").fadeIn()

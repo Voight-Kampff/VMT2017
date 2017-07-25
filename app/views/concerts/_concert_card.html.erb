@@ -6,8 +6,8 @@
 			<% end %>
 		</div>
 		<div class="card-content">
-			<b><%=concert_card.name%></b>
-			<p><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></p>
+			<h5><%=concert_card.name%></h5>
+			<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></h6>
 	    </div>
 	    <div class="card-action">
 	        <%=link_to("Réserver", new_concert_reservation_path(concert_card), :style => "color:#00B1EB")%>
