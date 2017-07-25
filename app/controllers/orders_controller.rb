@@ -18,10 +18,10 @@ class OrdersController < ApplicationController
     elsif params[:commit] == 'Virement bancaire'
       @order.pay('bank transfer')
     end
-    @order.save(order_params)
+    @order.update(order_params)
     @order.reservations.map(&:save)
     @order.reservations.map(&:generate_pdf)
-    if @order.save
+    if @order.update
       TicketMailer.ticket(@order).deliver
     else
     end
