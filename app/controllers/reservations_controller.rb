@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
 		@concert=Concert.find_by_id(params[:concert_id])
 
 		if Order.find_by_id(session[:order_id]).nil?
-			@order=Order.new
+			@order=Order.create
+			session[:order_id] = @order.id
 		else
 			@order = Order.find_by_id(session[:order_id])
 		end
