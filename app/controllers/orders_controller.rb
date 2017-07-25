@@ -21,9 +21,8 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     @order.reservations.map(&:save)
     @order.reservations.map(&:generate_pdf)
-    if @order.update
+    if @order.save
       TicketMailer.ticket(@order).deliver
-    else
     end
   end
 
