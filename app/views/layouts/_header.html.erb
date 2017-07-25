@@ -109,7 +109,7 @@
               </li>
           <%@concerts.each do |concert| %>
           <li><a href=<%=new_concert_reservation_path(concert)%> class="concert waves-effect
-            "><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "60x60")%><b><%=concert.name%><br/><span stlye="font'weight:normal"></b><%=(I18n.localize concert.date, format: :concert).capitalize%></span></a>
+            "><b><%=concert.name%><br/><span stlye="font'weight:normal"></b><%=(I18n.localize concert.date, format: :concert).capitalize%></span></a>
           </li>
           <% end %>
           </ul>

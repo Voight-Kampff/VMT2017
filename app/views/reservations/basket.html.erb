@@ -32,11 +32,11 @@ $(document).ready(function() {
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="4"><em><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></em></td>
+								<td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
 							</tr>
 							<% if reservation.seat.concert.footnote.present?%>
 								<tr>
-									<td colspan="4"><em><%=reservation.seat.concert.footnote%></em></td>
+									<td colspan="4"><%=reservation.seat.concert.footnote%></td>
 								</tr>
 							<% end %>
 						<% @this_concert= reservation.seat.concert.id %>
@@ -46,13 +46,12 @@ $(document).ready(function() {
 									<%= f.select :reservation_type_id, options_from_collection_for_select(@options_for_select, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
 									<%= f.submit "submit", :id => "update-#{reservation.id}", :style => "display:none"%></td>
 									<% end %>
-
-								<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
-								<td class="right-align" id="<%=reservation.id%>" ><%=reservation.price%>.-</td>
 								<td class="right-align">
 									<%= link_to "edit", new_concert_reservation_path(reservation.seat.concert), :class => "material-icons tooltipped", "data-position" => "top", "data-delay" => "50", "data-tooltip" => "Modifier" %>
 									<%= link_to "close", reservation_path(reservation), method: 'delete', :class => "material-icons tooltipped", "data-position" => "top", "data-delay" => "50", "data-tooltip" => "Supprimer", remote: true,  :onclick => "$('#row-#{reservation.id}').fadeOut()"%>
 								</td>
+								<td class="right-align"><%=reservation.seat.row%><%=reservation.seat.column%></td>
+								<td class="right-align" id="<%=reservation.id%>" ><%=reservation.price%>.-</td>
 							</tr>
 						<% end %>
 							<tr style="border-top:1px solid #d0d0d0">
