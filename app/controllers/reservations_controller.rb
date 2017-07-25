@@ -147,7 +147,7 @@ class ReservationsController < ApplicationController
 		Reservation.find(params[:id]).destroy
 		respond_to do |format|
 			format.html { render nothing: true } 
-			format.js { render nothing: true } 
+			format.js
     	end
 	end
 
