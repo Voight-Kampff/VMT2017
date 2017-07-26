@@ -66,8 +66,8 @@ nav .dropdown-content li:hover{
   height: 40px;
 }
 
-nav ul li a .dropdown-button, .active {
-  color: #FFFFFF !important;
+nav ul li a .dropdown-button .active {
+  color: #333 !important;
 }
 
 nav ul li.active{
@@ -267,3 +267,4 @@ html {
     font-family:"Lato",sans-serif;
     color:#475058;
   }
+

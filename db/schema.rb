@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718072431) do
+ActiveRecord::Schema.define(version: 20170726112334) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170718072431) do
     t.string   "slug"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "used"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -49,7 +50,6 @@ ActiveRecord::Schema.define(version: 20170718072431) do
     t.string   "country"
     t.binary   "issued"
     t.integer  "total"
-    t.integer  "stripe_id"
     t.string   "email"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170718072431) do
     t.string   "title"
     t.text     "notes"
     t.boolean  "flagged"
+    t.string   "stripe_token"
   end
 
   create_table "reservation_types", force: :cascade do |t|

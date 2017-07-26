@@ -68,4 +68,7 @@ Rails.application.configure do
 
   ENV["DOCRAPTOR_API_KEY"] = Rails.application.secrets.docraptor_api_key
 
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+
 end

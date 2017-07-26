@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" data-premailer="ignore">
 
-        <title>Vos billets pour les Variations Musicales de Tannay</title>
+        <title>Vos invitations pour les Variations Musicales de Tannay</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -535,12 +535,27 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateColumns">
                                     	<tr>
                                     		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;">
-                                                <h3>Merci pour votre commande</h3>
-                                                <p>Vos billets se trouvent en pièce-jointe à ce courrier</p>
-                                                <p>
-                                                	Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%>
+                                                <h3>Chers amis du festival et membres bienfaiteurs,</h3>
+                                                <p>Les Variations Musicales de Tannay en sont cette année à leur huitième édition. Fort de l’expérience acquise jusqu’ici, nous offrirons une fois encore à notre public un programme de grande qualité, dans des lieux particulièrement propices à son écoute et dans une grande proximité avec les artistes.</p>
+                                                <p>Khatia Buniatishvili, Renaud Capuçon, les sœurs Berthollet et l’Orchestre national symphonique de Lettonie, parmi d’autres, sauront, dans le beau parc du château, vous offrir des moments musicaux exceptionnels. Le festival s’exportera également pour deux belles soirées : l’une à la plage de Gland et l’autre au Conservatoire de Nyon.</p>
+                                                <p>C’est pourquoi nous serions très heureux de vous  accueillir à l’un ou l’autre de nos concerts. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug))%> pour réserver vos <%=@invitation.free_tickets%> places numerotées pour le concert de votre choix. Vos billets vous seront ainsi envoyés par courrier électronique.</p>
+                                                <p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94.</p>
+                                                </p>
+                                                <p>En espérant vous rencontrer à cette occasion, nous vous prions d’accepter, Madame, Monsieur, nos bien cordiales salutations.  
                                                 </p>
                                     		</td>
+                                    	</tr>
+                                    </table>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateColumns">
+                                    	<tr>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;"></td>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;"><p>Françoise de Courten</td>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;"><p>Serge Schmidt</p></td>
+                                    	</tr>
+                                    	<tr>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:0px;"></td>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:0px;"><p>Vice-Présidente</p></td>
+                                    		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:0px;"><p>Président</p></td>
                                     	</tr>
                                     </table>
                                     <!-- // END COLUMNS -->

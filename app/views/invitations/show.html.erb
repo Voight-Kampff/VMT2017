@@ -1,5 +1,19 @@
 <main>
-  <div class="container">
-<%=@invitation.id%>
-<a href=<%="/invitations/"+@invitation.slug%>>Test</a>
-<%=@order.id%></div></main>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<h4>Cher invité</h4>
+				<div class="divider"></div>
+				<h6>Merci pour votre soutien!</h6>
+				<p>Pour récupérer vos <%=@order.invitation.free_tickets%> billets invités, vous pouvez aller choisir vos places pour les concerts quis vous intéressent</p>
+				<p>Les <%=@order.invitation.free_tickets%> premières places seront gratuites. Si vous le souhaitez, vous pouvez ensuite selectionner des places supplémentaires et payer pour ces places par carte. Vous pourrez aussi attribuer les places entre invitaitons, places payantes et places enfants dans votre <%=link_to('panier', reservations_basket_path)%></p>
+
+				<p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie envoyant un mail à <%=mail_to('billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94</p>
+			</div>
+		</div>
+		</br>
+        <div class="row right-align">
+        	<%= link_to("continuer", concerts_path, :class => "btn", id: "order-form-submit")%>
+        </div>
+	</div>
+</main>

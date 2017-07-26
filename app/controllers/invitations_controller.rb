@@ -1,22 +1,15 @@
 class InvitationsController < ApplicationController
   def new
-  	@invitation=Invitation.new
+    @invitation=Invitation.new
   end
 
   def create
 
-  	if Order.find_by_id(session[:order_id]).nil?
-		@order=Order.create
-		session[:order_id] = @order.id
-	else
-		@order = Order.find_by_id(session[:order_id])
-	end
+	@order=Order.create(:held => '1')
 
-	@invitation= Invitation.new
+	@invitation= Invitation.create(invitation_params)
 
 	@invitation.order_id=@order.id
-
-  	@order.create_invitation(invitation_params)
 
   	if @invitation.save
   		redirect_to @invitation
@@ -28,7 +21,6 @@ class InvitationsController < ApplicationController
   def show
 
   	@invitation=Invitation.find_by_slug(params[:slug])
-
   	@order=@invitation.order
   	session[:order_id] = @order.id
 

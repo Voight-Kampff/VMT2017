@@ -8,6 +8,10 @@ class Order < ApplicationRecord
       self.payment_type=method.to_s
       self.held=0
       self.paid=1
+      unless self.invitation.nil?
+        self.invitation.used = 1
+        self.invitation.save
+      end
       self.reservations.map(&:generate_code)
     end
 
@@ -60,7 +64,7 @@ class Order < ApplicationRecord
     end
 
     def invitations_only?
-      if self.reservations.where(reservation_type: ReservationType.where(name: "Invitation membre")).count == self.reservations.count
+      if self.reservations.where(reservation_type: ReservationType.where(:name => ["Invitation membre","Enfant"])).count == self.reservations.count
         return true
       else
         return false

@@ -94,7 +94,15 @@ class ReservationsController < ApplicationController
 				reservation=Reservation.new
 				reservation.order_id=@order.id
 				reservation.seat_id=@selected_seats[index].id
-				reservation.reservation_type_id=1
+				unless @order.invitation.nil?
+					if @order.invitation.free_tickets > @order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+						reservation.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
+					else
+						reservation.reservation_type_id=1
+					end
+				else
+					reservation.reservation_type_id=1
+				end
 				reservation.save
 
 			end

@@ -22,6 +22,14 @@ Rails.application.routes.draw do
 
   get 'concerts/show'
 
+  get 'merci', to: 'orders#success'
+
+  get 'paiement', to: 'orders#paymentform'
+
+  post 'orders/charge', to: 'orders#charge'
+
+  post 'orders/invitationdelivery', to: 'orders#invitationdelivery'
+
   get 'reservations/basket', to: 'reservations#basket'
 
   post 'concerts/:id/reservations/unnumbered', to: 'reservations#unnumbered'
