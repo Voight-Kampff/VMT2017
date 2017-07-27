@@ -90,7 +90,7 @@ class OrdersController < ApplicationController
       @order.reservations.map(&:save)
       @order.reservations.map(&:generate_pdf)
       @order.save
-      TicketMailer.send_ticket(@order).deliver
+      TicketMailer.ticket(@order).deliver
     else
       redirect_to '/paiement'
     end
