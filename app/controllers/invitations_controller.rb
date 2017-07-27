@@ -34,4 +34,8 @@ class InvitationsController < ApplicationController
     def invitation_params
       params.require(:invitation).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:free_tickets)
     end
+
+    def check_admin_authorization
+     current_user.admin?
+    end
 end
