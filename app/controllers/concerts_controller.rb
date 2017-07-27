@@ -77,7 +77,9 @@ class ConcertsController < ApplicationController
     end
 
     def check_admin_authorization
-     current_user.admin?
+      if user_signed_in?
+        current_user.admin?
+      end
     end
 
 end

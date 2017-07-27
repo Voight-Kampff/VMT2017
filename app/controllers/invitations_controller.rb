@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
 
-  before_action :check_authorization, except: [:show]
+  before_action :check_admin_authorization, except: [:show]
 
   def new
     @invitation=Invitation.new
@@ -36,6 +36,8 @@ class InvitationsController < ApplicationController
     end
 
     def check_admin_authorization
-     current_user.admin?
+      if user_signed_in?
+        current_user.admin?
+      end
     end
 end
