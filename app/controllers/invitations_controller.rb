@@ -16,6 +16,7 @@ class InvitationsController < ApplicationController
 
   	if @invitation.save
   		redirect_to @invitation
+      TicketMailer.invitation(@invitation).deliver
   	else
   		render 'invitations/new'
   	end
