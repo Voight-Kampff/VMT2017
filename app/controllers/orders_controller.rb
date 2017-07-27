@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
 
     unless @order.invitation.nil?
       @order.pay('invitations uniquement')
-      @order.reservations.map(&:save)
+      @order.reservations.map{ |r| r.update_column('code',r.code) }
       @order.save
       redirect_to '/merci'
     else

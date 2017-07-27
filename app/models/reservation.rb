@@ -7,6 +7,7 @@ class Reservation < ApplicationRecord
 	before_create :update_price
 	before_create :check_invitation_count
 	before_update :check_invitation_count
+	before_save :check_invitation_count
 
 	validates :seat_id, uniqueness: true
 
