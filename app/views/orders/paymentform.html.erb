@@ -162,7 +162,7 @@
 <script>
 
 // Create a Stripe client
-var key = "<%=Rails.configuration.stripe[:publishable_key]%>"
+var key = "<%=ENV['PUBLISHABLE_KEY']%>"
 var stripe = Stripe(key);
 
 // Create an instance of Elements
