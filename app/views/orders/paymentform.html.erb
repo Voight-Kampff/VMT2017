@@ -13,7 +13,7 @@
         <% if @order.invitations_only? %>
           <h2> Envoi des Invitaitons </h2>
         <% else %>
-          <h2>Paiement <%=ENV['PUBLISHABLE_KEY']%></h2>
+          <h2>Paiement <%=Rails.configuration.stripe[:publishable_key]%></h2>
         <% end %>
         <div class="divider"></div>
       </div>
@@ -162,7 +162,7 @@
 <script>
 
 // Create a Stripe client
-var key = "<%=Rails.configuration.stripe[:publishable_key]%>"
+var key = "<%=Rails.configuration.stripe[:publishable_key]%>";
 var stripe = Stripe(key);
 
 // Create an instance of Elements
