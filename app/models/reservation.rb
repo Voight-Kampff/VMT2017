@@ -82,16 +82,6 @@ class Reservation < ApplicationRecord
 
     	self.code = SecureRandom.urlsafe_base64(20)
 
-    	end
-
-    end
-
-	def generate_code_png
-
-		unless self.code.nil?
-
-    	self.code = SecureRandom.urlsafe_base64(20)
-
     	require 'rqrcode'
 
     	qrcode= RQRCode::QRCode.new("r-"+self.id.to_s+"-"+self.code.to_s)
