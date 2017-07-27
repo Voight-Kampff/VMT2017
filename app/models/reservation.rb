@@ -7,7 +7,6 @@ class Reservation < ApplicationRecord
 	before_create :update_price
 	before_create :check_invitation_count
 	before_update :check_invitation_count
-	before_save :check_invitation_count
 
 	validates :seat_id, uniqueness: true
 
@@ -127,9 +126,10 @@ class Reservation < ApplicationRecord
 
 		def check_invitation_count
 			unless self.order.invitation.nil?
-				if self.order.invitation.free_tickets < self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+				if self.order.invitation.free_tickets <= self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
 					if self.reservation_type.name == "Invitation membre"
-						throw :abort
+						 errors.add(:base, "order limited to #{self.order.invitation.free_tickets} free tickets")
+						throw :abort 
 					end
 				end
 			end
