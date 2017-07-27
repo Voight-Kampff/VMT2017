@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
 
     if charge.status=="succeeded"
       redirect_to '/merci'
-      session.delete(:order_id)
+      #session.delete(:order_id)
       @order.pay('credit card payment')
       @order.reservations.map(&:save)
       @order.reservations.map(&:generate_pdf)
