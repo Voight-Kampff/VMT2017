@@ -99,6 +99,8 @@ Rails.application.configure do
 
   config.secret_key_base = '<%= ENV["SECRET_KEY_BASE"] %>'
 
+  config.force_ssl = true
+
   #Seting for invitaiton mailer
   config.action_mailer.default_url_options = { host: 'vmt-tickets2.herokuapp.com'}
 
