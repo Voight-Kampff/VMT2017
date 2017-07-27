@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726140027) do
+ActiveRecord::Schema.define(version: 20170727035029) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170726140027) do
     t.text     "notes"
     t.boolean  "flagged"
     t.string   "stripe_token"
+    t.integer  "user_id"
   end
 
   create_table "reservation_types", force: :cascade do |t|

@@ -2,7 +2,6 @@ class TicketMailer < ApplicationMailer
 
 	def invitation(invitation)
 
-		@order = invitation.order
 		@invitation=invitation
 
     	mail(:to => @invitation.email, :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Vos invitations pour les Variations Musicales de Tannay")

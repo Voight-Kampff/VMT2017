@@ -58,13 +58,14 @@ class ReservationsController < ApplicationController
 		@reservation.price=@reservation.seat.price
 
 		
-		respond_to do |format|
-			if @reservation.save
+		if @reservation.save
+			respond_to do |format|
 				format.html { render nothing: true } 
-				format.js { } 
-			end
+				format.js { render 'create.js.erb' }
+			end	
+		else
+		end
 			
-    	end	
 
     	@order.total=@order.calculate_price
 

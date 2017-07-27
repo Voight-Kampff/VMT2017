@@ -17,33 +17,33 @@ class ChargesController < ApplicationController
 		end
 
 	# Amount in cents
-	@amount = @order.calculate_price*100
+	  @amount = @order.calculate_price*100
 
-	customer = Stripe::Customer.create(
+	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
 	    :source  => params[:stripeToken]
 	  )
 
-	charge = Stripe::Charge.create(
+	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
 	    :amount      => @amount,
 	    :description => @order.id.to_i,
 	    :currency    => 'chf'
 	  )
 
-	  #if charge.create
-		#  @order.pay('credit card payment')
-		 # @order.reservations.map(&:save)
-	     # @order.reservations.map(&:generate_pdf)
-		 # @order.save
-		 # TicketMailer.send_ticket(@order).deliver
-		 # session.delete(:order_id)
-		#else
-	#	end
+	  if charge.create
+		  @order.pay('credit card payment')
+		  @order.reservations.map(&:save)
+	      @order.reservations.map(&:generate_pdf)
+		  @order.save
+		  TicketMailer.send_ticket(@order).deliver
+		  session.delete(:order_id)
+		else
+		end
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
-	  redirect_to '/paiement'
+	  redirect_to new_charge_path
 	end
 
 end
