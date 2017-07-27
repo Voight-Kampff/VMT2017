@@ -62,11 +62,11 @@ class OrdersController < ApplicationController
     @order.update(order_params)
 
     unless @order.invitation.nil?
-      redirect_to '/merci'
       @order.pay('invitations uniquement')
       @order.save
       @order.invitation.used=1
       @order.invitation.save
+      redirect_to '/merci'
     else
       redirect_to '/paiement'
     end
@@ -86,9 +86,9 @@ class OrdersController < ApplicationController
     charge = Payment.charge(@order)
 
     if charge.status=="succeeded"
-      redirect_to '/merci'
       @order.pay('credit card payment')
       @order.save
+      redirect_to '/merci'
     else
       redirect_to '/paiement'
     end
