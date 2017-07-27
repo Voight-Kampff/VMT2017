@@ -147,9 +147,13 @@ class ReservationsController < ApplicationController
 	end
 
 	def basket
-    	@order = Order.find_by_id(session[:order_id])
-    	@reservations = @order.reservations
-    	@options_for_select = @order.options_for_select
+		if Order.find_by_id(session[:order_id]).nil?
+			redirect_to '/concerts'
+		else
+	    	@order = Order.find_by_id(session[:order_id])
+	    	@reservations = @order.reservations
+	    	@options_for_select = @order.options_for_select(current_user)
+	    end
  	end
 
 	def destroy
@@ -182,6 +186,10 @@ class ReservationsController < ApplicationController
 		
 		def reservation_params
 			params.require(:reservation).permit(:seat_id,:reservation_type_id)
+		end
+
+		def check_admin_authorization
+			current_user.admin?
 		end
 
 end

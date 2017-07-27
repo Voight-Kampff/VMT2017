@@ -75,3 +75,6 @@ gem 'rqrcode'
 # E-mail processing. Using roadie rather than pre-mailer due to line height/padding issue with the latter
 gem 'nokogiri'
 gem 'roadie-rails'
+
+# User authentication
+gem 'devise'

@@ -2,6 +2,11 @@ class Order < ApplicationRecord
 	has_many :reservations, dependent: :destroy
 	has_many :seats, through: :reservations
   has_one :invitation
+  belongs_to :user
+
+  before_save :calculate_price
+  before_update :calculate_price
+
 
     def pay(method)
       self.calculate_price
@@ -21,6 +26,17 @@ class Order < ApplicationRecord
 
     def code_url
       "https://s3-eu-west-1.amazonaws.com/variations/#{self.id.to_s}-#{self.code.to_s}.png"
+    end
+
+    def place_hold(type)
+      unless ReservationType.find_by_name(type).nil?
+        reservation_type=ReservationType.find_by_name(type)
+        self.reservations.each do |reservation|
+          reservation.reservation_type=reservation_type
+        end
+      end
+      self.held=1
+      self.hold_type=type
     end
 
     def generate_code
@@ -72,14 +88,26 @@ class Order < ApplicationRecord
     end
 
 
-    def options_for_select
-      options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
-      unless self.invitation.nil?
-        #member_invitation = ReservationType.all.select {|reservation_type| reservation_type.name="Invitation membre" }
-        member_invitation = ReservationType.find_by_name("Invitation membre")
-        options.push(member_invitation)
+    def options_for_select(current_user=nil)
+      if (current_user.nil? == false) && (current_user.admin? == true)
+        options=ReservationType.all
+      else
+        options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
+        unless self.invitation.nil?
+          #member_invitation = ReservationType.all.select {|reservation_type| reservation_type.name="Invitation membre" }
+          member_invitation = ReservationType.find_by_name("Invitation membre")
+          options.push(member_invitation)
       end
-      return options
+        return options
+      end
+    end
+
+    def options_for_hold(current_user=nil)
+      if (current_user.nil? == false) && (current_user.admin? == true)
+        options=['Ticketcorner','En attente de paiement', 'Réserve']
+      else
+      end
+        return options
     end
 
 end

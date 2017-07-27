@@ -1,6 +1,7 @@
 <script>
 $(document).ready(function() {
     $('select').material_select();
+    $('.modal').modal();
   });
 </script>
 <main>
@@ -67,6 +68,26 @@ $(document).ready(function() {
 				<%= link_to("Continuer", '/paiement', :class => "waves-effect waves-light btn")%>
 			</div>
 		</div>
+		<% end %>
+		<% if (current_user.nil? == false) && (current_user.admin? == true) %>
+			<div class="row right-align">
+				<div class="col s12  m12 l12">
+					 <button data-target="modal1" class="btn modal-trigger">Retirer de la vente</button>
+				</div>
+			</div>
+			  <!-- Modal Structure -->
+			<div id="modal1" class="modal">
+				<div class="modal-content">
+					<h4>Retrait de vente</h4>
+					<p>Motif</p>
+					<%=form_tag("/orders/#{@order.id}/hold", method: :post) %>
+						<%= select_tag :hold_type, options_for_select(@order.options_for_hold(current_user)) %>
+						<%= submit_tag 'Retirer de la vente' %>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+				</div>
+			</div>
 		<% end %>
 	</div>
 </main>

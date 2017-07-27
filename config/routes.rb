@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'invitation/new'
 
   get 'invitation/create'
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
   post 'orders/charge', to: 'orders#charge'
 
   post 'orders/invitationdelivery', to: 'orders#invitationdelivery'
+
+  post 'orders/:id/hold', to: 'orders#hold'
 
   get 'reservations/basket', to: 'reservations#basket'
 

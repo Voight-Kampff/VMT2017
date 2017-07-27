@@ -1,4 +1,7 @@
 class InvitationsController < ApplicationController
+
+  before_action :check_admin_authorization, except: [:index]
+
   def new
     @invitation=Invitation.new
   end
@@ -32,5 +35,8 @@ class InvitationsController < ApplicationController
       params.require(:invitation).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:free_tickets)
     end
 
+    def check_admin_authorization
+     current_user.admin?
+    end
 
 end

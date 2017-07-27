@@ -1,5 +1,7 @@
 class ConcertsController < ApplicationController
   
+  before_action :check_admin_authorization, except: [:index]
+
   def new
     @concert=Concert.new
     @concerts=Concert.all
@@ -72,6 +74,10 @@ class ConcertsController < ApplicationController
 
     def concert_params
       params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :unnumbered, :number_of_seats,:single_price,:footnote,:subline)
+    end
+
+    def check_admin_authorization
+     current_user.admin?
     end
 
 end

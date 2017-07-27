@@ -41,6 +41,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (7.1.4)
+    bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
@@ -59,6 +60,12 @@ GEM
     concurrent-ruby (1.0.5)
     css_parser (1.5.0)
       addressable
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     docraptor (1.1.0)
       json (~> 1.4, >= 1.4.6)
       typhoeus (~> 0.2, >= 0.2.1)
@@ -241,6 +248,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    orm_adapter (0.5.0)
     pg (0.21.0)
     puma (3.9.1)
     rack (2.0.3)
@@ -278,6 +286,8 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    responders (2.3.0)
+      railties (>= 4.2.0, < 5.1)
     roadie (3.2.2)
       css_parser (~> 1.4)
       nokogiri (~> 1.5)
@@ -321,6 +331,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -338,6 +350,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  devise
   docraptor
   fog
   jbuilder (~> 2.5)
