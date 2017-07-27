@@ -127,7 +127,7 @@ class Reservation < ApplicationRecord
 
 		def check_invitation_count
 			unless self.order.invitation.nil?
-				if self.order.invitation.free_tickets <= self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+				if self.order.invitation.free_tickets < self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
 					if self.reservation_type.name == "Invitation membre"
 						throw :abort
 					end
