@@ -34,6 +34,9 @@ class OrdersController < ApplicationController
       redirect_to '/concerts'
     else
       @order = Order.find_by_id(session[:order_id])
+      @order.reservations.map(&:save)
+      @order.reservations.map(&:generate_pdf)
+      TicketMailer.ticket(@order).deliver
       session.delete(:order_id)
     end
   end
@@ -61,12 +64,9 @@ class OrdersController < ApplicationController
     unless @order.invitation.nil?
       redirect_to '/merci'
       @order.pay('invitations uniquement')
-      @order.reservations.map(&:save)
-      @order.reservations.map(&:generate_pdf)
       @order.save
       @order.invitation.used=1
       @order.invitation.save
-      TicketMailer.ticket(@order).deliver
     else
       redirect_to '/paiement'
     end
@@ -87,12 +87,8 @@ class OrdersController < ApplicationController
 
     if charge.status=="succeeded"
       redirect_to '/merci'
-      #session.delete(:order_id)
       @order.pay('credit card payment')
-      @order.reservations.map(&:save)
-      @order.reservations.map(&:generate_pdf)
       @order.save
-      TicketMailer.ticket(@order).deliver
     else
       redirect_to '/paiement'
     end
