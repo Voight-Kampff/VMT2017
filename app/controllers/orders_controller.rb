@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
       redirect_to '/concerts'
     else
       @order = Order.find_by_id(session[:order_id])
+      @order.reservations.map(&:generate_code_png)
       @order.reservations.map(&:generate_pdf)
       TicketMailer.ticket(@order).deliver
       session.delete(:order_id)
