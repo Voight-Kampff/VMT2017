@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
 	belongs_to :order
 	belongs_to :seat
-	belongs_to :seat
 	belongs_to :reservation_type
 
 	before_update :update_price
@@ -23,6 +22,18 @@ class Reservation < ApplicationRecord
     def pdf_url
     	"https://s3-eu-west-1.amazonaws.com/variations/"+self.pdf_name
     end
+
+    def assign_reservation_type
+    	unless self.order.invitation.nil?
+			if self.order.invitation.free_tickets > self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
+				self.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
+			else
+				self.reservation_type_id=1
+			end
+		else
+			self.reservation_type_id=1
+		end
+	end
 
 	def generate_pdf
 

@@ -4,7 +4,11 @@ class ReservationsController < ApplicationController
 		@concert=Concert.find_by_id(params[:concert_id])
 
 		if Order.find_by_id(session[:order_id]).nil?
-			@order=Order.create
+			if user_signed_in?
+				@order=Order.create(user_id: current_user.id)
+			else
+				@order=Order.create
+			end
 			session[:order_id] = @order.id
 		else
 			@order = Order.find_by_id(session[:order_id])
@@ -35,28 +39,18 @@ class ReservationsController < ApplicationController
 		
 
 		if Order.find_by_id(session[:order_id]).nil?
-			@order=Order.create
+			if user_signed_in?
+				@order=Order.create(user_id: current_user.id)
+			else
+				@order=Order.create
+			end
 			session[:order_id] = @order.id
 		else
 			@order = Order.find_by_id(session[:order_id])
 		end
 		
-		@reservation = Reservation.create(reservation_params)
-		
-		@reservation.order_id=@order.id
-
-		unless @order.invitation.nil?
-			if @order.invitation.free_tickets > @order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
-				@reservation.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
-			else
-				@reservation.reservation_type_id=1
-			end
-		else
-			@reservation.reservation_type_id=1
-		end
-
-		@reservation.price=@reservation.seat.price
-
+		@reservation = Reservation.create(reservation_params.merge(order_id: @order.id).merge(reservation_type_id: '1'))
+		@reservation.assign_reservation_type
 		
 		if @reservation.save
 			respond_to do |format|
@@ -74,7 +68,11 @@ class ReservationsController < ApplicationController
 	def unnumbered
 
 		if Order.find_by_id(session[:order_id]).nil?
-			@order=Order.create
+			if user_signed_in?
+				@order=Order.create(user_id: current_user.id)
+			else
+				@order=Order.create
+			end
 			session[:order_id] = @order.id
 		else
 			@order = Order.find_by_id(session[:order_id])

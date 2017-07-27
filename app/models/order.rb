@@ -2,7 +2,7 @@ class Order < ApplicationRecord
 	has_many :reservations, dependent: :destroy
 	has_many :seats, through: :reservations
   has_one :invitation
-  belongs_to :user
+  belongs_to :user, optional: true
 
   before_save :calculate_price
   before_update :calculate_price
