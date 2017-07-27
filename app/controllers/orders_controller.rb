@@ -61,10 +61,10 @@ class OrdersController < ApplicationController
     @order.update(order_params)
 
     unless @order.invitation.nil?
+      render 'success'
       @order.pay('invitations uniquement')
       @order.reservations.map{ |r| r.update_column('code',r.code) }
       @order.save
-      redirect_to '/merci'
     else
       redirect_to '/paiement'
     end
@@ -84,10 +84,10 @@ class OrdersController < ApplicationController
     charge = Payment.charge(@order)
 
     if charge.status=="succeeded"
+      render 'success'
       @order.pay('credit card payment')
       @order.reservations.map(&:save)
       @order.save
-      redirect_to '/merci'
     else
       redirect_to '/paiement'
     end
