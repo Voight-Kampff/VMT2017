@@ -13,7 +13,7 @@
         <% if @order.invitations_only? %>
           <h2> Envoi des Invitaitons </h2>
         <% else %>
-          <h2>Paiement</h2>
+          <h2>Paiement <%=ENV['PUBLISHABLE_KEY']%></h2>
         <% end %>
         <div class="divider"></div>
       </div>
