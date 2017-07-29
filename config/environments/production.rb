@@ -104,4 +104,7 @@ Rails.application.configure do
   #Seting for invitaiton mailer
   config.action_mailer.default_url_options = { host: 'vmt-tickets2.herokuapp.com'}
 
+  uri = URI.parse(ENV["REDISTOGO_URL"])
+  Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+
 end
