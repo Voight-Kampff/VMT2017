@@ -78,12 +78,19 @@ class Reservation < ApplicationRecord
 
 	def generate_code
 
+		#only generate if code doesn't already exsit
 		if self.code.nil?
+    		self.code = SecureRandom.urlsafe_base64(20)
+    	else
+    	end
 
-    	self.code = SecureRandom.urlsafe_base64(20)
+    end
+
+    def generate_code_png
 
     	require 'rqrcode'
 
+    	# Generate and process qr code
     	qrcode= RQRCode::QRCode.new("r-"+self.id.to_s+"-"+self.code.to_s)
 		qr_png = qrcode.as_png(
 			resize_gte_to: false,
@@ -97,7 +104,7 @@ class Reservation < ApplicationRecord
 			)
 		qr_png.save("/tmp/r-#{self.id.to_s}-#{self.code.to_s}.png", :interlace => true)
       
-		# create a connection
+		# Create a connection to AWS
 		connection = Fog::Storage.new({
 			:provider                 => 'AWS',
 			:aws_access_key_id        => ENV['AWS_ACCESS_KEY'],
@@ -105,17 +112,15 @@ class Reservation < ApplicationRecord
 			:region                   => 'eu-west-1',
 			})
 
-		# First, a place to contain the glorious details
-      
+		# Location
 		bucket = connection.directories.get('variations')
 
+		#Saving to AWS
 		bucket.files.create(
 			:key    => "r-#{self.id.to_s}-#{self.code.to_s}.png",
 			:body   => File.open("/tmp/r-#{self.id.to_s}-#{self.code.to_s}.png"),
 			:public => true
 		)
-
-		end
 
 	end
 

@@ -34,8 +34,6 @@ class OrdersController < ApplicationController
       redirect_to '/concerts'
     else
       @order = Order.find_by_id(session[:order_id])
-      @order.reservations.map(&:generate_pdf)
-      TicketMailer.ticket(@order).deliver
       session.delete(:order_id)
     end
   end
@@ -64,6 +62,7 @@ class OrdersController < ApplicationController
       render 'success'
       @order.pay('invitations uniquement')
       @order.reservations.map{ |r| r.update_column('code',r.code) }
+      GenerateTicketJob.perform_later(@order)
       @order.save
     else
       redirect_to '/paiement'
@@ -86,8 +85,10 @@ class OrdersController < ApplicationController
     if charge.status=="succeeded"
       render 'success'
       @order.pay('credit card payment')
+      #ShouldRemove and have autosave instead
       @order.reservations.map(&:save)
       @order.save
+      GenerateTicketJob.perform_later(@order)
     else
       redirect_to '/paiement'
     end
