@@ -1,1 +1,2 @@
-worker: QUEUE=* rake resque:work
+web: bundle exec rails server -p $PORT
+worker: QUEUE=* rake environment resque:work
