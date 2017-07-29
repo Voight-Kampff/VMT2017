@@ -78,3 +78,10 @@ gem 'roadie-rails'
 
 # User authentication
 gem 'devise'
+
+# Persistance for scheduled tasks
+gem 'resque', require: 'resque/server'
+
+gem 'redis'
+
+

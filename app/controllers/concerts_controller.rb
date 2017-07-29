@@ -78,7 +78,9 @@ class ConcertsController < ApplicationController
 
     def check_admin_authorization
       if user_signed_in?
-        current_user.admin?
+        redirect_to root_path unless current_user.admin?
+      else
+        redirect_to root_path
       end
     end
 

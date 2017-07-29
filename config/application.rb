@@ -13,5 +13,8 @@ module VMT2017
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :fr
     I18n.config.available_locales = :fr
+
+     config.active_job.queue_adapter = :resque
+
   end
 end
