@@ -10,6 +10,7 @@ class DashboardsController < ApplicationController
 		@payment_types=Order.pluck(:payment_type).uniq
 		@hold_types=Order.pluck(:hold_type).uniq
 		@reservations=Reservation.joins(:seat).where(:seats  => {:concert_id => @concert.id}).joins(:order).where(:orders  => {:paid => true})
+		@unpaid_reservations=Reservation.joins(:seat).where(:seats  => {:concert_id => @concert.id})
 		@held_reservations=Reservation.joins(:seat).where(:seats  => {:concert_id => @concert.id}).joins(:order).where(:orders  => {:held => true})
 	end
 

@@ -60,8 +60,8 @@
 								<td><%=price%></td>
 								<td><%=reservation_type.name%>
 								<td></td>
-								<td><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.count%></td>
-								<td><%=number_to_currency(@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
+								<td><%=@unpaid_reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.count%></td>
+								<td><%=number_to_currency(@unpaid_reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
 							</tr>
 						<% end %>
 					
@@ -71,8 +71,8 @@
 						<th></th>
 						<th></th>
 						<th><b>Total</b></th>
-						<th><b><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.count%></b></th>
-						<th><b><%=number_to_currency(@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
+						<th><b><%=@unpaid_reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.count%></b></th>
+						<th><b><%=number_to_currency(@unpaid_reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
 					</tr>
 				</thead>
 			<% end %>
@@ -96,8 +96,8 @@
 								<td><%=price%></td>
 								<td><%=reservation_type.name%>
 								<td></td>
-								<td><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></td>
-								<td><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
+								<td><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "En attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></td>
+								<td><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "En attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
 							</tr>
 						<% end %>
 				</tbody>
@@ -106,8 +106,8 @@
 						<th></th>
 						<th></th>
 						<th><b>Total</b></th>
-						<th><b><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></b></th>
-						<th><b><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
+						<th><b><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "En attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></b></th>
+						<th><b><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "En attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
 					</tr>
 				</thead>
 			<% end %>
