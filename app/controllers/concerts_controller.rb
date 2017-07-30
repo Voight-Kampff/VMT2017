@@ -67,7 +67,7 @@ class ConcertsController < ApplicationController
   end
 
   def show
-    @concerts=Concert.all
+    @concerts=Concert.all.order("concerts.date")
   end
 
   private
