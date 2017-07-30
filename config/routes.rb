@@ -40,6 +40,9 @@ Rails.application.routes.draw do
 
   delete 'delete_by_seat_id', to: 'reservations#delete_by_seat_id'
 
+  get 'dashboards', to: 'dashboards#index'
+
+  get 'dashboards/concerts/:id', to: 'dashboards#show'
 
   resources :orders
 
