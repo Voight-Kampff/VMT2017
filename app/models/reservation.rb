@@ -3,8 +3,9 @@ class Reservation < ApplicationRecord
 	belongs_to :seat
 	belongs_to :reservation_type
 
-	before_update :update_price
 	before_create :update_price
+	before_update :update_price
+	before_save :update_price
 	before_create :check_invitation_count
 	before_update :check_invitation_count
 	before_save :check_invitation_count

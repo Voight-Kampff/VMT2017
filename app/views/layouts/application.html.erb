@@ -12,7 +12,7 @@
   </head>
 
   <body>
-  	<%= render 'layouts/header', :locals => @concerts=Concert.all %>
+  	<%= render 'layouts/header', :locals => @concerts=Concert.all.order(:date) %>
     <%= yield %>
   </body>
 </html>

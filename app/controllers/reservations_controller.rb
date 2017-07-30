@@ -59,7 +59,6 @@ class ReservationsController < ApplicationController
 			end	
 		else
 		end
-			
 
     	@order.total=@order.calculate_price
 
@@ -150,7 +149,7 @@ class ReservationsController < ApplicationController
 			redirect_to '/concerts'
 		else
 	    	@order = Order.find_by_id(session[:order_id])
-	    	@reservations = @order.reservations
+	    	@reservations = @order.reservations.joins(:seat => :concert).order("concerts.date")
 	    	@options_for_select = @order.options_for_select(current_user)
 	    end
  	end

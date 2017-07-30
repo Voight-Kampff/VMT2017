@@ -2,6 +2,10 @@
 
   $(document).ready(function() {
     $('select').material_select();
+    <%@order.errors.messages.keys.each do |key|%>
+      $("#order_<%= escape_javascript(key.to_s)%>").addClass("invalid");
+      $("label[for='order_<%= escape_javascript(key.to_s)%>']").attr('data-error',"<%= escape_javascript(raw(@order.errors[key][0].to_s))%>");
+    <%end%>
   });
 
 
@@ -18,51 +22,54 @@
         <div class="divider"></div>
       </div>
       <div class="col s12 m12 l12">
+        <h6>Vos Coordonnées</h6>
+        <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
         <% if @order.invitations_only? %>
-          <h6>Envoi des invitations</h6>
           <%= form_for @order, url: {action: "invitationdelivery"}, method: "post" do |f|%>
             <div class="row">
               <div class ="input-field col s2">
-                <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>
+                <%= f.select :title, options_for_select(['Monsieur','Madame']) %>
                 <label>Civilité</label>
               </div>
               <div class ="input-field col s5">
-                <%= f.text_field :first_name, :value => @order.invitation.first_name %>
-                <%= f.label :prénom%>
+                <%= f.text_field :first_name, :value => @order.invitation.first_name, :class => "validate"%>
+                <%= f.label :first_name, "Prénom"%>
               </div>
               <div class ="input-field col s5">
-                <%= f.label :nom%>
-                <%= f.text_field :last_name, :value => @order.invitation.last_name  %>
+                <%= f.text_field :last_name, :value => @order.invitation.last_name, :class => "validate" %>
+                <%= f.label :last_name, "Nom"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s12">
-                <%= f.label :"Adresse"%>
-                <%= f.text_field :road, :value => @order.invitation.road %>
+                <%= f.text_field :road, :value => @order.invitation.road, :class => "validate" %>
+                <%= f.label :road, "Adresse"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s4">
-                <%= f.label :"Code Postal"%>
-                <%= f.text_field :postcode, :value => @order.invitation.postcode %>
+                <%= f.text_field :postcode, :value => @order.invitation.postcode, :class => "validate" %>
+                <%= f.label :postcode, "Code Postal"%>
               </div>
               <div class ="input-field col s4">
-                <%= f.label :Localité%>
-                <%= f.text_field :town, :value => @order.invitation.town %>
+                <%= f.text_field :town, :value => @order.invitation.town, :class => "validate" %>
+                <%= f.label :town, "Localité"%>
               </div>
               <div class ="input-field col s4">
-                <%= f.label :Pays%>
-                <%= f.text_field :country, :value => @order.invitation.country %>
+                <%= f.text_field :country, :value => @order.invitation.country, :class => "validate" %>
+                <%= f.label :country, "Pays"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s6">
-                <%= f.label :"Adresse e-mail"%>
-                <%= f.text_field :email, :value => @order.invitation.email %>
+                <%= f.text_field :email, :value => @order.invitation.email, :class => "validate" %>
+                <%= f.label :email, "Adresse e-mail"%>
               </div>
               <div class ="input-field col s6">
-                <%= f.label :Téléphone%>
-                <%= f.text_field :telephone, :value => @order.invitation.telephone  %>
+                <%= f.text_field :telephone, :value => @order.invitation.telephone, :class => "validate" %>
+                <%= f.label :telephone, "Téléphone"%>
               </div>
             </div>
             </br>
@@ -71,50 +78,49 @@
             </div>
           <% end %>
         <% else %>
-          <h6>Vos Coordonnées</h6>
           <%= form_for @order, url: {action: "charge"}, method: "post" do |f|%>
             <div class="row">
               <div class ="input-field col s2">
-                <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>
+                <%= f.select :title, options_for_select(['Monsieur','Madame']) %>
                 <label>Civilité</label>
               </div>
               <div class ="input-field col s5">
-                <%= f.text_field :first_name %>
-                <%= f.label :prénom%>
+                <%= f.text_field :first_name, :class => "validate"%>
+                <%= f.label :first_name, "Prénom"%>
               </div>
               <div class ="input-field col s5">
-                <%= f.label :nom%>
-                <%= f.text_field :last_name %>
+                <%= f.text_field :last_name, :class => "validate"  %>
+                <%= f.label :last_name, "Nom"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s12">
-                <%= f.label :"Adresse"%>
-                <%= f.text_field :road %>
+                <%= f.text_field :road, :class => "validate" %>
+                <%= f.label :road, "Adresse"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s4">
-                <%= f.label :"Code Postal"%>
-                <%= f.text_field :postcode %>
+                <%= f.text_field :postcode, :class => "validate" %>
+                <%= f.label :postcode, "Code postal"%>
               </div>
               <div class ="input-field col s4">
-                <%= f.label :Localité%>
-                <%= f.text_field :town %>
+                <%= f.text_field :town, :class => "validate" %>
+                <%= f.label :town, "Localité"%>
               </div>
               <div class ="input-field col s4">
-                <%= f.label :Pays%>
-                <%= f.text_field :country %>
+                <%= f.text_field :country, :class => "validate"%>
+                <%= f.label :country, "Pays"%>
               </div>
             </div>
             <div class="row">
               <div class ="input-field col s6">
-                <%= f.label :"Adresse e-mail"%>
-                <%= f.text_field :email %>
+                <%= f.text_field :email, :class => "validate" %>
+                <%= f.label :email, "Adresse e-mail"%>
               </div>
               <div class ="input-field col s6">
-                <%= f.label :Téléphone%>
-                <%= f.text_field :telephone %>
+                 <%= f.text_field :telephone, :class => "validate" %>
+                <%= f.label :telephone, "Téléphone"%>
               </div>
                 <%= f.hidden_field :stripe_token %>
             </div>
@@ -129,8 +135,6 @@
       </div>
     </div>
       <div class="col s12 m12 l12">
-        <script src="https://js.stripe.com/v3/"></script>
-
           <form action="/charge" method="post" id="payment-form">
             <div class="form-row">
               <label for="card-element">
@@ -160,6 +164,7 @@
 
 
 <script>
+
 
 // Create a Stripe client
 var key = "<%=Rails.configuration.stripe[:publishable_key]%>";

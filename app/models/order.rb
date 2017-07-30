@@ -1,11 +1,14 @@
 class Order < ApplicationRecord
-	has_many :reservations, dependent: :destroy
+	has_many :reservations, dependent: :destroy, autosave: true
 	has_many :seats, through: :reservations
   has_one :invitation
   belongs_to :user, optional: true
 
   before_save :calculate_price
   before_update :calculate_price
+
+  validates :first_name, :last_name, :email, :title, :road, :postcode, :town, :country, presence: true, on: :update, unless: :user_created?
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, on: :update, unless: :user_created?
 
 
     def pay(method)
@@ -108,6 +111,10 @@ class Order < ApplicationRecord
       else
       end
         return options
+    end
+
+    def user_created?
+      self.user_id.present?
     end
 
 end

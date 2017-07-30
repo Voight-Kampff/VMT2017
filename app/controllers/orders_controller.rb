@@ -56,17 +56,22 @@ class OrdersController < ApplicationController
       @order = Order.find_by_id(session[:order_id])
     end
 
-    @order.update(order_params)
-
-    unless @order.invitation.nil?
-      render 'success'
-      @order.pay('invitations uniquement')
-      @order.reservations.map{ |r| r.update_column('code',r.code) }
-      GenerateTicketJob.perform_later(@order)
-      @order.save
+    if @order.update(order_params)
+      unless @order.invitation.nil?
+        render 'success'
+        @order.pay('invitations uniquement')
+        #@order.reservations.map{ |r| r.update_column('code',r.code) }
+        @order.save
+        GenerateTicketJob.perform_later(@order)
+        session.delete(:order_id)
+      else
+        render 'paymentform'
+      end
     else
-      redirect_to '/paiement'
+      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
+      render 'paymentform'
     end
+
   end
 
 
@@ -82,15 +87,22 @@ class OrdersController < ApplicationController
 
     charge = Payment.charge(@order)
 
-    if charge.status=="succeeded"
-      render 'success'
-      @order.pay('credit card payment')
-      #ShouldRemove and have autosave instead
-      @order.reservations.map(&:save)
-      @order.save
-      GenerateTicketJob.perform_later(@order)
+    if @order.update(order_params)
+      if charge.status=="succeeded"
+        render 'success'
+        @order.pay('credit card payment')
+        #ShouldRemove and have autosave instead
+        #@order.reservations.map(&:save)
+        @order.save
+        GenerateTicketJob.perform_later(@order)
+        session.delete(:order_id)
+      else
+        flash[:alert] = "Votre paiement n'est pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+        render 'paymentform'
+      end
     else
-      redirect_to '/paiement'
+      flash[:alert] = "Votre forumlaire contient #{@order.errors.count}"
+      render 'paymentform'
     end
 
   end
