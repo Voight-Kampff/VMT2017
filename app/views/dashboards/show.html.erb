@@ -2,8 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-      	<h4>Statistiques</h4>
+      	<h4><%=@concert.name%></h4>
       	<div class="divider"></div>
+      	<h6>Places vendues</h6>
       	<table class="highlight">
       		<thead>
 	      		<tr>
@@ -22,19 +23,93 @@
 								<td><%=price%></td>
 								<td><%=reservation_type.name%>
 								<td><%=payment_type%></td>
-								<td><%=@reservations.select{|reservation| (reservation.order.payment_type == payment_type && reservation.seat.price == price && reservation.reservation_type.discount>0)}.count%></td>
-								<td><%=@reservations.select{|reservation| (reservation.order.payment_type == payment_type && reservation.seat.price == price && reservation.reservation_type.discount>0)}.sum(&:price)%></td>
+								<td><%=@reservations.select{|reservation| (reservation.order.payment_type == payment_type && reservation.seat.price == price && reservation.reservation_type == reservation_type)}.count%></td>
+								<td><%=number_to_currency(@reservations.select{|reservation| (reservation.order.payment_type == payment_type && reservation.seat.price == price && reservation.reservation_type == reservation_type)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
 							</tr>
 						<% end %>
 					<% end %>
-					<tr>
-						<td></td>
-						<td></td>
-						<td><b>Total</b></td>
-						<td><b><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount > 0)}.count%></b></td>
-						<td><b><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount > 0)}.sum(&:price)%></b></td>
-					</tr>
 				</tbody>
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th><b>Total</b></th>
+						<th><b><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount > 0)}.count%></b></th>
+						<th><b><%=number_to_currency(@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
+					</tr>
+				</thead>
+			<% end %>
+      	</table>
+      	<div class="divider"></div>
+      	<h6>Places non-payantes et retirées de la vente</h6>
+      	<table class="highlight">
+      		<thead>
+	      		<tr>
+	      			<th>Prix</th>
+	      			<th>Catégorie de réservation</th>
+	      			<th></th>
+	      			<th>Nombre de ventes</th>
+	      			<th>Recettes</th>
+	      		</tr>
+      		</thead>
+			<%@category_prices.each do |price|%>
+				<tbody>
+					
+						<%@reservation_types.select{|reservation_type| reservation_type.discount==0}.each do |reservation_type|%>
+							<tr>
+								<td><%=price%></td>
+								<td><%=reservation_type.name%>
+								<td></td>
+								<td><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.count%></td>
+								<td><%=number_to_currency(@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type == reservation_type)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
+							</tr>
+						<% end %>
+					
+				</tbody>
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th><b>Total</b></th>
+						<th><b><%=@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.count%></b></th>
+						<th><b><%=number_to_currency(@reservations.select{|reservation| (reservation.seat.price == price && reservation.reservation_type.discount == 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
+					</tr>
+				</thead>
+			<% end %>
+		</table>
+		<div class="divider"></div>
+      	<h6>Places reservées et en attente de paiement</h6>
+      	<table class="highlight">
+      		<thead>
+	      		<tr>
+	      			<th>Prix</th>
+	      			<th>Catégorie de réservation</th>
+	      			<th></th>
+	      			<th>Nombre de ventes</th>
+	      			<th>Recettes</th>
+	      		</tr>
+      		</thead>
+			<%@category_prices.each do |price|%>
+				<tbody>
+						<%@reservation_types.select{|reservation_type| reservation_type.discount>0}.each do |reservation_type|%>
+							<tr>
+								<td><%=price%></td>
+								<td><%=reservation_type.name%>
+								<td></td>
+								<td><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></td>
+								<td><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</td>
+							</tr>
+						<% end %>
+				</tbody>
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th><b>Total</b></th>
+						<th><b><%=@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.count%></b></th>
+						<th><b><%=number_to_currency(@held_reservations.select{|reservation| (reservation.seat.price == price && reservation.order.hold_type == "en attente de paiement"  && reservation.reservation_type.discount > 0)}.sum(&:price), unit:"", separator: ".", delimiter: ",", precision: 0)%>.-</b></th>
+					</tr>
+				</thead>
 			<% end %>
       	</table>
       </div>
