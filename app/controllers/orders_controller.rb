@@ -101,7 +101,7 @@ class OrdersController < ApplicationController
         render 'paymentform'
       end
     else
-      flash[:alert] = "Votre forumlaire contient #{@order.errors.count}"
+      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
       render 'paymentform'
     end
 

@@ -9,7 +9,7 @@ class TicketMailer < ApplicationMailer
 
 	def ticket(order)
 		@order = order
-		@reservations=@order.reservations
+		@reservations=@order.reservations.joins(:seat => :concert).order("concerts.date")
 
 		tmp_file = Tempfile.new
 		tmp_file.binmode

@@ -19,13 +19,13 @@
         <% else %>
           <h2>Paiement</h2>
         <% end %>
+        <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
         <div class="divider"></div>
       </div>
       <div class="col s12 m12 l12">
         <h6>Vos Coordonnées</h6>
-        <% if flash[:alert] %>
-          <div class="alert"><%= flash[:alert] %></div>
-        <% end %>
         <% if @order.invitations_only? %>
           <%= form_for @order, url: {action: "invitationdelivery"}, method: "post" do |f|%>
             <div class="row">

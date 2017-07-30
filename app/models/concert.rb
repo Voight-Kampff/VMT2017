@@ -9,4 +9,8 @@ class Concert < ApplicationRecord
 	attr_accessor :number_of_seats
 	attr_accessor :single_price
 
+	def free_seats_count
+		self.seats.count-self.reservations.count
+	end
+
 end

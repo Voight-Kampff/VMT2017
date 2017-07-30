@@ -95,6 +95,10 @@ footer {
   background-color: #F5F5F6;
   }
 
+.page-footer {
+  background-color: #F5F5F6;
+}
+
  @media only screen and (max-width : 992px) {
    header, main, footer {
      padding-left: 0;
@@ -217,6 +221,11 @@ footer {
   }
 }
 
+.card-action .row {
+  margin-bottom:0px;
+}
+
+
 .selected {
       background-color:#312783;
       color:#FFFFFF
@@ -245,7 +254,7 @@ h1, h2, h3, h4, h5, h6, h7, {
 
 main {
   .alert {
-  color: #F44336;
+  color: #F44336 !important;
   }
 }
 

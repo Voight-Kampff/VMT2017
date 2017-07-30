@@ -14,5 +14,6 @@
   <body>
   	<%= render 'layouts/header', :locals => @concerts=Concert.all.order(:date) %>
     <%= yield %>
+    <%= render 'layouts/footer'%>
   </body>
 </html>

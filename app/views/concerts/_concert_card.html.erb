@@ -1,16 +1,63 @@
-<div class="col s12 m12 l12">
-	<div class="card">
-		<div class="card-image">
-			<% unless concert_card.image.medium.url.nil? %>
-				<%= image_tag concert_card.image.medium.url%>
-			<% end %>
+<div class="row">
+	<div class="divider"></div>
+	<div class="col s12 m7 l6">
+		<div class="card">
+			<div class="card-image">
+				<% unless concert_card.image.medium.url.nil? %>
+					<%= image_tag concert_card.image.medium.url%>
+				<% end %>
+			</div>
+			<div class="hide-on-med-and-up">
+				<div class="card-content">
+					<h5><%=concert_card.name%></h5>
+					<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></h6>
+			    </div>
+			    <div class="card-action">
+			        <% if concert_card.free_seats_count == 0 %>
+						<div class="right-align" style="text-transform:uppercase">
+							Complet
+						</div>
+					<%else%>
+						<div class="row">
+							<div class="col left-align">
+								<% if concert_card.free_seats_count <= 40 %>
+									Plus que <%=concert_card.free_seats_count%> places disponibles
+								<% else %>
+									<em>Billets à partir de CHF <%=concert_card.seats.last.price%>.-</em>
+								<% end %>
+							</div>
+							<div class="right-align" style="text-transform:uppercase">
+								<%=link_to("Réserver", new_concert_reservation_path(concert_card), :style => "color:#00B1EB", :class => "waves-effect")%>
+							</div>
+						</div>
+					<%end%>
+			    </div>
+			 </div>
 		</div>
-		<div class="card-content">
+	</div>
+	<div class="hide-on-small-only">
+		<div class="col s0 m5 l6">
 			<h5><%=concert_card.name%></h5>
 			<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></h6>
-	    </div>
-	    <div class="card-action">
-	        <%=link_to("Réserver", new_concert_reservation_path(concert_card), :style => "color:#00B1EB")%>
-	    </div>
+			<div class="row">
+				<div class="divider"></div>
+				<% if concert_card.free_seats_count == 0 %>
+					<div class="right-align" style="text-transform:uppercase">
+						Complet
+					</div>
+				<%else%>
+					<div class="col left-align">
+						<% if concert_card.free_seats_count <= 40 %>
+							Plus que <%=concert_card.free_seats_count%> places disponibles
+						<% else %>
+							<em>Billets à partir de CHF <%=concert_card.seats.last.price%>.-</em>
+						<% end %>
+					</div>
+					<div class="right-align" style="text-transform:uppercase">
+						<%=link_to("Réserver", new_concert_reservation_path(concert_card), :style => "color:#00B1EB")%>
+					</div>
+				<%end%>
+			</div>
+		</div>
 	</div>
 </div>
