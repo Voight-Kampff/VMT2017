@@ -29,7 +29,7 @@ $(document).ready(function() {
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> au <%=reservation.seat.concert.location%></td>
+								<td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> <%=reservation.seat.concert.location.preposition%> <%=reservation.seat.concert.location.name%></td>
 							</tr>
 							<% if reservation.seat.concert.footnote.present?%>
 								<tr>

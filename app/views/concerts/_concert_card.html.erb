@@ -10,7 +10,7 @@
 			<div class="hide-on-med-and-up">
 				<div class="card-content">
 					<h5><%=concert_card.name%></h5>
-					<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></h6>
+					<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location.preposition%> <%=concert_card.location.name%></h6>
 			    </div>
 			    <div class="card-action">
 			        <% if concert_card.free_seats_count == 0 %>
@@ -38,7 +38,7 @@
 	<div class="hide-on-small-only">
 		<div class="col s0 m5 l6">
 			<h5><%=concert_card.name%></h5>
-			<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location%></h6>
+			<h6><%=(I18n.localize concert_card.date, format: :concert).capitalize%> <%=concert_card.location.preposition%> <%=concert_card.location.name%></h6>
 			<div class="row">
 				<div class="divider"></div>
 				<% if concert_card.free_seats_count == 0 %>

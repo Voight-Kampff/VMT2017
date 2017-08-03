@@ -1,6 +1,7 @@
 class Concert < ApplicationRecord
 	has_many :seats
 	has_many :reservations, through: :seats
+	belongs_to :location
 
 	mount_uploader :image, ImageUploader
 

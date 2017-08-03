@@ -4,7 +4,7 @@
 			<div class="nav-wrapper">
 						<a href="#" class="brand-logo left left-align"><img src="https://www.musicales-tannay.ch/templates/template_vmt/images/VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png" style="max-width90px;max-height:90px"></a>
 					<div class="col s10 m10 l10">
-						<a><h5 class="right-align" style="padding-right:40px;padding-top:21px;font-size:20px;height:90px"><strong><%=@reservation.seat.concert.name%></strong></br><span style="font-size:16px"><%=(I18n.localize @reservation.seat.concert.date, format: :concert).capitalize%> <%=@reservation.seat.concert.location%></span></h5></a>
+						<a><h5 class="right-align" style="padding-right:40px;padding-top:21px;font-size:20px;height:90px"><strong><%=@reservation.seat.concert.name%></strong></br><span style="font-size:16px"><%=(I18n.localize @reservation.seat.concert.date, format: :concert).capitalize%> <%=@reservation.seat.concert.location.preposition%> <%=@reservation.seat.concert.location.name%></span></h5></a>
 					</div>
 				</div>
 			</div>
@@ -27,9 +27,27 @@
 				<%=@reservation.order.email%></p>
 			</div>
 			<div class="col s4 m4 l4 left-align">
+				<h6>Important</h6>
 				<p style="font-size:12px;font-color:#00B1EB"><%=@reservation.seat.concert.footnote%></p>
 				<p style="font-size:12px;font-color:#00B1EB">Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</p>
-				<p style="font-size:12px;font-color:#00B1EB">Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4 m4 l4 left-align">
+				<h6>Lieu du concert</h6>
+				<div style="font-size:12px;font-color:#00B1EB">
+					<%=raw(@reservation.seat.concert.location.address)%>
+				</div>
+			</div>
+			<div class="col s4 m4 l4 left-align">
+				<h6>Venir au concert</h6>
+				<div style="font-size:12px;font-color:#00B1EB">
+					<%=raw(@reservation.seat.concert.location.access)%>
+				</div>
+			</div>
+			<div class="col s4 m4 l4 left-align">
+				<h6>Contact</h6>
+				<p style="font-size:12px;font-color:#00B1EB">Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%> ou en appellant le +41 79 584 55 94</p>
 			</div>
 		</div>
 	</div>

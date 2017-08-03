@@ -8,18 +8,17 @@ class InvitationsController < ApplicationController
 
   def create
 
-	@order=Order.create(:held => '1')
+  	@order=Order.create(:held => '1')
+  	@invitation= Invitation.create(invitation_params)
+  	@invitation.order_id=@order.id
 
-	@invitation= Invitation.create(invitation_params)
-
-	@invitation.order_id=@order.id
-
-  	if @invitation.save
-  		redirect_to @invitation
+    if @invitation.save
+    	redirect_to @invitation
       TicketMailer.invitation(@invitation).deliver
-  	else
-  		render 'invitations/new'
-  	end
+    else
+      render 'invitations/new'
+    end
+
   end
 
   def show

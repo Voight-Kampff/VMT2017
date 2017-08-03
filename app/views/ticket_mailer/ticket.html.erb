@@ -560,7 +560,7 @@
 				                                          <td colspan="4"><strong><%=reservation.seat.concert.name%></strong></td>
 				                                        </tr>
 				                                        <tr>
-				                                          <td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> <%=reservation.seat.concert.location%></td>
+				                                          <td colspan="4"><%=(I18n.localize reservation.seat.concert.date, format: :concert).capitalize%> <%=reservation.seat.concert.location.preposition%> <%=reservation.seat.concert.location.name%></td>
 				                                        </tr>
 			                                      <% @this_concert= reservation.seat.concert.id %>
 			                                      <% end %>

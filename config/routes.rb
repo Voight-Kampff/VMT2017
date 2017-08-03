@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get 'dashboards/concerts/:id', to: 'dashboards#show'
 
+  get '.well-known/acme-challenge/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8', to: 'dashboards#G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8'
+
   resources :orders
 
   resources :invitations, param: :slug

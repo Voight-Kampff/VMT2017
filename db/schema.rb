@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727035029) do
+ActiveRecord::Schema.define(version: 20170802182900) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
     t.string   "shortname"
     t.datetime "date"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "image"
     t.boolean  "unnumbered"
     t.string   "subline"
     t.string   "footnote"
+    t.integer  "location_id"
   end
 
   create_table "invitations", force: :cascade do |t|
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20170727035029) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.boolean  "used"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "preposition"
+    t.string   "address"
+    t.string   "access"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "orders", force: :cascade do |t|

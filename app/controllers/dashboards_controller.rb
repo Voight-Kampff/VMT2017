@@ -14,4 +14,7 @@ class DashboardsController < ApplicationController
 		@held_reservations=Reservation.joins(:seat).where(:seats  => {:concert_id => @concert.id}).joins(:order).where(:orders  => {:held => true})
 	end
 
+	def G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8
+	end
+
 end

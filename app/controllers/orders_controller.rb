@@ -46,6 +46,10 @@ class OrdersController < ApplicationController
       @order = Order.find_by_id(session[:order_id])
     end
 
+    if @order.paid == true
+      render 'success'
+    end
+
   end
 
   def invitationdelivery
@@ -56,20 +60,24 @@ class OrdersController < ApplicationController
       @order = Order.find_by_id(session[:order_id])
     end
 
-    if @order.update(order_params)
-      unless @order.invitation.nil?
-        render 'success'
-        @order.pay('invitations uniquement')
-        #@order.reservations.map{ |r| r.update_column('code',r.code) }
-        @order.save
-        GenerateTicketJob.perform_later(@order)
-        session.delete(:order_id)
+    if @order.paid == true
+      render 'success'
+    else
+      if @order.update(order_params)
+        unless @order.invitation.nil?
+          render 'success'
+          @order.pay('invitations uniquement')
+          #@order.reservations.map{ |r| r.update_column('code',r.code) }
+          @order.save
+          GenerateTicketJob.perform_later(@order)
+          session.delete(:order_id)
+        else
+          render 'paymentform'
+        end
       else
+        flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
         render 'paymentform'
       end
-    else
-      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
-      render 'paymentform'
     end
 
   end
@@ -83,26 +91,26 @@ class OrdersController < ApplicationController
       @order = Order.find_by_id(session[:order_id])
     end
 
-    @order.update(order_params)
-
-    charge = Payment.charge(@order)
-
-    if @order.update(order_params)
-      if charge.status=="succeeded"
-        render 'success'
-        @order.pay('credit card payment')
-        #ShouldRemove and have autosave instead
-        #@order.reservations.map(&:save)
-        @order.save
-        GenerateTicketJob.perform_later(@order)
-        session.delete(:order_id)
+    if @order.paid == true
+      render 'success'
+    else
+      @order.update(order_params)
+      charge = Payment.charge(@order)
+      if @order.update(order_params)
+        if charge.status=="succeeded"
+          render 'success'
+          @order.pay('credit card payment')
+          @order.save
+          GenerateTicketJob.perform_later(@order)
+          session.delete(:order_id)
+        else
+          flash[:alert] = "Votre paiement n'est pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+          render 'paymentform'
+        end
       else
-        flash[:alert] = "Votre paiement n'est pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+        flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
         render 'paymentform'
       end
-    else
-      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
-      render 'paymentform'
     end
 
   end
