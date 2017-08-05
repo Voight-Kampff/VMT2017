@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
-	has_many :reservations, dependent: :destroy, autosave: true
+	
+  has_many :reservations, dependent: :destroy, autosave: true
 	has_many :seats, through: :reservations
   has_one :invitation
   belongs_to :user, optional: true

@@ -21,13 +21,12 @@
 			</div>
 			<div class="col s4 m4 l4 left-align">
 				<h5><%=@reservation.reservation_type.name.humanize%></h5>
-				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><b><%=@reservation.seat.row%> <%=@reservation.seat.column%></b></h1>
+				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=@reservation.seat.row%> <%=@reservation.seat.column%></h1>
 				<p style="font-size:12px"><b>Envoyé à:</b></br>
 				<%=@reservation.order.title%> <%=@reservation.order.first_name%> <%=@reservation.order.last_name%></br>
 				<%=@reservation.order.email%></p>
 			</div>
 			<div class="col s4 m4 l4 left-align">
-				<h6>Important</h6>
 				<p style="font-size:12px;font-color:#00B1EB"><%=@reservation.seat.concert.footnote%></p>
 				<p style="font-size:12px;font-color:#00B1EB">Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</p>
 			</div>
