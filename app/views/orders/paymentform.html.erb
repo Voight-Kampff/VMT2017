@@ -171,7 +171,9 @@ var key = "<%=Rails.configuration.stripe[:publishable_key]%>";
 var stripe = Stripe(key);
 
 // Create an instance of Elements
-var elements = stripe.elements();
+var elements = stripe.elements({
+  locale: 'fr'
+});
 
 // Custom styling can be passed to options when creating an Element.
 // (Note that this demo uses a wider set of styles than the guide below.)
@@ -179,7 +181,7 @@ var style = {
   base: {
     color: '#32325d',
     lineHeight: '24px',
-    fontFamily: '"Lato",sans-serif',
+    fontFamily: 'Lato, sans-serif',
     fontSmoothing: 'antialiased',
     fontSize: '1rem',
     margin: '0 0 20px 0',
