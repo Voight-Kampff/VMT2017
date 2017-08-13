@@ -13,7 +13,7 @@ class Order < ApplicationRecord
 
 
     def pay(method)
-      order.update_column('paid',true)
+      self.update_column('paid',true)
       self.calculate_price
       self.payment_type=method.to_s
       self.held=0
@@ -90,20 +90,6 @@ class Order < ApplicationRecord
         return true
       else
         return false
-      end
-    end
-
-
-    def options_for_select(current_user=nil)
-      if (current_user.nil? == false) && (current_user.admin? == true)
-        options=ReservationType.all
-      else
-        options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
-        unless self.invitation.nil?
-          invitation_type = self.invitation.reservation_type
-          options.push(invitation_type)
-      end
-        return options
       end
     end
 
