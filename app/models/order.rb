@@ -86,10 +86,12 @@ class Order < ApplicationRecord
     end
 
     def invitations_only?
-      if self.reservations.where(reservation_type: ReservationType.where(:name => [self.invitation.reservation_type.name.to_s,"Enfant"])).count == self.reservations.count
-        return true
-      else
-        return false
+      unless self.invitation.nil?
+        if self.reservations.where(reservation_type: ReservationType.where(:name => [self.invitation.reservation_type.name.to_s,"Enfant"])).count == self.reservations.count
+          return true
+        else
+          return false
+        end
       end
     end
 
