@@ -1,5 +1,7 @@
 class Invitation < ApplicationRecord
 	belongs_to :order
+	belongs_to :reservation_type, optional: true
+	belongs_to :concert, optional: true
 
 	before_create :generate_slug
 

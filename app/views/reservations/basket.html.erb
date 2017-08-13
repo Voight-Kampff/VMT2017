@@ -40,7 +40,7 @@ $(document).ready(function() {
 						<% end %>
 							<tr id="row-<%=reservation.id%>">
 								<td class="col l8"><%=form_for(reservation, remote: true) do |f|%>
-									<%= f.select :reservation_type_id, options_from_collection_for_select(@options_for_select, :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
+									<%= f.select :reservation_type_id, options_from_collection_for_select(reservation.options_for_select(current_user), :id, :name, reservation.reservation_type.id), {}, :onchange => ("$('#update-#{reservation.id}').submit()") %>
 									<%= f.submit "submit", :id => "update-#{reservation.id}", :style => "display:none"%></td>
 									<% end %>
 								<td class="right-align">

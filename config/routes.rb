@@ -10,20 +10,6 @@ Rails.application.routes.draw do
 
   root to: 'concerts#index' 
 
-  get 'concerts/new'
-
-  get 'concerts/create'
-
-  get 'concerts/update'
-
-  get 'concerts/edit'
-
-  get 'concerts/destroy'
-
-  get 'concerts/index'
-
-  get 'concerts/show'
-
   get 'merci', to: 'orders#success'
 
   get 'paiement', to: 'orders#paymentform'
@@ -45,6 +31,8 @@ Rails.application.routes.draw do
   get 'dashboards/concerts/:id', to: 'dashboards#show'
 
   get '.well-known/acme-challenge/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8', to: 'dashboards#G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8'
+
+  patch 'api/reservations/:id/:code', to: 'api#scan'
 
   resources :orders
 

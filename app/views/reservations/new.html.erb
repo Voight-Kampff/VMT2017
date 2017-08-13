@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<%if @concert.unnumbered? %>
-			<%= render 'unnumbered_selection', concert: @concert%>
+			<%= render 'unnumbered_selection', concert: @concert, max_selection_count: 8%>
 		<% else %>
 			<div class="seats">
 				<div class="row">

@@ -5,6 +5,7 @@ class Reservation < ApplicationRecord
 
 	before_save :update_price
 	before_save :check_invitation_count, if: :reservation_type_id_changed?
+	before_save :check_invitation_concert, if: :reservation_type_id_changed?
 
 	validates :seat_id, uniqueness: true
 
@@ -22,10 +23,20 @@ class Reservation < ApplicationRecord
 
     def assign_reservation_type
     	unless self.order.invitation.nil?
-			if self.order.invitation.free_tickets > self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
-				self.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
-			else
-				self.reservation_type_id=1
+    		if self.order.invitation.concert.nil?
+    		#Logic for non-concert specific invitation
+				if self.order.invitation.free_tickets > self.order.reservations.select{|reservation| reservation.reservation_type == reservation.order.invitation.reservation_type }.count
+					self.reservation_type = self.order.invitation.reservation_type
+				else
+					self.reservation_type_id=1
+				end
+			else 
+			#Logic for specific concert
+				if self.order.invitation.concert == self.seat.concert && self.order.invitation.free_tickets > self.order.reservations.select{|reservation| reservation.reservation_type == reservation.order.invitation.reservation_type }.count
+					self.reservation_type = self.order.invitation.reservation_type
+				else
+					self.reservation_type_id=1
+				end
 			end
 		else
 			self.reservation_type_id=1
@@ -121,6 +132,24 @@ class Reservation < ApplicationRecord
 
 	end
 
+	def options_for_select(current_user=nil)
+    	if (current_user.nil? == false) && (current_user.admin? == true)
+    		options=ReservationType.all
+    	else
+			options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
+			unless self.order.invitation.nil?
+				if self.order.invitation.concert == self.seat.concert
+					invitation_type = self.order.invitation.reservation_type
+					options.push(invitation_type)
+				elsif self.order.invitation.concert.nil?
+					invitation_type = self.order.invitation.reservation_type
+					options.push(invitation_type)
+				end
+			end
+	    	return options
+      	end
+    end
+
 	private
 
 		def update_price
@@ -129,9 +158,20 @@ class Reservation < ApplicationRecord
 
 		def check_invitation_count
 			unless self.order.invitation.nil?
-				if self.order.invitation.free_tickets <= self.order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
-					if self.reservation_type.name == "Invitation membre"
+				if self.order.invitation.free_tickets <= self.order.reservations.select{|reservation| reservation.reservation_type == reservation.order.invitation.reservation_type }.count
+					if self.reservation_type == self.order.invitation.reservation_type
 						 errors.add(:base, "order limited to #{self.order.invitation.free_tickets} free tickets")
+						throw :abort 
+					end
+				end
+			end
+		end
+
+		def check_invitation_concert
+			unless self.order.invitation.nil?
+				unless self.order.invitation.concert.nil?
+					if (self.seat.concert != self.order.invitation.concert) && (self.reservation_type == self.order.invitation.reservation_type)
+						errors.add(:base, "invitations limited to #{self.order.invitation.concert.name} concert")
 						throw :abort 
 					end
 				end

@@ -4,6 +4,8 @@ class InvitationsController < ApplicationController
 
   def new
     @invitation=Invitation.new
+    @concerts=Concert.all
+    @reservation_types=ReservationType.all
   end
 
   def create
@@ -14,7 +16,11 @@ class InvitationsController < ApplicationController
 
     if @invitation.save
     	redirect_to @invitation
-      TicketMailer.invitation(@invitation).deliver
+      if @invitation.concert.nil?
+        TicketMailer.member_invitation(@invitation).deliver
+      else
+        TicketMailer.specific_concert_invitation(@invitation).deliver
+      end
     else
       render 'invitations/new'
     end
@@ -32,7 +38,7 @@ class InvitationsController < ApplicationController
   private
     
     def invitation_params
-      params.require(:invitation).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:free_tickets)
+      params.require(:invitation).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:free_tickets,:reservation_type_id,:concert_id)
     end
 
     def check_admin_authorization

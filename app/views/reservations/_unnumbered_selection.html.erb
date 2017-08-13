@@ -5,7 +5,7 @@
   		</div>
   		<div class="col s9 m9 l9 right-align">
   			<button class="waves-effect waves-light btn-flat" style="padding: 0 1rem" onclick="submitvalue(this)" id="0">0</button>
-  			<% 8.times do |index| %>
+  			<% max_selection_count.times do |index| %>
   				<button class="waves-effect waves-light btn <%= "selected" if (@order.reservations.select{|reservation| reservation.seat.concert==@concert}).count==index+1%>" style="padding: 0 1rem" onclick="submitvalue(this)" id=<%=index+1%>><%=index+1%></button>
   			<% end %>
   		</div>

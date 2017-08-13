@@ -13,6 +13,7 @@ class Order < ApplicationRecord
 
 
     def pay(method)
+      order.update_column('paid',true)
       self.calculate_price
       self.payment_type=method.to_s
       self.held=0
@@ -39,6 +40,7 @@ class Order < ApplicationRecord
           reservation.reservation_type=reservation_type
         end
       end
+      self.paid=0
       self.held=1
       self.hold_type=type
     end
@@ -84,7 +86,7 @@ class Order < ApplicationRecord
     end
 
     def invitations_only?
-      if self.reservations.where(reservation_type: ReservationType.where(:name => ["Invitation membre","Enfant"])).count == self.reservations.count
+      if self.reservations.where(reservation_type: ReservationType.where(:name => [self.invitation.reservation_type.name.to_s,"Enfant"])).count == self.reservations.count
         return true
       else
         return false
@@ -98,9 +100,8 @@ class Order < ApplicationRecord
       else
         options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
         unless self.invitation.nil?
-          #member_invitation = ReservationType.all.select {|reservation_type| reservation_type.name="Invitation membre" }
-          member_invitation = ReservationType.find_by_name("Invitation membre")
-          options.push(member_invitation)
+          invitation_type = self.invitation.reservation_type
+          options.push(invitation_type)
       end
         return options
       end

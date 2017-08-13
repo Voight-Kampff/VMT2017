@@ -64,6 +64,16 @@
             <label>Billets</label>
           </div>
         </div>
+        <div class="row">
+          <div class ="input-field col s6">
+            <%= f.select :reservation_type_id, options_from_collection_for_select(@reservation_types, :id, :name) %>
+             <label>Type de réservation</label>
+          </div>
+          <div class ="input-field col s6">
+            <%= f.select :concert_id, options_from_collection_for_select(@concerts, :id, :name), include_blank: 'Tous' %>
+             <label>Concert</label>
+          </div>
+        </div>
         <div class="row right-align">
           <%= f.submit "Envoyer l'invitation", :class => "btn"%>
         </div>

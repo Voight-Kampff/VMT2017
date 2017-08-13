@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802182900) do
+ActiveRecord::Schema.define(version: 20170812092645) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20170802182900) do
     t.integer  "free_tickets"
     t.integer  "order_id"
     t.string   "slug"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "used"
+    t.integer  "reservation_type_id"
+    t.integer  "concert_id"
   end
 
   create_table "locations", force: :cascade do |t|

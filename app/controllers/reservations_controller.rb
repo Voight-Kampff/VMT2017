@@ -49,6 +49,7 @@ class ReservationsController < ApplicationController
 			@order = Order.find_by_id(session[:order_id])
 		end
 		
+		#note sure the merge for type id = 1 is necessary
 		@reservation = Reservation.create(reservation_params.merge(order_id: @order.id).merge(reservation_type_id: '1'))
 		@reservation.assign_reservation_type
 		
@@ -92,15 +93,7 @@ class ReservationsController < ApplicationController
 				reservation=Reservation.new
 				reservation.order_id=@order.id
 				reservation.seat_id=@selected_seats[index].id
-				unless @order.invitation.nil?
-					if @order.invitation.free_tickets > @order.reservations.select{|reservation| reservation.reservation_type.name == "Invitation membre"}.count
-						reservation.reservation_type = ReservationType.select{|reservation_type| reservation_type.name == "Invitation membre"}.first
-					else
-						reservation.reservation_type_id=1
-					end
-				else
-					reservation.reservation_type_id=1
-				end
+				reservation.assign_reservation_type
 				reservation.save
 
 			end
@@ -150,7 +143,6 @@ class ReservationsController < ApplicationController
 		else
 	    	@order = Order.find_by_id(session[:order_id])
 	    	@reservations = @order.reservations.joins(:seat => :concert).order("concerts.date")
-	    	@options_for_select = @order.options_for_select(current_user)
 	    end
  	end
 
