@@ -504,7 +504,7 @@
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                               <br /><%=mail_to("billetterie@musicaes-tannay.ch","Contact")%>.
+                                            	<%=mail_to("billetterie@musicaes-tannay.ch","Contact")%>.
                                             </td>
                                             <!-- *|END:IF|* -->
                                         </tr>
@@ -548,7 +548,7 @@
                                                 </h3>
                                                 <p>Les Variations Musicales de Tannay en sont cette année à leur huitième édition. Fort de l’expérience acquise jusqu’ici, nous offrirons une fois encore à notre public un programme de grande qualité, dans des lieux particulièrement propices à son écoute et dans une grande proximité avec les artistes.</p>
                                                 <p>Khatia Buniatishvili, Renaud Capuçon, les sœurs Berthollet et l’Orchestre national symphonique de Lettonie, parmi d’autres, sauront, dans le beau parc du château, vous offrir des moments musicaux exceptionnels. Le festival s’exportera également pour deux belles soirées : l’une à la plage de Gland et l’autre au Conservatoire de Nyon.</p>
-                                                <p>C’est pourquoi nous serions très heureux de vous inviter, au nom de la ville de Gland, au concert du <%=@invitation.concert.name%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%>. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => "https")%> pour réserver vos <%=@invitation.free_tickets%> places. Vos billets vous seront ainsi envoyés par courrier électronique.</p>
+                                                <p>C’est pourquoi nous serions très heureux de vous inviter, au nom de la ville de Gland, au concert du <%=@invitation.concert.name%> le <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%>. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => "https")%> pour réserver vos <%=@invitation.free_tickets%> places. Vos billets vous seront ainsi envoyés par courrier électronique.</p>
                                                 <p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94.</p>
                                                 </p>
                                                 <p>En espérant vous rencontrer à cette occasion, nous vous prions d’accepter, Madame, Monsieur, nos bien cordiales salutations.  
