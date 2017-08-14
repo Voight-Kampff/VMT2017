@@ -79,7 +79,7 @@ class OrdersController < ApplicationController
         GenerateTicketJob.perform_later(@order)
         session.delete(:order_id)
       else
-        flash[:alert] = "Votre paiement n'est pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+        flash[:alert] = "Votre paiement n'a pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
         render 'paymentform'
       end
     else
@@ -90,7 +90,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find_by_id(session[:order_id])
+    retrieve_order
     @order.update(order_params)
   end
 
@@ -104,23 +104,6 @@ class OrdersController < ApplicationController
     
     def order_params
       params.require(:order).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:stripe_token,:hold_type)
-    end
-
-    def check_admin_authorization
-      if user_signed_in?
-        current_user.admin?
-      end
-    end
-
-    def retrieve_order
-      if Order.find_by_id(session[:order_id]).nil?
-        redirect_to '/concerts'
-      else
-        @order = Order.find_by_id(session[:order_id])
-        if @order.paid == true
-          render 'success'
-        end
-      end
     end
 
 end

@@ -40,10 +40,5 @@ class InvitationsController < ApplicationController
     def invitation_params
       params.require(:invitation).permit(:email,:title,:first_name,:last_name,:road,:telephone,:town,:postcode,:country,:free_tickets,:reservation_type_id,:concert_id)
     end
-
-    def check_admin_authorization
-      if user_signed_in?
-        current_user.admin?
-      end
-    end
+    
 end

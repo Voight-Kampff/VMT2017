@@ -34,7 +34,11 @@ Rails.application.routes.draw do
 
   patch 'api/reservations/:id/:code', to: 'api#scan'
 
-  resources :orders
+
+  ##split controllers, correct method
+  namespace :payments do
+    resource :cashierpayments, only: [:create]
+  end
 
   resources :invitations, param: :slug
 

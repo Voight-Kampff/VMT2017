@@ -14,4 +14,8 @@ class Concert < ApplicationRecord
 		self.seats.count-self.reservations.count
 	end
 
+	def full?
+		self.seats.count == 0
+	end
+
 end

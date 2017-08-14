@@ -7,9 +7,10 @@
       $("label[for='order_<%= escape_javascript(key.to_s)%>']").attr('data-error',"<%= escape_javascript(raw(@order.errors[key][0].to_s))%>");
     <%end%>
   });
-
-
 </script>
+
+<script src="https://js.stripe.com/v3/"></script>
+
 <main>
   <div class="container">
     <div class="row">
@@ -164,8 +165,6 @@
 
 
 <script>
-
-
 // Create a Stripe client
 var key = "<%=Rails.configuration.stripe[:publishable_key]%>";
 var stripe = Stripe(key);

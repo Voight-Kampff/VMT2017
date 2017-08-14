@@ -178,10 +178,4 @@ class ReservationsController < ApplicationController
 			params.require(:reservation).permit(:seat_id,:reservation_type_id)
 		end
 
-		def check_admin_authorization
-    		if user_signed_in?
-        		current_user.admin?
-      		end
-    	end
-
 end

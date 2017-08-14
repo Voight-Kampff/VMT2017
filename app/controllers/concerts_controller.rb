@@ -4,7 +4,6 @@ class ConcertsController < ApplicationController
 
   def new
     @concert=Concert.new
-    @concerts=Concert.all
   end
 
   def create
@@ -52,10 +51,6 @@ class ConcertsController < ApplicationController
   def update
   end
 
-  def edit
-    @concerts=Concert.all
-  end
-
   def delete
   end
 
@@ -74,14 +69,6 @@ class ConcertsController < ApplicationController
 
     def concert_params
       params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :unnumbered, :number_of_seats,:single_price,:footnote,:subline)
-    end
-
-    def check_admin_authorization
-      if user_signed_in?
-        redirect_to root_path unless current_user.admin?
-      else
-        redirect_to root_path
-      end
     end
 
 end
