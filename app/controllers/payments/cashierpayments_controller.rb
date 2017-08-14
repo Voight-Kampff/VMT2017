@@ -1,6 +1,6 @@
 class Payments::CashierpaymentsController < ApplicationController
 
-	#before_action :check_cashier_authorization
+	before_action :check_cashier_authorization
 	before_action :retrieve_order
 
 	def create
