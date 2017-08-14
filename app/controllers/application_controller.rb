@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
-
+    def check_cashier_authorization
+      unless user_signed_in? && current_user.cashier?
+      	redirect_to root_path
+      end
+    end
 
 	def retrieve_order
 		if Order.find_by_id(session[:order_id]).nil?
