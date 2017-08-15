@@ -105,7 +105,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'vmt-tickets2.herokuapp.com'}
 
 
-  config.web_socket_server_url = "wss://vmt-tickets2.herokuapp.com/cable" 
+  config.web_socket_server_url = "ws://vmt-tickets2.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://vmt-tickets2.herokuapp.com', 'http://vmt-tickets2.herokuapp.com']
 
 end
