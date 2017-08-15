@@ -6,10 +6,10 @@ test:
   adapter: async
 
 production: &production
-  :url:
-  redis: redis://redistogo:baec5909904e75d94e390a247387f09a@koi.redistogo.com:9559/
-  :host: koi.redistogo.com
-  :port: 9559
-  :password: baec5909904e75d94e390a247387f09a
-  :inline: true
-  :timeout: 1
+	adapter: redis
+	url: redis://redistogo:baec5909904e75d94e390a247387f09a@koi.redistogo.com:9559/
+	host: koi.redistogo.com
+	port: 9559
+	password: baec5909904e75d94e390a247387f09a
+	inline: true
+	timeout: 1
