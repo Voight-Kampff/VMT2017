@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  #Websockets
+  mount ActionCable.server => '/cable'
+  #resources :reservations, param: :slug
+
   devise_for :users
   
   get 'invitation/new'

@@ -54,6 +54,8 @@ class ReservationsController < ApplicationController
 		@reservation.assign_reservation_type
 		
 		if @reservation.save
+			ActionCable.server.broadcast 'reservations',
+				seat: @reservation.seat_id
 			respond_to do |format|
 				format.html { render nothing: true } 
 				format.js { render 'create.js.erb' }
@@ -166,9 +168,13 @@ class ReservationsController < ApplicationController
 	def delete_by_seat_id
 		@reservation=Seat.find(params[:reservation][:seat_id]).reservation
 		@reservation.destroy
-		respond_to do |format|
-			format.html { render nothing: true } 
-			format.js { render nothing: true } 
+		if @reservation.destroy
+				ActionCable.server.broadcast 'reservations',
+				seat: @reservation.seat_id
+			respond_to do |format|
+				format.html { render nothing: true } 
+				format.js { render nothing: true } 
+	    	end
     	end
 	end
 

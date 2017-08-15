@@ -104,4 +104,8 @@ Rails.application.configure do
   #Seting for invitaiton mailer
   config.action_mailer.default_url_options = { host: 'vmt-tickets2.herokuapp.com'}
 
+
+  config.web_socket_server_url = "wss://vmt-tickets2.herokuapp.com/cable" 
+
+
 end
