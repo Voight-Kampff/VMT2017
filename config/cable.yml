@@ -7,5 +7,5 @@ test:
 
 production:
   adapter: redis
-  :url: redis:<%= ENV["REDISTOGO_URL"] %>
+  url: redis:<%= ENV["REDISTOGO_URL"] %>
 
