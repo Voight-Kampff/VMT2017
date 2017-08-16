@@ -539,9 +539,9 @@
                                                 	<%if @order.title.nil? || @order.last_name.nil?%>
                                                 		Chers amis du festival, 
                                                 	<%elsif @order.title=="Madame"%>
-                                                		Chère <%=@order.title%> <%=@order.last_name%>,
+                                                		Chère <%=@order.title%> <%=@order.last_name.humanize%>,
                                                 	<%elsif @order.title=="Monsieur"%>
-                                                		Cher <%=@order.title%> <%=@order.last_name%>,
+                                                		Cher <%=@order.title%> <%=@order.last_name.humanize%>,
                                                 	<%else%>
                                                 		Chers amis du festival,
                                                 	<%end%>
