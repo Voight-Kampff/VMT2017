@@ -37,4 +37,12 @@ class TicketMailer < ApplicationMailer
     	mail(:to => @order.email, :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Vos billets pour les Variations Musicales de Tannay")
 	end
 
+	def location_change(order)
+
+		@order=order
+
+		mail(:to => @order.email, :from => "Billetterie@musicales-tannay.ch", :subject => "Déplacement du concert de vendredi à Tannay")
+
+	end
+
 end
