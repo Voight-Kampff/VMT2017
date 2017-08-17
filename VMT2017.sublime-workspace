@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"reservation",
+				"reservation_type"
+			],
+			[
+				"payment",
+				"paymentform"
+			],
+			[
+				"free",
+				"free_tickets"
+			],
+			[
+				"options_for",
+				"options_for_select"
+			],
+			[
+				"reservaton",
+				"reservation_type"
+			],
+			[
+				"delete",
+				"delete_by_seat_id"
+			],
+			[
+				"selection_count",
+				"selection_count_submit"
+			],
+			[
+				"selection",
+				"selection_count_submit"
+			],
+			[
+				"reservat",
+				"reservation_type"
+			],
+			[
+				"res",
+				"reservation_params"
+			],
+			[
+				"invitation",
+				"invitation_params"
+			],
+			[
+				"ini",
+				"invitation_params"
+			],
+			[
 				"conc",
 				"concert_unnumbered"
 			],
@@ -48,257 +96,27 @@
 	"buffers":
 	[
 		{
-			"contents": " <td align=\"right\"><%=reservation.seat.row%><%=reservation.seat.column%></td>\n			                                          <td>&nbsp;</td>\n			                                          <td align=\"right\"><%=reservation.seat.price%>.-</td>\n			                                        </tr>\n			                                      <% end %>\n			                                        <tr style=\"border-top:1px solid #BBBBBB\">\n			                                         <td align=\"left\"><strong>Total</strong></td>\n			                                          <td>&nbsp;</td>\n			                                          <td>&nbsp;</td>\n			                                          <td align=\"right\"><strong><%=@order.total%>.-</strong></td>\n\n\n\n			                                          <tr>\n                                            <td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\">\n                                                <h2>Livré à:</h2>\n			                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n				                                        <tr style=\"border-top:1px solid #BBBBBB\">\n				                                          <td><%=@order.title%> <%=@order.first_name%> <%=@order.last_name%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.email%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.road%></td>\n				                                        </tr>\n				                                        <tr>\n				                                          <td><%=@order.postcode%> <%=@order.town%></td>\n				                                        </tr>\n				                                         <tr style=\"border-bottom:1px solid #BBBBBB\">\n				                                          <td><%=@order.country%></td>\n				                                        </tr>\n			                                       	</table>\n                                            </td>\n                                        </tr>",
-			"settings":
-			{
-				"buffer_size": 2233,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/order.rb",
-			"settings":
-			{
-				"buffer_size": 1643,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/migrate/20170702154219_change_concerts.rb",
-			"settings":
-			{
-				"buffer_size": 169,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/migrate/20170702151408_add_public_to_reservation_type.rb",
-			"settings":
-			{
-				"buffer_size": 139,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/concerts_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1380,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/concerts/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 2533,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/reservations/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 4412,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/controllers/orders_controller.rb",
 			"settings":
 			{
-				"buffer_size": 692,
+				"buffer_size": 2331,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/layouts/_header.html.erb",
+			"contents": "class OrdersController < ApplicationController",
 			"settings":
 			{
-				"buffer_size": 1381,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/environments/production.rb",
-			"settings":
-			{
-				"buffer_size": 4172,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/secrets.yml",
-			"settings":
-			{
-				"buffer_size": 1855,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/reservations/basket.html.erb",
-			"settings":
-			{
-				"buffer_size": 1998,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/initializers/filter_parameter_logging.rb",
-			"settings":
-			{
-				"buffer_size": 194,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/initializers/DocRaptor.rb",
-			"settings":
-			{
-				"buffer_size": 97,
+				"buffer_size": 46,
 				"line_ending": "Unix",
-				"name": "DocRaptor.configure do |dr|"
+				"name": "class OrdersController < ApplicationController"
 			}
 		},
 		{
-			"file": "config/initializers/docraptor.rb",
+			"file": "app/controllers/invitations_controller.rb",
 			"settings":
 			{
-				"buffer_size": 97,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Gemfile",
-			"settings":
-			{
-				"buffer_size": 2358,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layouts/ticket.html.erb",
-			"settings":
-			{
-				"buffer_size": 560,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/ticket_mailer/singe_code_ticket.html.erb",
-			"settings":
-			{
-				"buffer_size": 30396,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/custom.scss",
-			"settings":
-			{
-				"buffer_size": 1107,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/environments/test.rb",
-			"settings":
-			{
-				"buffer_size": 1748,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/mailers/old_ticket_mailer.rb",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layouts/application.html.erb",
-			"settings":
-			{
-				"buffer_size": 464,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/ticket_mailer/ticket.html.erb",
-			"settings":
-			{
-				"buffer_size": 28312,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/concert.rb",
-			"settings":
-			{
-				"buffer_size": 254,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<script>\n\n  $(document).ready(function() {\n    $('select').material_select();\n  });\n\n  $(document).ready(function() {\n\n</script>\n<main>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col s12 m12 l12\">\n        <h2>Paiement</h2>\n        <div class=\"divider\"></div>\n      </div>\n      <div class=\"col s12 m12 l12\">\n        <h4>Vos Coordonnées</h4>\n        <%= form_for @order, remote:true do |f| %>\n        <div class=\"row\">\n          <div class =\"input-field col s2\">\n            <%= f.select :title, options_for_select(['Monsieur','Madame','Mademoiselle']) %>\n            <label>Civilité</label>\n          </div>\n          <div class =\"input-field col s5\">\n            <%= f.label :prénom%>\n            <%= f.text_field :first_name %>\n          </div>\n          <div class =\"input-field col s5\">\n            <%= f.label :nom%>\n            <%= f.text_field :last_name %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s12\">\n            <%= f.label :\"Adresse\"%>\n            <%= f.text_field :road %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s4\">\n            <%= f.label :\"Code Postal\"%>\n            <%= f.text_field :postcode %>\n          </div>\n          <div class =\"input-field col s4\">\n            <%= f.label :Localité%>\n            <%= f.text_field :town %>\n          </div>\n          <div class =\"input-field col s4\">\n            <%= f.label :Pays%>\n            <%= f.text_field :country %>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class =\"input-field col s6\">\n            <%= f.label :\"Adresse e-mail\"%>\n            <%= f.text_field :email %>\n          </div>\n          <div class =\"input-field col s6\">\n            <%= f.label :Téléphone%>\n            <%= f.text_field :telephone %>\n          </div>\n        </div>\n        <div class=\"row right-align\">\n          <%= f.submit \"Payer par carte\", :class => \"btn\", :id =>\"customButton\" %>\n          <%= f.submit \"Send Tickets\", :class => \"btn\", :id =>\"customButton\" %>\n        </div>\n        <% end %>\n      </div>\n    </div>\n  </div>\n</main>\n\n<script src=\"https://checkout.stripe.com/checkout.js\"></script>\n\n\n<script>\nvar handler = StripeCheckout.configure({\n  key: <%= Rails.configuration.stripe[:publishable_key] %>,\n  image: 'https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png',\n  locale: 'fr',\n  token: function(token) {\n    // You can access the token ID with `token.id`.\n    // Get the token ID to your server-side code for use.\n  }\n});\n\ndocument.getElementById('customButton').addEventListener('click', function(e) {\n  // Open Checkout with further options:\n  handler.open({\n    name: 'Variations Musicales de Tannay',\n    description: 'Vos billets',\n    zipCode: true,\n    currency: 'chf',\n    amount: <%=@order.calculate_price*100%>\n  });\n  e.preventDefault();\n});\n\n// Close Checkout on page navigation:\nwindow.addEventListener('popstate', function() {\n  handler.close();\n});\n</script>\n\n\n    <%= form_tag charges_path do %>\n      <article>\n        <% if flash[:error].present? %>\n          <div id=\"error_explanation\">\n            <p><%= flash[:error] %></p>\n          </div>\n        <% end %>\n        <label class=\"amount\">\n          <span><%=@order.calculate_price%></span>\n        </label>\n      </article>\n\n      <script src=\"https://checkout.stripe.com/checkout.js\" class=\"stripe-button\"\n              data-key=\"<%= Rails.configuration.stripe[:publishable_key] %>\"\n              data-description=\"Vos billets\"\n              data-image=\"https://s3.amazonaws.com/stripe-uploads/acct_16etBUDFZlMMgrPRmerchant-icon-1464551395019-vmt_logo_2014_270-e3a325d6624068472b0efb1af9cc5199.png\"\n              data-amount=<%=@order.calculate_price*100%>\n              data-currency=\"chf\"\n              data-label=\"Payer par carte\"\n              data-locale=\"fr\"></script>\n    <% end %>\n  </div>\n</div>",
-			"file": "app/views/charges/new.html.erb",
-			"file_size": 3970,
-			"file_write_time": 1498194209000000,
-			"settings":
-			{
-				"buffer_size": 4004,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "class ReservationsController < ApplicationController\n\n	def new\n		@concert=Concert.find_by_id(params[:concert_id])\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.new\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n\n		unless @concert.unnumbered?\n\n			@rows=[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"I\",\"J\",\"K\",\"L\",\"M\",\"N\",\"O\",\"P\",\"Q\",\"R\",\"S\"]\n\n			@reservation = Reservation.new\n			@reservation.order_id=@order.id\n\n			@seats= @concert.seats\n			@taken_seat_array=Array.new\n\n			0..475.times do |i|\n				if @seats[i].reservation.present?\n					@taken_seat_array[i]=1\n					if @seats[i].reservation.order_id == @order.id\n						@taken_seat_array[i]=2\n					end\n				end\n			end\n		end\n	end\n\n	def create\n		\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.create\n			session[:order_id] = @order.id\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n		\n		@reservation = Reservation.create(reservation_params)\n		\n		@reservation.order_id=@order.id\n		@reservation.reservation_type_id=1\n		@reservation.price=@reservation.seat.price\n\n		if @reservation.save\n			respond_to do |format|\n				format.html { render nothing: true } \n				format.js { } \n			end\n			\n    	end	\n\n    	@order.total=@order.calculate_price\n\n	end\n\n	def unnumbered\n\n		if Order.find_by_id(session[:order_id]).nil?\n			@order=Order.create\n			session[:order_id] = @order.id\n		else\n			@order = Order.find_by_id(session[:order_id])\n		end\n\n		@concert=Concert.find_by_id(params[:id])\n\n		selection_count = params[:selection_count].to_i\n\n		if @order.reservations.select{ |reservation| reservation.seat.concert == @concert }\n\n		difference = (selection_count-@order.reservations.select{ |reservation| reservation.seat.concert == @concert }.count)\n\n		if difference > 0\n\n			@selected_seats=@concert.seats.select{ |seat| seat.reservation == nil }.first(difference)\n\n			difference.to_i.times do |index|\n\n				reservation=Reservation.new\n				reservation.order_id=@order.id\n				reservation.seat_id=@selected_seats[index].id\n				reservation.reservation_type_id=1\n				reservation.save\n\n			end\n		\n		elsif difference < 0\n\n			@current_concert_reservations=@order.reservations.select{ |reservation| reservation.seat.concert == @concert }\n\n			difference.abs.times do |reservation|\n				@current_concert_reservations[reservation].delete\n			end\n		else\n			#ensure no strange behaviour\n		end\n\n		redirect_to reservations_basket_path\n\n	end\n\n	def show\n		@reservation=Reservation.find_by_id(params[:id])\n		render layout: \"ticket\"\n	end\n\n	def edit\n	end\n\n	def update\n		@reservation=Reservation.find_by_id(params[:id])\n		@reservation.update(reservation_params)\n	end\n\n	def basket\n    	@order = Order.find_by_id(session[:order_id])\n    	@reservations=@order.reservations\n 	end\n\n	def destroy\n		Seat.find(params[:reservation][:seat_id]).reservation.destroy\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete\n		Reservation.find(params[:id]).delete\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	def delete_by_seat_id\n		respond_to do |format|\n			format.html { render nothing: true } \n			format.js { render nothing: true } \n    	end\n	end\n\n	private\n		\n		def reservation_params\n			params.require(:reservation).permit(:seat_id,:reservation_type_id)\n		end\n\nend\n",
-			"file": "app/controllers/reservations_controller.rb",
-			"file_size": 3269,
-			"file_write_time": 1499677655000000,
-			"settings":
-			{
-				"buffer_size": 3356,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/reservations/_unnumbered_selection.html.erb",
-			"settings":
-			{
-				"buffer_size": 208,
-				"line_ending": "Unix",
-				"name": "<%= form_tag unnumbered_path do %>"
-			}
-		},
-		{
-			"file": "app/views/concerts/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 74,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/reservations/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 3173,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 681,
+				"buffer_size": 1026,
 				"line_ending": "Unix"
 			}
 		},
@@ -306,7 +124,344 @@
 			"file": "app/views/concerts/_concert_card.html.erb",
 			"settings":
 			{
-				"buffer_size": 513,
+				"buffer_size": 2291,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 5006,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/destroy.js.erb",
+			"settings":
+			{
+				"buffer_size": 106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/order.rb",
+			"settings":
+			{
+				"buffer_size": 3142,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/migrate/20170810232758_add_reservation_type_to_invitations.rb",
+			"settings":
+			{
+				"buffer_size": 151,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/reservations_controller.rb",
+			"settings":
+			{
+				"buffer_size": 4264,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/api_controller.rb",
+			"settings":
+			{
+				"buffer_size": 343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 1447,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/cable.yml",
+			"settings":
+			{
+				"buffer_size": 319,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/channels/reservations.js",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/reservation.rb",
+			"settings":
+			{
+				"buffer_size": 5822,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 5821 files for \"inviation\" (case sensitive)\n\n/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb:\n   24      def assign_reservation_type\n   25      	unless self.order.invitation.nil?\n   26:     		if self.order.inviation.concert.nil?\n   27      		#Logic for non-concert specific invitation\n   28  				if self.order.invitation.free_tickets > self.order.reservations.select{|reservation| reservation.reservation_type == reservation.order.invitation.reservation_type }.count\n\n1 match in 1 file\n\n\nSearching 5821 files for \"update_column\" (case sensitive)\n\n/Users/Voight-Kampff/Documents/VMT2017/app/controllers/api_controller.rb:\n    7  				render json: 'already scanned'\n    8  			else\n    9: 				@reservation.update_column('scanned',true)\n   10  				render json: 'valid'\n   11  			end\n\n/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb:\n    6      order.reservations.map(&:generate_pdf)\n    7      TicketMailer.ticket(order).deliver\n    8:     order.update_column('issued',true)\n    9    end\n   10  end\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 1070,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/models/invitation.rb",
+			"settings":
+			{
+				"buffer_size": 266,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/reservation_type.rb",
+			"settings":
+			{
+				"buffer_size": 93,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/migrate/20170812092645_add_concert_id_to_invitations.rb",
+			"settings":
+			{
+				"buffer_size": 136,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/invitations/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 2682,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<main>\n	<div class=\"container\">\n		<div class=\"row\">\n			<div class=\"col s12 m12 l12\">\n				<h4>Cher invité</h4>\n				<div class=\"divider\"></div>\n				<% if @invitation.reservation_type == \"Invitation membre\"%>\n					<h6>Merci pour votre soutien!</h6>\n				<%end%>\n				<%if @invitation.used==true %>\n					<p>Vos billet ont été envoyés à <%=@order.invitation.email%></p>\n				<% elsif @invitation.concert.present? %>\n					<p>Les Variations Musicales de Tannay ont le plaisir de vous inviter au concert du <%=@invitation.concert.name%> le <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%></p>\n					<p>Avant de récupérer vos invitations, merci d'indiquer si vous viendrez accompagné</p>\n					<%= render 'reservations/unnumbered_selection', concert: @invitation.concert, max_selection_count: @invitation.free_tickets%>\n					<p><%=@invitation.concert.footnote%></p>\n					<p>Vous pouvez également réserver d'autres billets, y compris des places gratuites pour les enfants, en passant par la <%=link_to('billetterie', concerts_path)%></p>\n				<% else %>\n					<p>Pour récupérer vos <%=@order.invitation.free_tickets%> billets invités, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>\n					<p>Les <%=@order.invitation.free_tickets%> premières places seront gratuites. Si vous le souhaitez, vous pouvez ensuite selectionner des places supplémentaires et payer pour ces places par carte. Vous pourrez aussi attribuer les places entre invitaitons, places payantes et places pour enfants dans votre <%=link_to('panier', reservations_basket_path)%></p>\n				<%end%>\n				<p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie envoyant un mail à <%=mail_to('billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94</p>\n			</div>\n		</div>\n		</br>\n        <div class=\"row right-align\">\n        	<%if @invitation.concert.present? %>\n        		<%= link_to(\"continuer\", reservations_basket_path, :class => \"btn\", id: \"order-form-submit\")%>\n        	<%else %>\n        		<%= link_to(\"continuer\", concerts_path, :class => \"btn\", id: \"order-form-submit\")%>\n        	<%end%>\n        </div>\n	</div>\n</main>\n",
+			"file": "app/views/invitations/show.html.erb",
+			"file_size": 2328,
+			"file_write_time": 1502620641000000,
+			"settings":
+			{
+				"buffer_size": 2310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/basket.html.erb",
+			"settings":
+			{
+				"buffer_size": 4170,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/test.js.erb",
+			"settings":
+			{
+				"buffer_size": 115,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 3614,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_unnumbered_selection.html.erb",
+			"settings":
+			{
+				"buffer_size": 1313,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/mailers/ticket_mailer.rb",
+			"settings":
+			{
+				"buffer_size": 1332,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/ticket_mailer/member_invitation.html.erb",
+			"settings":
+			{
+				"buffer_size": 26656,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n	<head>\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n        <link href=\"https://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\" data-premailer=\"ignore\">\n\n        <title>Vos invitations pour les Variations Musicales de Tannay</title>\n        <style type=\"text/css\">\n			/* /\\/\\/\\/\\/\\/\\/\\/\\/ CLIENT-SPECIFIC STYLES /\\/\\/\\/\\/\\/\\/\\/\\/ */\n			#outlook a{padding:0;} /* Force Outlook to provide a \"view in browser\" message */\n			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */\n			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */\n			body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */\n			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */\n			img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */\n			/* /\\/\\/\\/\\/\\/\\/\\/\\/ RESET STYLES /\\/\\/\\/\\/\\/\\/\\/\\/ */\n			body{margin:0; padding:0;}\n			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}\n			table{border-collapse:collapse !important;}\n			body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}\n			/* /\\/\\/\\/\\/\\/\\/\\/\\/ TEMPLATE STYLES /\\/\\/\\/\\/\\/\\/\\/\\/ */\n			/* ========== Page Styles ========== */\n			#bodyCell{padding:20px;}\n			#templateContainer{width:600px;}\n			/**\n			* @tab Page\n			* @section background style\n			* @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.\n			* @theme page\n			*/\n\n			body, #bodyTable{\n				/*@editable*/ background-color:#f5f5f6;\n			}\n			/**\n			* @tab Page\n			* @section background style\n			* @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.\n			* @theme page\n			*/\n			#bodyCell{\n				/*@editable*/ border-top:4px solid #BBBBBB;\n			}\n			/**\n			* @tab Page\n			* @section email border\n			* @tip Set the border for your email.\n			*/\n			#templateContainer{\n				/*@editable*/ border:1px solid #BBBBBB;\n			}\n			/**\n			* @tab Page\n			* @section heading 1\n			* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.\n			* @style heading 1\n			*/\n			h1{\n				/*@editable*/ color:#475058;\n				display:block;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:26px;\n				/*@editable*/ font-style:normal;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ line-height:100%;\n				/*@editable*/ letter-spacing:normal;\n				margin-top:0;\n				margin-right:0;\n				margin-bottom:0;\n				margin-left:0;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Page\n			* @section heading 2\n			* @tip Set the styling for all second-level headings in your emails.\n			* @style heading 2\n			*/\n			h2{\n				/*@editable*/ color:#475058 !important;\n				display:block;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:20px;\n				/*@editable*/ font-style:normal;\n				/*@editable*/ font-weight:bold;\n				/*@editable*/ line-height:100%;\n				/*@editable*/ letter-spacing:normal;\n				margin-top:0;\n				margin-right:0;\n				margin-bottom:10px;\n				margin-left:0;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Page\n			* @section heading 3\n			* @tip Set the styling for all third-level headings in your emails.\n			* @style heading 3\n			*/\n			h3{\n				/*@editable*/ color:#475058 !important;\n				display:block;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:16px;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ line-height:100%;\n				/*@editable*/ letter-spacing:normal;\n				margin-top:0;\n				margin-right:0;\n				margin-bottom:10px;\n				margin-left:0;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Page\n			* @section heading 4\n			* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.\n			* @style heading 4\n			*/\n			h4{\n				/*@editable*/ color:#475058 !important;\n				display:block;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:14px;\n				/*@editable*/ font-style:italic;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ line-height:100%;\n				/*@editable*/ letter-spacing:normal;\n				margin-top:0;\n				margin-right:0;\n				margin-bottom:10px;\n				margin-left:0;\n				/*@editable*/ text-align:left;\n			}\n			/* ========== Header Styles ========== */\n			/**\n			* @tab Header\n			* @section preheader style\n			* @tip Set the background color and bottom border for your email's preheader area.\n			* @theme header\n			*/\n			#templatePreheader{\n				/*@editable*/ background-color:#f5f5f6;\n				/*@editable*/ border-bottom:1px solid #CCCCCC;\n			}\n			/**\n			* @tab Header\n			* @section preheader text\n			* @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.\n			*/\n			.preheaderContent{\n				/*@editable*/ color:#808080;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:10px;\n				/*@editable*/ line-height:125%;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Header\n			* @section preheader link\n			* @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.\n			*/\n			.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{\n				/*@editable*/ color:#606060;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			/**\n			* @tab Header\n			* @section header style\n			* @tip Set the background color and borders for your email's header area.\n			* @theme header\n			*/\n			#templateHeader{\n				/*@editable*/ background-color:#00B1EB;\n				/*@editable*/ border-top:1px solid #CCCCCC;\n				/*@editable*/ border-bottom:1px solid #CCCCCC;\n			}\n			/**\n			* @tab Header\n			* @section header text\n			* @tip Set the styling for your email's header text. Choose a size and color that is easy to read.\n			*/\n			.headerContent{\n				/*@editable*/ color:#FFFFFF;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:0px;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ line-height:100%;\n				/*@editable*/ padding-top:0px;\n				/*@editable*/ padding-right:20px;\n				/*@editable*/ padding-bottom:0px;\n				/*@editable*/ padding-left:20px;\n				/*@editable*/ text-align:left;\n				/*@editable*/ vertical-align:middle;\n			}\n			/**\n			* @tab Header\n			* @section header link\n			* @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.\n			*/\n			.headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{\n				/*@editable*/ color:#EB4102;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			#headerImage{\n				height:auto;\n				max-width:600px;\n			}\n			/* ========== Body Styles ========== */\n			/**\n			* @tab Body\n			* @section body style\n			* @tip Set the background color and borders for your email's body area.\n			*/\n			#templateBody{\n				/*@editable*/ background-color:#FFFFFF;\n				/*@editable*/ border-top:1px solid #FFFFFF;\n				/*@editable*/ border-bottom:1px solid #CCCCCC;\n			}\n			/**\n			* @tab Body\n			* @section body text\n			* @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.\n			* @theme main\n			*/\n			.bodyContent{\n				/*@editable*/ color:#475058;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:14px;\n				/*@editable*/ line-height:150%;\n				padding-top:20px;\n				padding-right:20px;\n				padding-bottom:20px;\n				padding-left:20px;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Body\n			* @section body link\n			* @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.\n			*/\n			.bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Override */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{\n				/*@editable*/ color:#00B1EB;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			.bodyContent img{\n				display:inline;\n				height:auto;\n				max-width:560px;\n			}\n			/* ========== Column Styles ========== */\n			.templateColumnContainer{width:260px;}\n			/**\n			* @tab Columns\n			* @section column style\n			* @tip Set the background color and borders for your email's column area.\n			*/\n			#templateColumns{\n				/*@editable*/ background-color:#FFFFFF;\n				/*@editable*/ border-top:1px solid #FFFFFF;\n				/*@editable*/ border-bottom:1px solid #FFFFFF;\n			}\n			/**\n			* @tab Columns\n			* @section left column text\n			* @tip Set the styling for your email's left column content text. Choose a size and color that is easy to read.\n			*/\n			.leftColumnContent{\n				/*@editable*/ color:#475058;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:10px;\n				/*@editable*/ line-height:150%;\n				padding-top:0;\n				padding-right:20px;\n				padding-bottom:20px;\n				padding-left:20px;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Columns\n			* @section left column link\n			* @tip Set the styling for your email's left column content links. Choose a color that helps them stand out from your text.\n			*/\n			.leftColumnContent a:link, .leftColumnContent a:visited, /* Yahoo! Mail Override */ .leftColumnContent a .yshortcuts /* Yahoo! Mail Override */{\n				/*@editable*/ color:#00B1EB;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			/**\n			* @tab Columns\n			* @section right column text\n			* @tip Set the styling for your email's right column content text. Choose a size and color that is easy to read.\n			*/\n			.rightColumnContent{\n				/*@editable*/ color:#475058;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:14px;\n				/*@editable*/ line-height:150%;\n				padding-top:0;\n				padding-right:20px;\n				padding-bottom:20px;\n				padding-left:20px;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Columns\n			* @section right column link\n			* @tip Set the styling for your email's right column content links. Choose a color that helps them stand out from your text.\n			*/\n			.rightColumnContent a:link, .rightColumnContent a:visited, /* Yahoo! Mail Override */ .rightColumnContent a .yshortcuts /* Yahoo! Mail Override */{\n				/*@editable*/ color:#00B1EB;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			.leftColumnContent img, .rightColumnContent img{\n				display:inline;\n				height:auto;\n				max-width:260px;\n			}\n			/* ========== Footer Styles ========== */\n			/**\n			* @tab Footer\n			* @section footer style\n			* @tip Set the background color and borders for your email's footer area.\n			* @theme footer\n			*/\n			#templateFooter{\n				/*@editable*/ background-color:#00B1EB;\n				/*@editable*/ border-top:1px solid #FFFFFF;\n			}\n			/**\n			* @tab Footer\n			* @section footer text\n			* @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.\n			* @theme footer\n			*/\n			.footerContent{\n				/*@editable*/ color:#FFFFFF;\n				/*@editable*/ font-family:'Lato',sans-serif;\n				/*@editable*/ font-size:10px;\n				/*@editable*/ line-height:150%;\n				padding-top:20px;\n				padding-right:20px;\n				padding-bottom:20px;\n				padding-left:20px;\n				/*@editable*/ text-align:left;\n			}\n			/**\n			* @tab Footer\n			* @section footer link\n			* @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.\n			*/\n			.footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{\n				/*@editable*/ color:#ffffff;\n				/*@editable*/ font-weight:normal;\n				/*@editable*/ text-decoration:underline;\n			}\n			/* /\\/\\/\\/\\/\\/\\/\\/\\/ MOBILE STYLES /\\/\\/\\/\\/\\/\\/\\/\\/ */\n            @media only screen and (max-width: 480px){\n				/* /\\/\\/\\/\\/\\/\\/ CLIENT-SPECIFIC MOBILE STYLES /\\/\\/\\/\\/\\/\\/ */\n				body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */\n                body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */\n				/* /\\/\\/\\/\\/\\/\\/ MOBILE RESET STYLES /\\/\\/\\/\\/\\/\\/ */\n				#bodyCell{padding:10px !important;}\n				/* /\\/\\/\\/\\/\\/\\/ MOBILE TEMPLATE STYLES /\\/\\/\\/\\/\\/\\/ */\n				/* ======== Page Styles ======== */\n				/**\n				* @tab Mobile Styles\n				* @section template width\n				* @tip Make the template fluid for portrait or landscape view adaptability. If a fluid layout doesn't work for you, set the width to 300px instead.\n				*/\n				#templateContainer{\n					max-width:600px !important;\n					/*@editable*/ width:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section heading 1\n				* @tip Make the first-level headings larger in size for better readability on small screens.\n				*/\n				h1{\n					/*@editable*/ font-size:24px !important;\n					/*@editable*/ line-height:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section heading 2\n				* @tip Make the second-level headings larger in size for better readability on small screens.\n				*/\n				h2{\n					/*@editable*/ font-size:20px !important;\n					/*@editable*/ line-height:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section heading 3\n				* @tip Make the third-level headings larger in size for better readability on small screens.\n				*/\n				h3{\n					/*@editable*/ font-size:18px !important;\n					/*@editable*/ line-height:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section heading 4\n				* @tip Make the fourth-level headings larger in size for better readability on small screens.\n				*/\n				h4{\n					/*@editable*/ font-size:16px !important;\n					/*@editable*/ line-height:100% !important;\n				}\n				/* ======== Header Styles ======== */\n				#templatePreheader{display:none !important;} /* Hide the template preheader to save space */\n				/**\n				* @tab Mobile Styles\n				* @section header image\n				* @tip Make the main header image fluid for portrait or landscape view adaptability, and set the image's original width as the max-width. If a fluid setting doesn't work, set the image width to half its original size instead.\n				*/\n				#headerImage{\n					height:auto !important;\n					/*@editable*/ max-width:600px !important;\n					/*@editable*/ width:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section header text\n				* @tip Make the header content text larger in size for better readability on small screens. We recommend a font size of at least 16px.\n				*/\n				.headerContent{\n					/*@editable*/ font-size:20px !important;\n					/*@editable*/ line-height:125% !important;\n				}\n				/* ======== Body Styles ======== */\n				/**\n				* @tab Mobile Styles\n				* @section body text\n				* @tip Make the body content text larger in size for better readability on small screens. We recommend a font size of at least 16px.\n				*/\n				.bodyContent{\n					/*@editable*/ font-size:18px !important;\n					/*@editable*/ line-height:125% !important;\n				}\n				/* ======== Column Styles ======== */\n				.templateColumnContainer{display:block !important; width:100% !important;}\n				/**\n				* @tab Mobile Styles\n				* @section column image\n				* @tip Make the column image fluid for portrait or landscape view adaptability, and set the image's original width as the max-width. If a fluid setting doesn't work, set the image width to half its original size instead.\n				*/\n				.columnImage{\n					height:auto !important;\n					/*@editable*/ max-width:480px !important;\n					/*@editable*/ width:100% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section left column text\n				* @tip Make the left column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.\n				*/\n				.leftColumnContent{\n					/*@editable*/ font-size:16px !important;\n					/*@editable*/ line-height:125% !important;\n				}\n				/**\n				* @tab Mobile Styles\n				* @section right column text\n				* @tip Make the right column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.\n				*/\n				.rightColumnContent{\n					/*@editable*/ font-size:16px !important;\n					/*@editable*/ line-height:125% !important;\n				}\n				/* ======== Footer Styles ======== */\n				/**\n				* @tab Mobile Styles\n				* @section footer text\n				* @tip Make the body content text larger in size for better readability on small screens.\n				*/\n				.footerContent{\n					/*@editable*/ font-size:14px !important;\n					/*@editable*/ line-height:115% !important;\n				}\n				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */\n			}\n		</style>\n    </head>\n    <body leftmargin=\"0\" marginwidth=\"0\" topmargin=\"0\" marginheight=\"0\" offset=\"0\">\n    	<center>\n        	<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" width=\"100%\" id=\"bodyTable\">\n            	<tr>\n                	<td align=\"center\" valign=\"top\" id=\"bodyCell\">\n                    	<!-- BEGIN TEMPLATE // -->\n                    	<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" id=\"templateContainer\">\n                        	<tr>\n                            	<td align=\"center\" valign=\"top\">\n                                	<!-- BEGIN PREHEADER // -->\n                                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"templatePreheader\">\n                                        <tr>\n                                            <td valign=\"top\" class=\"preheaderContent\" style=\"padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;\" mc:edit=\"preheader_content00\">\n                                                Vos invitations \n                                            </td>\n                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->\n                                            <td valign=\"top\" width=\"180\" class=\"preheaderContent\" style=\"padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;\" mc:edit=\"preheader_content01\">\n                                            	<%=mail_to(\"billetterie@musicaes-tannay.ch\",\"Contact\")%>.\n                                            </td>\n                                            <!-- *|END:IF|* -->\n                                        </tr>\n                                    </table>\n                                    <!-- // END PREHEADER -->\n                                </td>\n                            </tr>\n                        	<tr>\n                            	<td align=\"center\" valign=\"top\">\n                                	<!-- BEGIN HEADER // -->\n                                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"templateHeader\">\n                                        <tr>\n                                           <td valign=\"top\" class=\"headerContent\" mc:edit=\"body_content\" width=\"20%\">\n                                           		<img src=\"https://www.musicales-tannay.ch/templates/template_vmt/images/VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png\" style=\"max-width90px;max-height:90px\">\n                                            	<!-- <img src=\"http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png\" style=\"max-width:600px;\" id=\"headerImage\" mc:label=\"header_image\" mc:edit=\"header_image\" mc:allowdesigner mc:allowtext /> -->\n                                            </td>\n                                            <td align=\"left\" valign=\"top\" class=\"headerContent\" mc:edit=\"body_content\">\n                                            	<h1 style=\"color:#ffffff\">Vos invitations pour les Variations Musicales de Tannay</h1>\n                                            </td>\n                                        </tr>\n                                    </table>\n                                    <!-- // END HEADER -->\n                                </td>\n                            </tr>\n                        	<tr>\n                            	<td align=\"center\" valign=\"top\">\n                                	<!-- BEGIN COLUMNS // -->\n                                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"templateColumns\">\n                                    	<tr>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:20px;\">\n                                                <h3>\n                                                	<%if @invitation.title.nil? || @invitation.last_name.nil?%>\n                                                		Chers amis du festival \n                                                	<%elsif @invitation.title==\"Madame\"%>\n                                                		Chère <%=@invitation.title%> <%=@invitation.last_name%>,\n                                                	<%elsif @invitation.title==\"Monsieur\"%>\n                                                		Cher <%=@invitation.title%> <%=@invitation.last_name%>,\n                                                	<%else%>\n                                                		Chers amis du festival\n                                                	<%end%>\n                                                </h3>\n                                                <p>Les Variations Musicales de Tannay en sont cette année à leur huitième édition. Fort de l’expérience acquise jusqu’ici, nous offrirons une fois encore à notre public un programme de grande qualité, dans des lieux particulièrement propices à son écoute et dans une grande proximité avec les artistes.</p>\n                                                <p>Khatia Buniatishvili, Renaud Capuçon, les sœurs Berthollet et l’Orchestre national symphonique de Lettonie, parmi d’autres, sauront, dans le beau parc du château, vous offrir des moments musicaux exceptionnels. Le festival s’exportera également pour deux belles soirées : l’une à la plage de Gland et l’autre au Conservatoire de Nyon.</p>\n                                                <p>C’est pourquoi nous serions très heureux de vous inviter, au nom de la ville de Gland, au concert du <%=@invitation.concert.name%> le <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%>. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => \"https\")%> pour réserver vos <%=@invitation.free_tickets%> places. Vos billets vous seront ainsi envoyés par courrier électronique.</p>\n                                                <p>C’est pourquoi nous serions très heureux de vous inviter, au nom de la ville de Gland, au concert du <%=@invitation.concert.name%> le <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%>. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => \"https\")%> pour réserver vos <%=@invitation.free_tickets%> places. Vos billets vous seront ainsi envoyés par courrier électronique.</p>\n                                                <p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94.</p>\n                                                </p>\n                                                <p>En espérant vous rencontrer à cette occasion, nous vous prions d’accepter, Madame, Monsieur, nos bien cordiales salutations.  \n                                                </p>\n                                    		</td>\n                                    	</tr>\n                                    </table>\n                                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"templateColumns\">\n                                    	<tr>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:20px;\"></td>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:20px;\"><p>Françoise de Courten</td>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:20px;\"><p>Serge Schmidt</p></td>\n                                    	</tr>\n                                    	<tr>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:0px;\"></td>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:0px;\"><p>Vice-Présidente</p></td>\n                                    		<td align=\"left\" valign=\"top\" class=\"bodyContent\" mc:edit=\"body_content\" style=\"padding-top:0px;\"><p>Président</p></td>\n                                    	</tr>\n                                    </table>\n                                    <!-- // END COLUMNS -->\n                                </td>\n                            </tr>\n                        	<tr>\n                            	<td align=\"center\" valign=\"top\">\n                                	<!-- BEGIN FOOTER // -->\n                                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"templateFooter\">\n                                        <tr>\n                                            <td valign=\"top\" class=\"footerContent\" mc:edit=\"footer_content00\">\n                                                <a href=\"https://www.instagram.com/musicales_tannay\">Nous suivre sur Instagram</a>&nbsp;&nbsp;&nbsp;<a href=\"https://twitter.com/musicalestannay\">Nous suivre sur Twitter</a>&nbsp;&nbsp;&nbsp;<a href=\"https://www.facebook.com/musicalestannay/?fref=ts\">Nous suivre sur Facebook</a>&nbsp;&nbsp;&nbsp;<%=mail_to(\"\",\"Envoyer à un ami\", subject: \"Vos billets pour les Variations Musicales de Tannay\")%>&nbsp;\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td valign=\"top\" class=\"footerContent\" style=\"padding-top:0;\" mc:edit=\"footer_content01\">\n                                               Copyright &copy; <%=Date.today.year%> Variations Musicales de Tannay\n                                                <br />\n                                                <br />\n                                                <strong>Contact</strong>\n                                                <br />\n                                                <%=mail_to(\"billetterie@musicales-tannay.ch\")%>\n                                            </td>\n                                        </tr>\n                                    </table>\n                                    <!-- // END FOOTER -->\n                                </td>\n                            </tr>\n                        </table>\n                        <!-- // END TEMPLATE -->\n                    </td>\n                </tr>\n            </table>\n        </center>\n    </body>\n</html>",
+			"file": "app/views/ticket_mailer/specific_concert_invitation.html.erb",
+			"file_size": 27583,
+			"file_write_time": 1502621576000000,
+			"settings":
+			{
+				"buffer_size": 28100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/ticket_mailer/location_change.html.erb",
+			"settings":
+			{
+				"buffer_size": 25214,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/concert.rb",
+			"settings":
+			{
+				"buffer_size": 388,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/application_controller.rb",
+			"settings":
+			{
+				"buffer_size": 596,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/concerts_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1418,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 778,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/orders/paymentform.html.erb",
+			"settings":
+			{
+				"buffer_size": 8257,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/users/sessions/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 949,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/initializers/devise.rb",
+			"settings":
+			{
+				"buffer_size": 13506,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "class Payments::CashierController < ApplicationController\n\n	before_action :check_cashier_authorization\n	before_action :retrieve_order\n\n	def create\n		@order.pay(\"paiement de caisse\")\n		@order.user_id=current_user.id\n		@order.email=current_user.email\n		if @order.save\n			GenerateTicketJob.perform_later(@order)\n			session.delete(:order_id)\n			render 'orders/success'\n		else\n			flash[:alert] = \"Une erreur s'est produite\"\n		end\n	end\nend\n",
+			"file": "app/controllers/orders/cashierpayments_controller.rb",
+			"file_size": 442,
+			"file_write_time": 1502748460000000,
+			"settings":
+			{
+				"buffer_size": 434,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/payments/cashierpayments_controller.rb",
+			"settings":
+			{
+				"buffer_size": 442,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/application.js",
+			"settings":
+			{
+				"buffer_size": 804,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Rails.application.configure do\n  # Settings specified here will take precedence over those in config/application.rb.\n\n  # In the development environment your application's code is reloaded on\n  # every request. This slows down response time but is perfect for development\n  # since you don't have to restart the web server when you make code changes.\n  config.cache_classes = false\n\n  # Do not eager load code on boot.\n  config.eager_load = false\n\n  # Show full error reports.\n  config.consider_all_requests_local = true\n\n  # Enable/disable caching. By default caching is disabled.\n  if Rails.root.join('tmp/caching-dev.txt').exist?\n    config.action_controller.perform_caching = true\n\n    config.cache_store = :memory_store\n    config.public_file_server.headers = {\n      'Cache-Control' => 'public, max-age=172800'\n    }\n  else\n    config.action_controller.perform_caching = false\n\n    config.cache_store = :null_store\n  end\n\n\n  config.action_mailer.raise_delivery_errors = true\n\n    config.action_mailer.delivery_method = :smtp\n    config.action_mailer.smtp_settings = {\n      :address              => \"mail.musicales-tannay.ch\",\n      :port                 => 587,\n      :domain               => 'musicales-tannay.ch',\n      :user_name            => 'billetterie@musicales-tannay.ch',\n      :password             => 'Grrg22z*', #Rails.application.secrets.billetterie_email_password,\n      :authentication       => :plain,\n      :enable_starttls_auto => true,\n      :openssl_verify_mode  => 'none' }\n\n  config.action_mailer.perform_caching = false\n\n  # Print deprecation notices to the Rails logger.\n  config.active_support.deprecation = :log\n\n  # Raise an error on page load if there are pending migrations.\n  config.active_record.migration_error = :page_load\n\n  # Debug mode disables concatenation and preprocessing of assets.\n  # This option may cause significant delays in view rendering with a large\n  # number of complex assets.\n  config.assets.debug = true\n\n  # Suppress logger output for asset requests.\n  config.assets.quiet = true\n\n  # Raises error for missing translations\n  # config.action_view.raise_on_missing_translations = true\n\n  # Use an evented file watcher to asynchronously detect changes in source code,\n  # routes, locales, etc. This feature depends on the listen gem.\n  config.file_watcher = ActiveSupport::EventedFileUpdateChecker\n\n  ENV['AWS_ACCESS_KEY'] = Rails.application.secrets.amazon_access_key_id\n  ENV[\"AWS_SECRET_ACCESS_KEY\"] = Rails.application.secrets.amazon_secret_access_key\n\n  ENV[\"DOCRAPTOR_API_KEY\"] = Rails.application.secrets.docraptor_api_key\n\n  Rails.application.routes.default_url_options[:host] = 'localhost:3000'\n\n  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }\n\n  #Action cable host mounting\n  Rails.application.configure do \n    config.action_cable.url = \"ws://localhost:3000/cable\"\n  end \n\nend\n",
+			"file": "config/environments/development.rb",
+			"file_size": 2880,
+			"file_write_time": 1502802744000000,
+			"settings":
+			{
+				"buffer_size": 2880,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/channels/reservations_channel.rb",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/environments/production.rb",
+			"settings":
+			{
+				"buffer_size": 4579,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 2473,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "web: bundle exec puma -p $PORT  \nworker: QUEUE=* rake environment resque:work",
+			"file": "Procfile",
+			"file_size": 83,
+			"file_write_time": 1502835677000000,
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/_header.html.erb",
+			"settings":
+			{
+				"buffer_size": 7709,
 				"line_ending": "Unix"
 			}
 		}
@@ -350,7 +505,7 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 118.0
 	},
 	"distraction_free":
 	{
@@ -363,40 +518,98 @@
 	},
 	"file_history":
 	[
-		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/docraptor.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/s3.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/ticket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/secrets.yml",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/send_ticket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/stripe.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/charges_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/charges/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/orders_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss",
-		"/Users/Voight-Kampff/Documents/VMT2017/Gemfile",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/development.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/mailer.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_header.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/basket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/show.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/basket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/reservations_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/controllers/reservations_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/application.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/locales/fr.yml",
 		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/cable.yml",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/cashier_payments_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/routes.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/dashboards/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8.html",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/dashboards_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/redis.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_footer.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/invitations/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/paymentform.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/puma.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/order_form_errors.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/success.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/environment.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/invitations/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config.ru",
+		"/Users/Voight-Kampff/Documents/VMT2017/Procfile",
+		"/Users/Voight-Kampff/Documents/VMT2017/lib/tasks/resque.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/application.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/charges_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/Rakefile",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/mailers/ticket_mailer.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170731214915_create_locations.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170731220258_add_location_to_concerts.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170802182900_remove_concert_id.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/seat.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/order.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/location.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/basket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/index.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/_concert_card.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8.kXjgTO.html",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/reservations_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/orders_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/invitations_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/dashboards/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/locales/en.yml",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/production.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_header.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/invitation.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/Gemfile",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/create.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/user.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170727035029_add_user_to_orders.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/bin/rails",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/application_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170726140027_add_permissions_to_users.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/schema.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170726112334_addusedto_invitations.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/payment.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170726080503_change.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/stripe.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/secrets.yml",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/development.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/destroy.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/test.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/application.css.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/_unnumbered_selection.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/update.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/update.js",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/charges/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/VMT2017.sublime-project",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170702151408_add_public_to_reservation_type.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/filter_parameter_logging.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/DocRaptor.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/docraptor.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/singe_code_ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/test.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/mailers/old_ticket_mailer.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/s3.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/send_ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/mailer.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/basket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT/app/controllers/reservations_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/locales/fr.yml",
 		"/Users/Voight-Kampff/Downloads/materialize-src/sass/components/_buttons.scss",
 		"/Users/Voight-Kampff/Downloads/materialize-src/sass/materialize.scss",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/show.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT/config/routes.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/routes.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/concerts_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/application.css.scss",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/order.rb",
 		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/create.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/seats_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT/app/models/concert.rb",
@@ -412,10 +625,8 @@
 		"/Users/Voight-Kampff/Documents/VMT/app/views/static/programme.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT/app/views/static/home.html.erb",
 		"/Users/Voight-Kampff/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Voight-Kampff/Documents/VMT/app/controllers/concerts_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concert/new.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/static/index.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/application.html.erb",
 		"/Users/Voight-Kampff/Downloads/starter-template 2/index.html",
 		"/Users/Voight-Kampff/Documents/VMT2017/vendor/assets/javascripts/init.js",
 		"/Users/Voight-Kampff/Downloads/parallax-template/css/style.css",
@@ -434,73 +645,18 @@
 		"/Users/Voight-Kampff/Documents/VMT/app/admin/seat.rb",
 		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/custom.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160601111020_create_unnumbered_reservations.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/models/unnumbered_reservation.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/controllers/unnumbered_reservation_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/deselection2.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/update.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/models/reservation.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.css.scss",
-		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.css",
-		"/Users/Voight-Kampff/.Trash/ticket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/ticket_mailer/ticket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/config/initializers/stripe.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_concert.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/Script",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/layouts/_header.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/old_new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_selection2.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/assets/stylesheets/custom.scss",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_selection.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/models/seat.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_modal.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_testmodal.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_testmodal2.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/destroy.js.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/update.js.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_deselection2.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_test_array",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_unselection.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_seatarray.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/new.js.erb",
-		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160518190407_add_foreign_key.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_seatarray",
-		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160516155439_create_reservations.rb",
-		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20130613122451_add_username_to_prs.rb",
-		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160518151848_add_reservation_id_to_seats.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/artists/_form.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/models/order.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/_unselection",
-		"/Users/Voight-Kampff/Documents/VMT/app/controllers/artists_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/static/billetterie.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/config/application.rb",
-		"/Users/Voight-Kampff/Documents/VMT/Gemfile",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/ccpayments/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/programme2016.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/_line.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/application.scss",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/orders/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/controllers/application_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/concerts/programme2015.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/config/initializers/active_admin.rb",
-		"/Users/Voight-Kampff/Documents/VMT/db/migrate/20160510084802_drop_table.rb",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/fonts/pe-icon-7-stroke.scss",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/fonts/Rubik-Fonts.scss",
-		"/Users/Voight-Kampff/Documents/VMT2016/Gemfile",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/views/layouts/application.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/views/layouts/_header.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2016/app/assets/stylesheets/rubick.css",
-		"/Users/Voight-Kampff/Documents/VMT2016/config/routes.rb"
+		"/Users/Voight-Kampff/Documents/VMT/app/models/unnumbered_reservation.rb"
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
+			"/Users/Voight-Kampff/Documents/VMT2017",
 			""
 		]
 	},
@@ -509,6 +665,118 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"redis",
+			"selected",
+			"v3",
+			"<script src=\"https://js.stripe.com/v3/\"></script>",
+			"retrieve_order",
+			"Contact",
+			"contact",
+			"vos invi",
+			"Merci pour",
+			"vos invitaions",
+			"  ",
+			"options",
+			"update_column",
+			"upda",
+			"inviation",
+			"src",
+			"style",
+			"location",
+			"concert.location",
+			"font-size",
+			"concert.location",
+			"location",
+			"rick",
+			"divider",
+			"row",
+			"20p",
+			"card",
+			"footer",
+			"foot",
+			"flash",
+			"title",
+			"madame",
+			"mademoi",
+			"flash",
+			"concert",
+			"@concerts",
+			"gconcerts",
+			"email",
+			"session",
+			".delete",
+			"ssl",
+			"ss",
+			"url",
+			"@order",
+			"hold",
+			"action",
+			"options",
+			".map",
+			":",
+			"de cette",
+			"default",
+			"order",
+			"refact",
+			"hover",
+			"!important",
+			"active",
+			"is-empty",
+			"remote",
+			"\">",
+			"strip",
+			"large",
+			"\" ",
+			"main",
+			"px",
+			"h1",
+			"selected",
+			"reservation",
+			"unless",
+			"collap",
+			"drop",
+			"basket",
+			"buffer-cont",
+			"onclick",
+			"test",
+			"coll",
+			"waves",
+			"menu",
+			"\">\n",
+			"btn",
+			"btn-large",
+			"hover",
+			"bt",
+			"selec",
+			"blue",
+			"78x",
+			"78px",
+			"large",
+			"collapsible",
+			"collap",
+			"billet",
+			"active",
+			"side-nav",
+			"concert",
+			"first",
+			"association",
+			"dropdown",
+			"content",
+			"contet",
+			"dropdown",
+			"content",
+			"data",
+			"waves",
+			"hover",
+			"font",
+			"active",
+			"blue",
+			"Lato",
+			"lato",
+			"hidden",
+			"order",
+			"orger",
+			"select",
 			"by_id",
 			"concert",
 			"redirec",
@@ -524,126 +792,15 @@
 			"merci pour",
 			"<em",
 			"<em>",
-			"em",
-			"br",
-			"c.",
-			"humani",
-			"subject",
-			"plein",
-			"code",
-			"secret",
-			"*\"",
-			"';",
-			"Open",
-			"Helvetica",
-			"font",
-			"bodyCont",
-			"body",
-			"260px",
-			"#505050",
-			"body",
-			"bodyContent",
-			"bodyConte",
-			"basic",
-			"%>,",
-			"link_",
-			"concerts",
-			"40",
-			"20",
-			"20px",
-			"pull",
-			"a",
-			">\n",
-			":long",
-			"align",
-			"\">\n",
-			">\n",
-			"nav",
-			"fiex",
-			"fixed",
-			"navbar",
-			"nav",
-			"side",
-			"1",
-			"img",
-			"js/",
-			"/js",
-			"js",
-			"button",
-			">\n",
-			">",
-			"redis",
-			"trigger",
-			"trig",
-			"create",
-			"btn-mini create",
-			"disabled",
-			"addresse",
-			"condition",
-			"free",
-			"@seat",
-			"ensure",
-			"render",
-			"partial",
-			"condition",
-			"magick",
-			"basket",
-			".build",
-			"local",
-			"basket",
-			"danger",
-			"dnger",
-			"concert",
-			"ff",
-			"large",
-			"parent",
-			"style",
-			"new",
-			"dialog",
-			"builder",
-			"fff",
-			"member",
-			"@import \"bootstrap\";",
-			"bootstrap",
-			"boot",
-			"register",
-			"paymill",
-			"sass",
-			"#c5a47e",
-			"C33",
-			"section-header h1",
-			"992",
-			"99",
-			"h1",
-			"4.5em",
-			"section-header h1",
-			"section-head",
-			"url",
-			"image_ta",
-			"images",
-			"face",
-			"/img",
-			"img/",
-			"img",
-			"/css",
-			"css",
-			".\n",
-			"rubik_back",
-			".p",
-			"bg.jpg",
-			"bg2.jpg",
-			"bg.jpg",
-			">\n",
-			"ssl",
-			"'",
-			"end"
+			"em"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"selected",
 			"https://www.musicales-tannay.ch/images",
 			"Lato",
 			"btn-mini btn-success create ",
@@ -680,49 +837,23 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 43,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "app/controllers/orders_controller.rb",
 					"settings":
 					{
-						"buffer_size": 2233,
+						"buffer_size": 2331,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								670,
-								670
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/models/order.rb",
-					"settings":
-					{
-						"buffer_size": 1643,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								201,
-								201
+								292,
+								292
 							]
 						],
 						"settings":
@@ -730,6 +861,32 @@
 							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 521.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 46,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"auto_name": "class OrdersController < ApplicationController",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -739,23 +896,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "db/migrate/20170702154219_change_concerts.rb",
+					"file": "app/controllers/invitations_controller.rb",
 					"settings":
 					{
-						"buffer_size": 169,
+						"buffer_size": 1026,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								144,
-								144
+								1021,
+								1021
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -765,18 +924,126 @@
 				},
 				{
 					"buffer": 3,
-					"file": "db/migrate/20170702151408_add_public_to_reservation_type.rb",
+					"file": "app/views/concerts/_concert_card.html.erb",
 					"settings":
 					{
-						"buffer_size": 139,
+						"buffer_size": 2291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2291,
+								2291
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/views/reservations/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 5006,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2886,
+								2886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 771.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/reservations/destroy.js.erb",
+					"settings":
+					{
+						"buffer_size": 106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60,
+								60
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/models/order.rb",
+					"settings":
+					{
+						"buffer_size": 3142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2589,
+								2589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 427.0,
+						"translation.y": 982.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "db/migrate/20170810232758_add_reservation_type_to_invitations.rb",
+					"settings":
+					{
+						"buffer_size": 151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								140
 							]
 						],
 						"settings":
@@ -790,164 +1057,52 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/controllers/concerts_controller.rb",
-					"settings":
-					{
-						"buffer_size": 1380,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1365,
-								1365
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 567.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/concerts/new.html.erb",
-					"settings":
-					{
-						"buffer_size": 2533,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1205,
-								1205
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 735.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/views/reservations/show.html.erb",
-					"settings":
-					{
-						"buffer_size": 4412,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1729,
-								1729
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 406.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/controllers/orders_controller.rb",
-					"settings":
-					{
-						"buffer_size": 692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								271,
-								271
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 35.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 8,
-					"file": "app/views/layouts/_header.html.erb",
+					"file": "app/controllers/reservations_controller.rb",
 					"settings":
 					{
-						"buffer_size": 1381,
+						"buffer_size": 4264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1020,
-								1020
+								3326,
+								3326
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1668.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "config/environments/production.rb",
+					"file": "app/controllers/api_controller.rb",
 					"settings":
 					{
-						"buffer_size": 4172,
+						"buffer_size": 343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3990,
-								3990
+								54,
+								54
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -957,23 +1112,23 @@
 				},
 				{
 					"buffer": 10,
-					"file": "config/secrets.yml",
+					"file": "config/routes.rb",
 					"settings":
 					{
-						"buffer_size": 1855,
+						"buffer_size": 1447,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								873,
-								873
+								74,
+								77
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -985,49 +1140,49 @@
 				},
 				{
 					"buffer": 11,
-					"file": "app/views/reservations/basket.html.erb",
+					"file": "config/cable.yml",
 					"settings":
 					{
-						"buffer_size": 1998,
+						"buffer_size": 319,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								883,
-								789
+								319,
+								319
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/YAML/YAML.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 12,
+					"file": "app/assets/javascripts/channels/reservations.js",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 527,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								527,
+								527
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1037,25 +1192,26 @@
 				},
 				{
 					"buffer": 13,
-					"file": "config/initializers/filter_parameter_logging.rb",
+					"file": "app/models/reservation.rb",
 					"settings":
 					{
-						"buffer_size": 194,
+						"buffer_size": 5822,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4921,
+								4921
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
+						"translation.x": 1.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1063,45 +1219,69 @@
 				},
 				{
 					"buffer": 14,
-					"file": "config/initializers/DocRaptor.rb",
 					"settings":
 					{
-						"buffer_size": 97,
+						"buffer_size": 1070,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										233,
+										242
+									],
+									[
+										729,
+										742
+									],
+									[
+										991,
+										1004
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								68,
-								68
+								985,
+								1019
 							]
 						],
 						"settings":
 						{
-							"auto_name": "DocRaptor.configure do |dr|",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"detect_indentation": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 168.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 15,
-					"file": "config/initializers/docraptor.rb",
+					"file": "app/models/invitation.rb",
 					"settings":
 					{
-						"buffer_size": 97,
+						"buffer_size": 266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								36,
+								36
 							]
 						],
 						"settings":
@@ -1116,239 +1296,18 @@
 				},
 				{
 					"buffer": 16,
-					"file": "Gemfile",
+					"file": "app/models/reservation_type.rb",
 					"settings":
 					{
-						"buffer_size": 2358,
+						"buffer_size": 93,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1192,
-								1192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "app/views/layouts/ticket.html.erb",
-					"settings":
-					{
-						"buffer_size": 560,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								107,
-								107
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "app/views/ticket_mailer/singe_code_ticket.html.erb",
-					"settings":
-					{
-						"buffer_size": 30396,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								25462,
-								25462
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "app/assets/stylesheets/custom.scss",
-					"settings":
-					{
-						"buffer_size": 1107,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								60,
-								60
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "config/environments/test.rb",
-					"settings":
-					{
-						"buffer_size": 1748,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "app/mailers/old_ticket_mailer.rb",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "app/views/layouts/application.html.erb",
-					"settings":
-					{
-						"buffer_size": 464,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								340,
-								340
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "app/views/ticket_mailer/ticket.html.erb",
-					"settings":
-					{
-						"buffer_size": 28312,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23219,
-								23219
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6833.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "app/models/concert.rb",
-					"settings":
-					{
-						"buffer_size": 254,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								253,
-								253
+								88,
+								88
 							]
 						],
 						"settings":
@@ -1362,19 +1321,45 @@
 					"type": "text"
 				},
 				{
-					"buffer": 25,
-					"file": "app/views/charges/new.html.erb",
+					"buffer": 17,
+					"file": "db/migrate/20170812092645_add_concert_id_to_invitations.rb",
 					"settings":
 					{
-						"buffer_size": 4004,
+						"buffer_size": 136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1665,
-								1665
+								136,
+								136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "app/views/invitations/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 2682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2427,
+								2427
 							]
 						],
 						"settings":
@@ -1384,57 +1369,136 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 473.0,
+						"translation.y": 584.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 26,
-					"file": "app/controllers/reservations_controller.rb",
+					"buffer": 19,
+					"file": "app/views/invitations/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 3356,
+						"buffer_size": 2310,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1603,
-								1603
+								529,
+								529
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1004.0,
+						"translation.y": 83.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 27,
-					"file": "app/views/reservations/_unnumbered_selection.html.erb",
+					"buffer": 20,
+					"file": "app/views/reservations/basket.html.erb",
 					"settings":
 					{
-						"buffer_size": 208,
+						"buffer_size": 4170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								62,
-								62
+								74,
+								74
 							]
 						],
 						"settings":
 						{
-							"auto_name": "<%= form_tag unnumbered_path do %>",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/views/reservations/test.js.erb",
+					"settings":
+					{
+						"buffer_size": 115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "app/views/reservations/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 3614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3248,
+								3248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 792.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "app/views/reservations/_unnumbered_selection.html.erb",
+					"settings":
+					{
+						"buffer_size": 1313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								620,
+								620
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1444,24 +1508,133 @@
 					"type": "text"
 				},
 				{
-					"buffer": 28,
-					"file": "app/views/concerts/show.html.erb",
+					"buffer": 24,
+					"file": "app/mailers/ticket_mailer.rb",
 					"settings":
 					{
-						"buffer_size": 74,
+						"buffer_size": 1332,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1261,
+								1261
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "app/views/ticket_mailer/member_invitation.html.erb",
+					"settings":
+					{
+						"buffer_size": 26656,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18470,
+								18470
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "app/views/ticket_mailer/specific_concert_invitation.html.erb",
+					"settings":
+					{
+						"buffer_size": 28100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23629,
+								23629
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8206.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "app/views/ticket_mailer/location_change.html.erb",
+					"settings":
+					{
+						"buffer_size": 25214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22931,
+								22931
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8175.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "app/models/concert.rb",
+					"settings":
+					{
+						"buffer_size": 388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1471,45 +1644,18 @@
 				},
 				{
 					"buffer": 29,
-					"file": "app/views/reservations/new.html.erb",
+					"file": "app/controllers/application_controller.rb",
 					"settings":
 					{
-						"buffer_size": 3173,
+						"buffer_size": 596,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								214,
-								214
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 735.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 30,
-					"file": "config/routes.rb",
-					"settings":
-					{
-						"buffer_size": 681,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								294
+								246,
+								273
 							]
 						],
 						"settings":
@@ -1519,31 +1665,388 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 63.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 31,
-					"file": "app/views/concerts/_concert_card.html.erb",
+					"buffer": 30,
+					"file": "app/controllers/concerts_controller.rb",
 					"settings":
 					{
-						"buffer_size": 513,
+						"buffer_size": 1418,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26,
-								26
+								1012,
+								1012
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 778,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "app/views/orders/paymentform.html.erb",
+					"settings":
+					{
+						"buffer_size": 8257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								371,
+								371
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 33,
+					"file": "app/views/users/sessions/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 949,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								850,
+								850
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 34,
+					"file": "config/initializers/devise.rb",
+					"settings":
+					{
+						"buffer_size": 13506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11336,
+								11336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2790.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 35,
+					"file": "app/controllers/orders/cashierpayments_controller.rb",
+					"settings":
+					{
+						"buffer_size": 434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								364,
+								348
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 36,
+					"file": "app/controllers/payments/cashierpayments_controller.rb",
+					"settings":
+					{
+						"buffer_size": 442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 37,
+					"file": "app/assets/javascripts/application.js",
+					"settings":
+					{
+						"buffer_size": 804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								804,
+								804
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 38,
+					"file": "config/environments/development.rb",
+					"settings":
+					{
+						"buffer_size": 2880,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2777,
+								2809
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 562.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "app/channels/reservations_channel.rb",
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "config/environments/production.rb",
+					"settings":
+					{
+						"buffer_size": 4579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4388,
+								4388
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 996.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 2473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 42,
+					"file": "Procfile",
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 43,
+					"file": "app/views/layouts/_header.html.erb",
+					"settings":
+					{
+						"buffer_size": 7709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2417,
+								2417
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1560,7 +2063,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 30.0
 	},
 	"layout":
 	{
@@ -1587,7 +2090,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 24.0
 	},
 	"replace":
 	{
