@@ -1,5 +1,5 @@
 class SeatCode < ApplicationRecord
-	belongs_to :seat
+	belongs_to :seat, optional: true
 
 	before_save :assign_params
 
