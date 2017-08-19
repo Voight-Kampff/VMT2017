@@ -58,7 +58,7 @@ class ConcertsController < ApplicationController
   end
 
   def index
-    @concerts=Concert.all.order("concerts.date")
+    @concerts=Concert.where(live: true).order(:date)
   end
 
   def show

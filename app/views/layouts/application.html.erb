@@ -13,7 +13,7 @@
   </head>
 
   <body>
-  	<%= render 'layouts/header', :locals => @concerts=Concert.all.order(:date) %>
+  	<%= render 'layouts/header', :locals => @concerts=Concert.where(live: true).order(:date) %>
     <%= yield %>
     <%= render 'layouts/footer'%>
   </body>
