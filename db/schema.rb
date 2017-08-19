@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816201124) do
+ActiveRecord::Schema.define(version: 20170819155642) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
     t.string   "shortname"
     t.datetime "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "image"
     t.boolean  "unnumbered"
     t.string   "subline"
     t.string   "footnote"
     t.integer  "location_id"
+    t.boolean  "live",        default: false
   end
 
   create_table "invitations", force: :cascade do |t|
