@@ -7,50 +7,54 @@
 				<h6><%=(I18n.localize @concert.date, format: :concert).capitalize%> <%=@concert.location.preposition%> <%=@concert.location.name%></h6>
 			</div>
 		</div>
-		<%if @concert.unnumbered? %>
-			<%= render 'unnumbered_selection', concert: @concert, max_selection_count: 8%>
+		<% if @concert.free_seats_count == 0 %>
+			<h7><b>Ce concert est complet</b></h7>
 		<% else %>
-			<div class="seats">
-				<div class="row">
-					<div class="col s12 m12 l12">
-						<div><b>Cat A: <%=@seats.first.price%>.-</b></div>
-							<% 0..475.times do |seat| %>
-								<% if seat % 25 ==0  && seat != 250 %>
-									<div class="row">
+			<%if @concert.unnumbered? %>
+				<%= render 'unnumbered_selection', concert: @concert, max_selection_count: 8%>
+			<% else %>
+				<div class="seats">
+					<div class="row">
+						<div class="col s12 m12 l12">
+							<div><b>Cat A: <%=@seats.first.price%>.-</b></div>
+								<% 0..475.times do |seat| %>
+									<% if seat % 25 ==0  && seat != 250 %>
+										<div class="row">
+											<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+									<% elsif seat == 250  %>
+										</br>
+										<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
+										<div class="row">
+											<button class="waves-effect waves-light  btn-flat"><%=@rows[seat/25]%></button>
+									<% else %>
+									<% end %>
+									<% if @taken_seat_array[seat]== 1 %>
+											<button class="waves-effect waves-light btn disabled" style="" id=<%=@seats[seat].id%>><%=(seat % 25) +1%></button>
+									<% elsif @taken_seat_array[seat]== 2 %>
+											<button class="waves-effect waves-light btn indigo darken-4" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+									<% else %>
+											<button class="waves-effect waves-light btn blue lighten-2" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
+									<% end %>
+									<% if seat % 25 == 24 %>
 										<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
-								<% elsif seat == 250  %>
-									</br>
-									<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
-									<div class="row">
-										<button class="waves-effect waves-light  btn-flat"><%=@rows[seat/25]%></button>
-								<% else %>
+										</div>
+									<% elsif seat % 25 == 12%>
+										<button class="waves-effect waves-light btn-flat">  </button>
+										<button class="waves-effect waves-light btn-flat">  </button>
+									<% else %>
+									<% end %>
 								<% end %>
-								<% if @taken_seat_array[seat]== 1 %>
-										<button class="waves-effect waves-light btn disabled" style="" id=<%=@seats[seat].id%>><%=(seat % 25) +1%></button>
-								<% elsif @taken_seat_array[seat]== 2 %>
-										<button class="waves-effect waves-light btn indigo darken-4" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
-								<% else %>
-										<button class="waves-effect waves-light btn blue lighten-2" style="" id=<%=@seats[seat].id%> onclick="pushseat(this)"><%=(seat % 25) +1%></button>
-								<% end %>
-								<% if seat % 25 == 24 %>
-									<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
-									</div>
-								<% elsif seat % 25 == 12%>
-									<button class="waves-effect waves-light btn-flat">  </button>
-									<button class="waves-effect waves-light btn-flat">  </button>
-								<% else %>
-								<% end %>
-							<% end %>
+						</div>
 					</div>
 				</div>
-			</div>
-			<%= form_for(@reservation, remote: true ) do |f| %>
-				<%= f.hidden_field :seat_id, :value => "", :id => "new_reservation_seat_id"%>
-				<%= f.submit "create reservation", class: "", :style => "display:none" %>
-			<% end %>
-			<%= form_for(@reservation, remote: true, url: "/delete_by_seat_id", html: {:method => "delete", class: "delete_reservation", id: "delete_reservation"}) do |f| %>
-				<%= f.hidden_field( :seat_id, :value => "waiting", :class=> "delete_reservation_seat_id", :id => "delete_reservation_seat_id") %>
-				<%= f.submit "delete reservation", class: "", :style => "display:none" %>
+				<%= form_for(@reservation, remote: true ) do |f| %>
+					<%= f.hidden_field :seat_id, :value => "", :id => "new_reservation_seat_id"%>
+					<%= f.submit "create reservation", class: "", :style => "display:none" %>
+				<% end %>
+				<%= form_for(@reservation, remote: true, url: "/delete_by_seat_id", html: {:method => "delete", class: "delete_reservation", id: "delete_reservation"}) do |f| %>
+					<%= f.hidden_field( :seat_id, :value => "waiting", :class=> "delete_reservation_seat_id", :id => "delete_reservation_seat_id") %>
+					<%= f.submit "delete reservation", class: "", :style => "display:none" %>
+				<% end %>
 			<% end %>
 		<% end %>
 		</br>
