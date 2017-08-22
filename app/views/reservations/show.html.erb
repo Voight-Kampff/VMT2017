@@ -22,7 +22,7 @@
 			<div class="col s4 m4 l4 left-align">
 				<h5><%=@reservation.reservation_type.name.humanize%></h5>
 				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=@reservation.seat.row%> <%=@reservation.seat.column%></h1>
-				<%= unless @reservation.order.title == nil && @reservation.order.first_name == nil && @reservation.order.last_name == nil && @reservation.order.email == nil %><p style="font-size:12px"><b>Envoyé à:</b></br><% end%>
+				<% unless @reservation.order.title == nil && @reservation.order.first_name == nil && @reservation.order.last_name == nil && @reservation.order.email == nil %><p style="font-size:12px"><b>Envoyé à:</b></br><% end%>
 				<%=@reservation.order.title%> <%=@reservation.order.first_name%> <%=@reservation.order.last_name%></br>
 				<%=@reservation.order.email%></p>
 			</div>
