@@ -104,7 +104,7 @@ Rails.application.configure do
   #Seting for invitaiton mailer
   config.action_mailer.default_url_options = { host: 'vmt-tickets2.herokuapp.com'}
 
-  config.web_socket_server_url = "wss://vmt-tickets2.herokuapp.com/cable" 
+  config.action_cable.url = "wss://vmt-tickets2.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://vmt-tickets2.herokuapp.com', 'http://vmt-tickets2.herokuapp.com']
   config.action_cable.disable_request_forgery_protection = true
 
