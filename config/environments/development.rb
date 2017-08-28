@@ -74,7 +74,7 @@ Rails.application.configure do
 
   #Action cable host mounting
   Rails.application.configure do 
-    config.action_cable.url = "ws://localhost:3000/cable"
+    config.action_cable.url = "wss://localhost:3000/cable"
   end 
 
 end
