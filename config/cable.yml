@@ -7,4 +7,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://rediscloud:tRV6nUDpDljpFpdm@redis-19500.c15.us-east-1-4.ec2.cloud.redislabs.com:19500
+  url: redis://rediscloud:tRV6nUDpDljpFpdm@redis-19500.c15.us-east-1-4.ec2.cloud.redislabs.com:19500/
