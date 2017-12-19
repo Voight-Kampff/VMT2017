@@ -1,4 +1,8 @@
 <script>
+$(document).ready(function() {
+    $('select').material_select();
+    $('.modal').modal();
+  });
 
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
@@ -13,6 +17,8 @@ function ToggleNumberedFields() {
 	$('numbered').fadeToggle( "400", "linear", function () {$('unnumbered').fadeToggle( "400", "linear" )});
 	
 };
+
+
 	
 
 </script>
