@@ -34,7 +34,8 @@ function ToggleNumberedFields() {
 					</div>
 					<div class ="input-field col s12 m12 l12">
 						<%= f.label :location %>
-						<%= f.collection_select(:city_id, Location.all, :id, :name) %> %>
+						<%= f.select :location_id_id, options_from_collection_for_select(Locations.all, :id, :name, locaotion.name)%>
+						<%= f.collection_select(:location_id, Locations.all, :id, :name) %> %>
 					</div>
 					<div class ="input-field col s12 m12 l12">
 						<%= f.label "Subtitle" %>
