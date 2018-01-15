@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819155642) do
+ActiveRecord::Schema.define(version: 20180115024953) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20170819155642) do
     t.string   "footnote"
     t.integer  "location_id"
     t.boolean  "live",        default: false
+  end
+
+  create_table "concerts_reservation_types", id: false, force: :cascade do |t|
+    t.integer "reservation_type_id"
+    t.integer "concert_id"
+    t.index ["concert_id"], name: "index_concerts_reservation_types_on_concert_id"
+    t.index ["reservation_type_id"], name: "index_concerts_reservation_types_on_reservation_type_id"
   end
 
   create_table "invitations", force: :cascade do |t|

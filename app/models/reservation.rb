@@ -134,9 +134,9 @@ class Reservation < ApplicationRecord
 
 	def options_for_select(current_user=nil)
     	if (current_user.nil? == false) && (current_user.admin? == true)
-    		options=ReservationType.all
+    		options= self.seat.concert.reservation_types
     	else
-			options=ReservationType.all.select {|reservation_type| reservation_type.public == true }
+			options= self.seat.concert.reservation_types.select {|reservation_type| reservation_type.public == true }
 			unless self.order.invitation.nil?
 				if self.order.invitation.concert == self.seat.concert
 					invitation_type = self.order.invitation.reservation_type
