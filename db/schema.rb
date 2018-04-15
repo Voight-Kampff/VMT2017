@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115024953) do
+ActiveRecord::Schema.define(version: 20180225162410) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,29 @@ ActiveRecord::Schema.define(version: 20180115024953) do
     t.integer "concert_id"
     t.index ["concert_id"], name: "index_concerts_reservation_types_on_concert_id"
     t.index ["reservation_type_id"], name: "index_concerts_reservation_types_on_reservation_type_id"
+  end
+
+  create_table "contact_tags", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_contact_tags_on_contact_id"
+    t.index ["tag_id"], name: "index_contact_tags_on_tag_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.integer  "telephone"
+    t.string   "number"
+    t.string   "road"
+    t.string   "town"
+    t.string   "postal_code"
+    t.string   "country"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "invitations", force: :cascade do |t|
@@ -123,6 +146,12 @@ ActiveRecord::Schema.define(version: 20180115024953) do
     t.integer  "column"
     t.integer  "price"
     t.integer  "concert_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

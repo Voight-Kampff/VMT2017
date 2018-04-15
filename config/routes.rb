@@ -48,6 +48,10 @@ Rails.application.routes.draw do
 
   resources :invitations, param: :slug
 
+  namespace :admin do
+    resource :tags
+  end
+
   resources :charges
 
   resources :concerts

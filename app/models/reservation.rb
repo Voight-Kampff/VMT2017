@@ -50,7 +50,7 @@ class Reservation < ApplicationRecord
 		response = $docraptor.create_doc(
 		  test:             false,                                         # test documents are free but watermarked
 		      # supply content directly
-		  document_url:   "http://vmt-tickets2.herokuapp.com/reservations/#{self.id}", # or use a url
+		  document_url:   "http://musicales-tannay.herokuapp.com/reservations/#{self.id}", # or use a url
 		  name:             self.pdf_name,                         # help you find a document later
 		  document_type:    "pdf",                                        # pdf or xls or xlsx
 		  javascript:       true,                                       # enable JavaScript processing
