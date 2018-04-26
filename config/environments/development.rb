@@ -73,7 +73,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   #Action cable host mounting
-  config.web_socket_server_url = "ws://vmt-tickets2.herokuapp.com/cable" 
+  config.web_socket_server_url = "ws://musicales-tannay.herokuapp.com/cable" 
 
 
 end
