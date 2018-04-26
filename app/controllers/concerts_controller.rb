@@ -48,7 +48,17 @@ class ConcertsController < ApplicationController
     end
   end
 
+  def edit
+    @concert=Concert.find(params[:id])
+  end
+
   def update
+    @concert=Concert.find(params[:id])
+    if @concert.update_attributes(concert_params)
+      #
+    else
+      render 'edit'
+    end
   end
 
   def delete

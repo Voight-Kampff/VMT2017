@@ -12,5 +12,4 @@ class Admin::TagsController < ApplicationController
 	def destroy
 	end
 
-
 end

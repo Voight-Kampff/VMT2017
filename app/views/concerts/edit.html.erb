@@ -1,2 +1,58 @@
-<h1>Concerts#edit</h1>
-<p>Find me in app/views/concerts/edit.html.erb</p>
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+    $('.modal').modal();
+  });
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+	
+</script>
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m9 l10">
+				<h4>Editer un concert</h4>
+			</div>
+				<%= form_for @concert, html: { multipart: true } do |f|%>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :shortname %>
+						<%= f.text_field :shortname %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :name %>
+						<%= f.text_field :name %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label :location %>
+						<%= f.select :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label "Subtitle" %>
+						<%= f.text_field :subline %>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+						<%= f.label "Footnote" %>
+						<%= f.text_field :footnote %>
+					</div>
+					<div class ="input-field col s6 m6 l6">
+						<%= f.label :date %>
+						<%= f.datetime_local_field :date, class: "datepicker"%>
+					</div>
+					<div class ="input-field col s12 m12 l12">
+					<%= f.file_field :image %>
+					</div>
+				</div>
+				<div class="row">
+					<div class ="input-field col s6 m6 l6">
+					<%= f.submit "Ajouter", class: "btn"%>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</main>

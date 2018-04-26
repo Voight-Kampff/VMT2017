@@ -219,7 +219,7 @@ main {
 
 /* line 196, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .waves-effect.waves-dark-blue .waves-ripple {
-  background-color: #312783;
+  background-color: #E30045;
 }
 
 /* line 202, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
@@ -250,7 +250,7 @@ main {
 
 /* line 229, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .selected {
-  background-color: #312783;
+  background-color: #E30045;
   color: #FFFFFF;
 }
 
@@ -261,12 +261,12 @@ main {
 
 /* line 239, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .btn.blue.lighten-2:hover {
-  background-color: #312783 !important;
+  background-color: #E30045 !important;
 }
 
 /* line 243, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .btn:hover {
-  background-color: #312783 !important;
+  background-color: #E30045 !important;
 }
 
 /* line 249, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
@@ -285,7 +285,7 @@ main h6 {
   font-weight: 900;
   text-align: left;
   margin: 5px 0 5px 0;
-  color: #312783;
+  color: #E30045;
   text-transform: uppercase;
   font-size: 15px;
 }
@@ -13264,7 +13264,7 @@ main {
 
 /* line 196, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .waves-effect.waves-dark-blue .waves-ripple {
-  background-color: #312783;
+  background-color: #E30045;
 }
 
 /* line 202, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
@@ -13295,7 +13295,7 @@ main {
 
 /* line 229, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .selected {
-  background-color: #312783;
+  background-color: #E30045;
   color: #FFFFFF;
 }
 
@@ -13306,12 +13306,12 @@ main {
 
 /* line 239, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .btn.blue.lighten-2:hover, .blue.lighten-2.btn-large:hover {
-  background-color: #312783 !important;
+  background-color: #E30045 !important;
 }
 
 /* line 243, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
 .btn:hover, .btn-large:hover {
-  background-color: #312783 !important;
+  background-color: #E30045 !important;
 }
 
 /* line 249, /Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss */
@@ -13330,7 +13330,7 @@ main h6 {
   font-weight: 900;
   text-align: left;
   margin: 5px 0 5px 0;
-  color: #312783;
+  color: #E30045;
   text-transform: uppercase;
   font-size: 15px;
 }
