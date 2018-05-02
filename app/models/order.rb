@@ -145,7 +145,7 @@ class Order < ApplicationRecord
     end
 
     def pdf_name
-      (I18n.localize self.updated_at, format: "%Y-%m-%d").to_s+"-"+self.id.to_s+"-"+self.last_name.to_s+".pdf"
+      (I18n.localize self.updated_at, format: "%Y-%m-%d").to_s+"-"+self.id.to_s+"-"+URI.escape(self.last_name)+".pdf"
     end
 
     def pdf_url
