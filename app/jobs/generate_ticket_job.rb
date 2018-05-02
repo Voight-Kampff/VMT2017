@@ -3,7 +3,7 @@ class GenerateTicketJob < ApplicationJob
 
   def perform(order)
     order.reservations.map(&:generate_code_png)
-    order.reservations.map(&:generate_pdf)
+    order.generate_pdf
     TicketMailer.ticket(order).deliver
     order.update_column('issued',true)
   end
