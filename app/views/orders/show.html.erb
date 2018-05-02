@@ -1,7 +1,7 @@
 <% @reservations.each do |reservation| %>
-	<header style="padding-left:0px;background-color:#00B1EB">
+	<header style="padding-left:0px;background-color:#11216e">
 		<div class="container">
-			<nav style="line-height:90px;height:90px;background-color:#00B1EB">
+			<nav style="line-height:90px;height:90px;background-color:#11216e">
 				<div class="nav-wrapper">
 							<a href="#" class="brand-logo left left-align"><img src="https://www.musicales-tannay.ch/templates/template_vmt/images/VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png" style="max-width90px;max-height:90px"></a>
 						<div class="col s10 m10 l10">
@@ -28,26 +28,26 @@
 					<%=reservation.order.email%></p>
 				</div>
 				<div class="col s4 m4 l4 left-align">
-					<p style="font-size:12px;font-color:#00B1EB"><%=reservation.seat.concert.footnote%></p>
-					<p style="font-size:12px;font-color:#00B1EB">Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</p>
+					<p style="font-size:12px;font-color:#11216e"><%=reservation.seat.concert.footnote%></p>
+					<p style="font-size:12px;font-color:#11216e">Vous pouvez accéder à la tente en présentant le code ci-joint sur votre téléphone ou en imprimant une copie de ce billet</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col s4 m4 l4 left-align">
 					<h6>Lieu du concert</h6>
-					<div style="font-size:12px;font-color:#00B1EB">
+					<div style="font-size:12px;font-color:#11216e">
 						<%=raw(reservation.seat.concert.location.address)%>
 					</div>
 				</div>
 				<div class="col s4 m4 l4 left-align">
 					<h6>Venir au concert</h6>
-					<div style="font-size:12px;font-color:#00B1EB">
+					<div style="font-size:12px;font-color:#11216e">
 						<%=raw(reservation.seat.concert.location.access)%>
 					</div>
 				</div>
 				<div class="col s4 m4 l4 left-align">
 					<h6>Contact</h6>
-					<p style="font-size:12px;font-color:#00B1EB">Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%> ou en appellant le +41 79 584 55 94</p>
+					<p style="font-size:12px;font-color:#11216e">Si vous avez des questions ou des remarques, n'hésitez pas à contacter <%=mail_to("billetterie@musicales-tannay.ch","la billetterie")%> ou en appellant le +41 79 584 55 94</p>
 				</div>
 			</div>
 		</div>
@@ -57,9 +57,7 @@
 			<p style="text-align: center;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_1.png" alt="Mazda 1" style="vertical-align: bottom; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_2.png" alt="Mazda 2" style="vertical-align: bottom; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_3.png" alt="Mazda 3" style="vertical-align: bottom; margin: 10px;"></p>
 			<p>&nbsp;<img src="https://www.musicales-tannay.ch/images/sponsors/LoterieRomande.png" alt="LoterieRomande" style="vertical-align: middle; margin: 10px;"> <img src="https://www.musicales-tannay.ch/images/sponsors/Aeschbach.png" alt="Aeschbach" style="vertical-align: middle; margin: 10px;"> <img src="https://www.musicales-tannay.ch/images/sponsors/FondationGandurPourLaJeunesse.png" alt="FondationGandurPourLaJeunesse" style="margin: 10px; vertical-align: middle;"> <img src="https://www.musicales-tannay.ch/images/sponsors/LaCote2.png" alt="LaCote2" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/Fondation_Juchum.png" alt="Fondation Juchum" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/CommunesDeTerreSainte.png" alt="CommunesDeTerreSainte" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/Regionyon.png" alt="Regionyon" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/FondationEngelberts.png" alt="FondationEngelberts" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/FondationOtto.png" alt="FondationOtto" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/CantonVaud.png" alt="CantonVaud" width="30" height="90" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/Bonmont.png" alt="Bonmont" width="90" height="57" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/VisionsDuReel.png" alt="VisionsDuReel" width="85" height="82" style="margin: 10px; vertical-align: middle;"></p>
 			<p style="color: #475058;font-size:13px">
-				© VARIATIONS MUSICALES DE TANNAY&nbsp;&nbsp; / &nbsp; 
-				<a href="www.musicales-tannay.ch/contact" target="_self" style="text-decoration: none; color: #475058;">CONTACT</a>&nbsp;&nbsp; / &nbsp; 
-				<a href="www.musicales-tannay.ch/espace-presse" target="_self" style="text-decoration: none; color: #475058;">ESPACE PRESSE</a>
+				© VARIATIONS MUSICALES DE TANNAY
 			</p>
 		</div>
 	</footer>

@@ -6,6 +6,13 @@
   background: #F5F5F6;
 }
 
+@media all {
+.page-break { display: none; }
+}
+
+@media print {
+.page-break { display: block; page-break-before: always; }
+}
 
 
 main, footer {
@@ -22,6 +29,7 @@ main, footer {
 nav .container {
   min-width:100px;
   width:100%;
+  font-weight: bold;
 }
 
 #side-nav-logo-container {
