@@ -85,6 +85,47 @@ class Order < ApplicationRecord
 
     end
 
+    def generate_pdf
+
+      $docraptor = DocRaptor::DocApi.new
+
+      response = $docraptor.create_doc(
+        test:             false,                                         # test documents are free but watermarked
+            # supply content directly
+        document_url:   "http://musicales-tannay.herokuapp.com/orders/#{self.id}", # or use a url
+        name:             self.pdf_name,                         # help you find a document later
+        document_type:    "pdf",                                        # pdf or xls or xlsx
+        javascript:       true,                                       # enable JavaScript processing
+        prince_options: {
+            media: "screen",                                            # use screen styles instead of print styles
+        #   baseurl: "http://hello.com",                                # pretend URL when using document_content
+        },
+      )
+
+      File.open("/tmp/#{self.pdf_name}", "wb") do |file|
+          file.write(response)
+        end
+
+        # create a connection
+        connection = Fog::Storage.new({
+          :provider                 => 'AWS',
+          :aws_access_key_id        => ENV['AWS_ACCESS_KEY'],
+          :aws_secret_access_key    => ENV['AWS_SECRET_ACCESS_KEY'],
+          :region                   => 'eu-west-1',
+          })
+
+      # First, a place to contain the glorious details
+          
+      bucket = connection.directories.get('variations')
+
+      bucket.files.create(
+        :key    => self.pdf_name,
+        :body   => File.open("/tmp/#{self.pdf_name}"),
+        :public => true
+        )
+
+    end
+
     def invitations_only?
       unless self.invitation.nil?
         if self.reservations.where(reservation_type: ReservationType.where(:name => [self.invitation.reservation_type.name.to_s,"Enfant"])).count == self.reservations.count
@@ -101,6 +142,14 @@ class Order < ApplicationRecord
       else
       end
         return options
+    end
+
+    def pdf_name
+      (I18n.localize self.updated_at, format: "%Y-%m-%d").to_s+"-"+self.id.to_s+"-"+self.last_name.to_s+".pdf"
+    end
+
+    def pdf_url
+      "https://s3-eu-west-1.amazonaws.com/variations/"+self.pdf_name
     end
 
     def user_created?
