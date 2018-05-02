@@ -11,6 +11,12 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    @order = Order.find_by_id(params[:id])
+    @reservations = @order.reservations
+    render layout: "ticket"
+  end
+
   def edit
   end
 

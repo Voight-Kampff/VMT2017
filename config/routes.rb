@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     resource :tags
   end
 
+  resources :orders, only: [:show]
+
   resources :charges
 
   resources :concerts
