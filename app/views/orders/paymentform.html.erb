@@ -7,6 +7,11 @@
       $("label[for='order_<%= escape_javascript(key.to_s)%>']").attr('data-error',"<%= escape_javascript(raw(@order.errors[key][0].to_s))%>");
     <%end%>
   });
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+          
 </script>
 
 <main>
@@ -148,7 +153,17 @@
             </div>
           </br>
              <div class="row right-align">
+              <!-- Modal Trigger -->
             <button class="btn">Payer par carte</button>
+
+              <!-- Modal Structure -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h6>Votre demande est en cours de traitement</h6>
+                  <p>Merci pour votre patience</p>
+                  <div class="loader"></div>
+                </div>
+              </div>
             </div>
           </form>
 
@@ -156,11 +171,6 @@
     <%end%>
   </div>
 </main>
-
-
-
-
-
 
 <script>
 // Create a Stripe client
@@ -227,6 +237,7 @@ form.addEventListener('submit', function(event) {
 });
 
 function stripeTokenHandler(token) {
+  $('.modal').modal('open');
   // Insert the token ID into the form so it gets submitted to the server
   $('#order_stripe_token').val(token.id);
   $(".edit_order").trigger('submit.rails')
