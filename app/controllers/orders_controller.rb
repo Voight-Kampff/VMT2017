@@ -74,23 +74,31 @@ class OrdersController < ApplicationController
   def charge
 
     retrieve_order
-
-    @order.update(order_params)
-    charge = Payment.charge(@order)
-    if @order.update(order_params)
-      if charge.status=="succeeded"
-        render 'success'
-        @order.pay('credit card payment')
-        @order.save
-        GenerateTicketJob.perform_later(@order)
-        session.delete(:order_id)
+    unless @order.processing == true || @order.paid == true
+      @order.update_attribute(:processing, true)
+      @order.update(order_params)
+      charge = Payment.charge(@order)
+      if @order.update(order_params)
+        if charge.status=="succeeded"
+          @order.pay('credit card payment')
+          @order.save
+          render 'success'
+          GenerateTicketJob.perform_later(@order)
+          session.delete(:order_id)
+        else
+          flash[:alert] = "Votre paiement n'a pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+          render 'paymentform'
+        end
       else
-        flash[:alert] = "Votre paiement n'a pas pu être validé. Merci de contacter #{mail_to('la billetterie','billetterie@musicales-tannay.ch')}"
+        flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
         render 'paymentform'
       end
+      @order.update_column(:processing, false)
     else
-      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
-      render 'paymentform'
+      if @order.paid == true
+        render 'success'
+        session.delete(:order_id)
+      end
     end
 
   end

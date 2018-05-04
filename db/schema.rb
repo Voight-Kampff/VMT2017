@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225162410) do
+ActiveRecord::Schema.define(version: 20180503223048) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20180225162410) do
     t.binary   "issued"
     t.integer  "total"
     t.string   "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "payment_type"
     t.boolean  "paid"
     t.boolean  "held"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20180225162410) do
     t.boolean  "flagged"
     t.string   "stripe_token"
     t.integer  "user_id"
+    t.boolean  "processing",   default: false
   end
 
   create_table "reservation_types", force: :cascade do |t|

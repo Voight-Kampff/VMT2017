@@ -13,11 +13,10 @@ class Order < ApplicationRecord
 
 
     def pay(method)
-      self.update_column('paid',true)
+      self.update_attribute('paid',true)
       self.calculate_price
       self.payment_type=method.to_s
       self.held=0
-      self.paid=1
       unless self.invitation.nil?
         self.invitation.used = 1
         self.invitation.save
