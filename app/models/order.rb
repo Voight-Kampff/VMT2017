@@ -144,11 +144,11 @@ class Order < ApplicationRecord
     end
 
     def pdf_name
-      (I18n.localize self.updated_at, format: "%Y-%m-%d").to_s+"-"+self.id.to_s+"-"+URI.escape(self.last_name)+".pdf"
+      (I18n.localize self.updated_at, format: "%Y-%m-%d").to_s+"-"+self.id.to_s+"-"+self.last_name+".pdf"
     end
 
     def pdf_url
-      "https://s3-eu-west-1.amazonaws.com/variations/"+self.pdf_name
+      "https://s3-eu-west-1.amazonaws.com/variations/"+URI.encode(self.pdf_name)
     end
 
     def user_created?
