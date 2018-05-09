@@ -99,8 +99,9 @@ class OrdersController < ApplicationController
         render 'success'
         session.delete(:order_id)
       end
+      @order.update_column(:processing, false)
     end
-
+    @order.update_column(:processing, false)
   end
 
   def update
