@@ -84,4 +84,5 @@ gem 'resque', require: 'resque/server'
 
 gem 'redis'
 
+gem sprockets ~> 3.7.2.
 
