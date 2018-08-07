@@ -110,57 +110,18 @@
 			"file": "app/views/layouts/_header.html.erb",
 			"settings":
 			{
-				"buffer_size": 7709,
+				"buffer_size": 7810,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/concerts/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 2694,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/migrate/20170819155642_add_live_to_concerts.rb",
-			"settings":
-			{
-				"buffer_size": 138,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layouts/_footer.html.erb",
-			"settings":
-			{
-				"buffer_size": 3334,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "namespace :vmt do\n  desc \"Clearing unpaid/unheld orders\"\n  task :cleaning => :environment do\n    Order.where(updated_at: 7.years.ago..(Time.now),paid: nil, held: nil).destroy_all\n  end\nend",
+			"contents": "namespace :vmt do\n  desc \"Clearing unpaid/unheld orders\"\n  task :cleaning => :environment \n    Order.where(updated_at: 7.years.ago..(Time.now),paid: nil, held: nil).destroy_all\n  end\nend",
 			"file": "/Users/Voight-Kampff/Documents/VMT/lib/tasks/cleaning.rake",
-			"file_size": 199,
-			"file_write_time": 1503315307000000,
+			"file_size": 188,
+			"file_write_time": 1519573986000000,
 			"settings":
 			{
-				"buffer_size": 188,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/initializers/redis.rb",
-			"settings":
-			{
-				"buffer_size": 165,
+				"buffer_size": 186,
 				"line_ending": "Unix"
 			}
 		},
@@ -173,26 +134,120 @@
 			}
 		},
 		{
-			"file": "app/models/reservation_type.rb",
+			"file": "app/views/concerts/edit.html.erb",
 			"settings":
 			{
-				"buffer_size": 144,
+				"buffer_size": 1598,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/models/concert.rb",
+			"contents": "Searching 4826 files for \"invitation_url\" (case sensitive)\n\n/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/member_invitation.html.erb:\n  540                                                  <p>Comme ces dernières années, nous accueillerons de grands solistes internationaux ainsi que de jeunes musiciens particulièrement talentueux. Vous savez l’attention que nous portons à vous offrir le meilleur. Khatia Buniatishvili, Isabelle Faust, Renaud Capuçon, Nikolaï Lugansky, Sergei Babayan sont au nombre de ces artistes de très grands talents qu’on pourra donc entendre à Tannay cet été. Sans parler des formations orchestrales de premier plan que vous pouvez découvrir sur notre site.</p>\n  541                                                  <p>Ce festival est né, il y aura bientôt dix ans, de la pressante envie de partager avec vous ces beaux moments musicaux que nous proposent, avec une si belle générosité et pour notre plus grand bonheur, les artistes qui nous font le plaisir d’être là.</p>\n  542:                                                 <p>C’est pourquoi nous serions très heureux de vous accueillir à l’un ou l’autre de nos concerts. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => \"https\")%> pour réserver vos <%=@invitation.free_tickets%> places  pour le concert de votre choix. Vos billets vous seront ainsi envoyés par courrier électronique.</p>\n  543                                                  <p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94.</p>\n  544                                                  </p>\n\n/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/specific_concert_invitation.html.erb:\n  549                                                  <p>Les Variations Musicales de Tannay en sont cette année à leur huitième édition. Fort de l’expérience acquise jusqu’ici, nous offrirons une fois encore à notre public un programme de grande qualité, dans des lieux particulièrement propices à son écoute et dans une grande proximité avec les artistes.</p>\n  550                                                  <p>Khatia Buniatishvili, Renaud Capuçon, les sœurs Berthollet et l’Orchestre national symphonique de Lettonie, parmi d’autres, sauront, dans le beau parc du château, vous offrir des moments musicaux exceptionnels. Le festival s’exportera également pour deux belles soirées : l’une à la plage de Gland et l’autre au Conservatoire de Nyon.</p>\n  551:                                                 <p>C’est pourquoi nous serions très heureux de vous inviter, au nom de la ville de Gland, au concert du <%=@invitation.concert.name%> le <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%>. Il vous suffit de cliquer sur <%=link_to('ce lien',invitation_url(@invitation.slug),:protocol => \"https\")%> pour réserver vos <%=@invitation.free_tickets%> places. Vos billets vous seront ainsi envoyés par courrier électronique.</p>\n  552                                                  <p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94.</p>\n  553                                                  </p>\n\n2 matches across 2 files\n\n\nSearching 4826 files for \"vmt_tickets2\" (case sensitive)\n\n0 matches across 0 files\n\n\nSearching 4826 files for \"vmt_tickets2\" (case sensitive)\n\n0 matches across 0 files\n\n\nSearching 4826 files for \"vmt-tickets2.herokuapp.com\" (case sensitive)\n\n/Users/Voight-Kampff/Documents/VMT2017/config/environments/development.rb:\n   74  \n   75    #Action cable host mounting\n   76:   config.web_socket_server_url = \"ws://vmt-tickets2.herokuapp.com/cable\" \n   77  \n   78  \n\n1 match in 1 file\n\n\nSearching 4831 files for \"ticketmailer.ticket\" (case sensitive)\n\n0 matches across 0 files\n\n\nSearching 4831 files for \"ticketmailer.ticket\"\n\n/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb:\n    5      order.reservations.map(&:generate_code_png)\n    6      order.reservations.map(&:generate_pdf)\n    7:     TicketMailer.ticket(order).deliver\n    8      order.update_column('issued',true)\n    9    end\n\n1 match in 1 file\n\n\nSearching 4831 files for \"generateticketjob\"\n\n/Users/Voight-Kampff/Documents/VMT2017/app/controllers/orders_controller.rb:\n   54          @order.pay('invitations uniquement')\n   55          @order.save\n   56:         GenerateTicketJob.perform_later(@order)\n   57          session.delete(:order_id)\n   58        else\n   ..\n   77          @order.pay('credit card payment')\n   78          @order.save\n   79:         GenerateTicketJob.perform_later(@order)\n   80          session.delete(:order_id)\n   81        else\n\n/Users/Voight-Kampff/Documents/VMT2017/app/controllers/payments/cashierpayments_controller.rb:\n    9  		@order.email=current_user.email\n   10  		if @order.save\n   11: 			GenerateTicketJob.perform_later(@order)\n   12  			session.delete(:order_id)\n   13  			render 'orders/success'\n\n/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb:\n    1: class GenerateTicketJob < ApplicationJob\n    2    queue_as :default\n    3  \n\n/Users/Voight-Kampff/Documents/VMT2017/test/jobs/generate_ticket_job_test.rb:\n    1  require 'test_helper'\n    2  \n    3: class GenerateTicketJobTest < ActiveJob::TestCase\n    4    # test \"the truth\" do\n    5    #   assert true\n\n5 matches across 4 files\n",
 			"settings":
 			{
-				"buffer_size": 448,
+				"buffer_size": 5699,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "config/application.rb",
+			"settings":
+			{
+				"buffer_size": 610,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "db/migrate/20180115024953_cereate_join_table_reservation_type_concert.rb",
+			"file": "config/environments/production.rb",
 			"settings":
 			{
-				"buffer_size": 257,
+				"buffer_size": 4532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/orders/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 5554,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/custom.scss",
+			"settings":
+			{
+				"buffer_size": 5354,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/orders_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2855,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/admin/bvrs_controller.rb",
+			"settings":
+			{
+				"buffer_size": 991,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Voight-Kampff/Desktop/GMAIL-envoi",
+			"settings":
+			{
+				"buffer_size": 37666,
+				"line_ending": "Unix",
+				"name": "Delivered-To: tantalumhafnium@gmail.com"
+			}
+		},
+		{
+			"contents": "class Payments::BVR < ApplicationController\n\n	before_action :retrieve_order\n\n	def create\n		@order.pay(\"paiement de caisse\")\n		@order.user_id=current_user.id\n		@order.email=current_user.email\n		if @order.save\n			GenerateTicketJob.perform_later(@order)\n			session.delete(:order_id)\n			render 'orders/success'\n		else\n			flash[:alert] = \"Une erreur s'est produite\"\n		end\n	end\nend\n",
+			"file": "app/controllers/payments/bills_controller.rb",
+			"file_size": 389,
+			"file_write_time": 1525630401000000,
+			"settings":
+			{
+				"buffer_size": 376,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/admin/bvrs/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 5508,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 1665,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/basket.html.erb",
+			"settings":
+			{
+				"buffer_size": 4246,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/orders/paymentform.html.erb",
+			"settings":
+			{
+				"buffer_size": 8737,
 				"line_ending": "Unix"
 			}
 		}
@@ -249,53 +304,75 @@
 	},
 	"file_history":
 	[
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/admin/payments/bvrs_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/concerts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/tag.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation_type.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/admin/tags/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/basket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/development.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/admin/tags_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/routes.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/payments/cashierpayments_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/order.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20180503223048_add_processing_to_orders.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/paymentform.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/admin/bvrs/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/location_change.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/member_invitation.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/specific_concert_invitation.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/ticket.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/application.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/mailers/ticket_mailer.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_footer.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170819155642_add_live_to_concerts.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/create.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/show.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/test.js.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/contacts_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20180115024953_cereate_join_table_reservation_type_concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/new.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/_concert_card.html.erb",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/application.css.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-016bc7debc5822446136aec65b9b2df6077bd1ab163c55e8e949ba8786dcce38.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-06f371d048b1147e43f232749344b1fb630c6935236a038954eb080104f748c0.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-113272463fe10c1445b70331f704c2d42221065d47f208a17680b7a19bb532b3.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-1f996552da8580e415d0ea579187e4fa0f0ddca74efb86ad207c8a61e8008166.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-4b35c08c91f0c1bbbc45124bfc4d9a6cd088cec9530985b061746a05e4641d2e.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-5de0a44b564c541f6489ab8dc2a06a38d95fe6168349a6fa5abdbd74ebf81ff5.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/public/assets/application-b63654a829b1478ad9f002181d52b079cdb07c8955a7601d88408de9e2df4148.css",
+		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/tags_controller.rb",
+		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/redis.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/Gemfile",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/production.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/channels/reservations_channel.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/environments/development.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/javascripts/application.js",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/payments/cashierpayments_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/orders/cashierpayments_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/devise.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/paymentform.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/application.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/location_change.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/specific_concert_invitation.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/member_invitation.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/mailers/ticket_mailer.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/_unnumbered_selection.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/test.js.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/basket.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/invitations/show.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/invitations/new.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170812092645_add_concert_id_to_invitations.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation_type.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/models/invitation.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/reservation.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/javascripts/channels/reservations.js",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/cable.yml",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/routes.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170810232758_add_reservation_type_to_invitations.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/order.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/destroy.js.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/_concert_card.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/users/sessions/new.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/api_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/invitations_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/reservations_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/concerts_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/orders_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/show.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/application_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/new.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/cashier_payments_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/new.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/dashboards/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8.html",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/dashboards_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/redis.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_footer.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/puma.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/order_form_errors.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/orders/success.html.erb",
@@ -305,9 +382,7 @@
 		"/Users/Voight-Kampff/Documents/VMT2017/lib/tasks/resque.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/application.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/charges_controller.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/jobs/generate_ticket_job.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/Rakefile",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/ticket.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170731214915_create_locations.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170731220258_add_location_to_concerts.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170802182900_remove_concert_id.rb",
@@ -315,13 +390,11 @@
 		"/Users/Voight-Kampff/Documents/VMT2017/app/models/location.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/index.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/ticket.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/custom.scss",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8.kXjgTO.html",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/dashboards/show.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/locales/en.yml",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/layouts/_header.html.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/ticket_mailer/invitation.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/create.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT/app/controllers/concerts_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/models/user.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170727035029_add_user_to_orders.rb",
@@ -334,7 +407,6 @@
 		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170726080503_change.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/initializers/stripe.rb",
 		"/Users/Voight-Kampff/Documents/VMT2017/config/secrets.yml",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/application.css.scss",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/update.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/reservations/update.js",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/views/charges/new.html.erb",
@@ -359,24 +431,7 @@
 		"/Users/Voight-Kampff/Documents/VMT/app/views/reservations/create.js.erb",
 		"/Users/Voight-Kampff/Documents/VMT2017/app/controllers/seats_controller.rb",
 		"/Users/Voight-Kampff/Documents/VMT/app/models/concert.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/models/artist.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/assets/stylesheets/concerts.scss",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/artists/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/artists/show.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concerts/_concert_artist_fields.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170202005153_create_concerts.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/models/concert_artist.rb",
-		"/Users/Voight-Kampff/Documents/VMT2017/db/migrate/20170205213153_create_concert_artists.rb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/layouts/application.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/static/programme.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT/app/views/static/home.html.erb",
-		"/Users/Voight-Kampff/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/concert/new.html.erb",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/static/index.html.erb",
-		"/Users/Voight-Kampff/Downloads/starter-template 2/index.html",
-		"/Users/Voight-Kampff/Documents/VMT2017/vendor/assets/javascripts/init.js",
-		"/Users/Voight-Kampff/Downloads/parallax-template/css/style.css",
-		"/Users/Voight-Kampff/Documents/VMT2017/app/views/static/index.html.erb.html"
+		"/Users/Voight-Kampff/Documents/VMT/app/models/artist.rb"
 	],
 	"find":
 	{
@@ -393,9 +448,63 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"if @order",
+			"submit",
+			"charge",
+			"update",
+			"BvrsController",
+			">\n",
+			"charg",
+			"charge",
+			">\n",
+			"order",
+			"form",
+			"payment_form",
+			"pay",
+			"invitations",
+			"h4",
+			"oncli",
+			"charge",
+			"#11216",
+			"header",
+			"#00B1EB",
+			"color",
+			"lato",
+			"#00B1EB",
+			"@reservation",
+			"orders",
+			"header",
+			"generateticketjob",
+			"/images",
+			"hieght",
+			"ticketmailer.ticket",
+			"ticketmailer",
+			"vmt-tickets2.herokuapp.com",
+			"vmt_tickets2",
+			"invitation_url",
+			"darken-4",
+			"#312783",
+			"235",
+			"0, 177, 235",
+			"rgb(0, 177, 235)",
+			"#00B1EB",
+			"rgba",
+			"0, 177, 235,",
+			"0, 177, 235, 1",
+			"00B1EB",
+			"rgba",
+			"rgb",
+			"color",
+			"vmt",
+			"pdf",
+			"generate",
+			"retir",
+			"check",
+			"retr",
+			"subline",
 			"show",
 			"@concerts",
 			".all",
@@ -469,61 +578,7 @@
 			"unless",
 			"collap",
 			"drop",
-			"basket",
-			"buffer-cont",
-			"onclick",
-			"test",
-			"coll",
-			"waves",
-			"menu",
-			"\">\n",
-			"btn",
-			"btn-large",
-			"hover",
-			"bt",
-			"selec",
-			"blue",
-			"78x",
-			"78px",
-			"large",
-			"collapsible",
-			"collap",
-			"billet",
-			"active",
-			"side-nav",
-			"concert",
-			"first",
-			"association",
-			"dropdown",
-			"content",
-			"contet",
-			"dropdown",
-			"content",
-			"data",
-			"waves",
-			"hover",
-			"font",
-			"active",
-			"blue",
-			"Lato",
-			"lato",
-			"hidden",
-			"order",
-			"orger",
-			"select",
-			"by_id",
-			"concert",
-			"redirec",
-			" \"",
-			"/images",
-			"show",
-			"@reserv",
-			"@reservation",
-			"@reservatin",
-			"order",
-			"pdf",
-			"h3",
-			"merci pour"
+			"basket"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -531,6 +586,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"#11216E",
+			"#11216",
+			"#11216e",
+			"reservation",
+			"https://www.musicales-tannay.ch/images",
+			"#E30045",
+			"17, 33, 110,",
 			"selected",
 			"https://www.musicales-tannay.ch/images",
 			"Lato",
@@ -568,7 +630,7 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 12,
 			"sheets":
 			[
 				{
@@ -602,15 +664,15 @@
 					"file": "app/views/layouts/_header.html.erb",
 					"settings":
 					{
-						"buffer_size": 7709,
+						"buffer_size": 7810,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6678,
-								6687
+								2653,
+								2653
 							]
 						],
 						"settings":
@@ -620,31 +682,30 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1389.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/views/concerts/new.html.erb",
+					"file": "/Users/Voight-Kampff/Documents/VMT/lib/tasks/cleaning.rake",
 					"settings":
 					{
-						"buffer_size": 2694,
+						"buffer_size": 186,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								17,
+								17
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -654,136 +715,6 @@
 				},
 				{
 					"buffer": 3,
-					"file": "db/migrate/20170819155642_add_live_to_concerts.rb",
-					"settings":
-					{
-						"buffer_size": 138,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								127,
-								127
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/layouts/_footer.html.erb",
-					"settings":
-					{
-						"buffer_size": 3334,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2336,
-								2336
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 170.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/Voight-Kampff/Documents/VMT/lib/tasks/cleaning.rake",
-					"settings":
-					{
-						"buffer_size": 188,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								188,
-								188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "config/initializers/redis.rb",
-					"settings":
-					{
-						"buffer_size": 165,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "app/assets/javascripts/cable.js",
 					"settings":
 					{
@@ -809,64 +740,113 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "app/models/reservation_type.rb",
+					"buffer": 4,
+					"file": "app/views/concerts/edit.html.erb",
 					"settings":
 					{
-						"buffer_size": 144,
+						"buffer_size": 1598,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								88,
-								88
+								276,
+								276
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/models/concert.rb",
-					"settings":
-					{
-						"buffer_size": 448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								301,
-								301
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 318.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "db/migrate/20180115024953_cereate_join_table_reservation_type_concert.rb",
+					"buffer": 5,
 					"settings":
 					{
-						"buffer_size": 257,
+						"buffer_size": 5699,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										1220,
+										1234
+									],
+									[
+										3025,
+										3039
+									],
+									[
+										3980,
+										4006
+									],
+									[
+										4380,
+										4399
+									],
+									[
+										4712,
+										4729
+									],
+									[
+										4908,
+										4925
+									],
+									[
+										5178,
+										5195
+									],
+									[
+										5374,
+										5391
+									],
+									[
+										5573,
+										5590
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								5360,
+								5360
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 7,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 350.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "config/application.rb",
+					"settings":
+					{
+						"buffer_size": 610,
 						"regions":
 						{
 						},
@@ -883,6 +863,311 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "config/environments/production.rb",
+					"settings":
+					{
+						"buffer_size": 4532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4510,
+								4510
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 5.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/orders/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 5554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/assets/stylesheets/custom.scss",
+					"settings":
+					{
+						"buffer_size": 5354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4457,
+								4457
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/controllers/orders_controller.rb",
+					"settings":
+					{
+						"buffer_size": 2855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1918,
+								1893
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/controllers/admin/bvrs_controller.rb",
+					"settings":
+					{
+						"buffer_size": 991,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								636,
+								636
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/Users/Voight-Kampff/Desktop/GMAIL-envoi",
+					"settings":
+					{
+						"buffer_size": 37666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37666,
+								37666
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Delivered-To: tantalumhafnium@gmail.com",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/controllers/payments/bills_controller.rb",
+					"settings":
+					{
+						"buffer_size": 376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/views/admin/bvrs/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 5508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3421,
+								3421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1452.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 1665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1320,
+								1320
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 493.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/views/reservations/basket.html.erb",
+					"settings":
+					{
+						"buffer_size": 4246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3114,
+								3114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 891.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/views/orders/paymentform.html.erb",
+					"settings":
+					{
+						"buffer_size": 8737,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5551,
+								5551
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1663.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

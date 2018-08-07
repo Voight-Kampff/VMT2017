@@ -1,0 +1,139 @@
+<script>
+
+  $(document).ready(function() {
+    $('select').material_select();
+    <%@order.errors.messages.keys.each do |key|%>
+      $("#order_<%= escape_javascript(key.to_s)%>").addClass("invalid");
+      $("label[for='order_<%= escape_javascript(key.to_s)%>']").attr('data-error',"<%= escape_javascript(raw(@order.errors[key][0].to_s))%>");
+    <%end%>
+  });
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+          
+</script>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <% if @order.invitations_only? %>
+          <h2> Envoi des Invitaitons </h2>
+        <% else %>
+          <h2>Paiement</h2>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
+        <div class="divider"></div>
+      </div>
+      <div class="col s12 m12 l12">
+        <h6>Vos Coordonnées</h6>
+        <% if @order.invitations_only? %>
+          <%= form_for @order, method: "post" do |f|%>
+            <div class="row">
+              <div class ="input-field col s2">
+                <%= f.select :title, options_for_select(['Monsieur','Madame']) %>
+                <label>Civilité</label>
+              </div>
+              <div class ="input-field col s5">
+                <%= f.text_field :first_name, :value => @order.invitation.first_name, :class => "validate"%>
+                <%= f.label :first_name, "Prénom"%>
+              </div>
+              <div class ="input-field col s5">
+                <%= f.text_field :last_name, :value => @order.invitation.last_name, :class => "validate" %>
+                <%= f.label :last_name, "Nom"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s12">
+                <%= f.text_field :road, :value => @order.invitation.road, :class => "validate" %>
+                <%= f.label :road, "Adresse"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s4">
+                <%= f.text_field :postcode, :value => @order.invitation.postcode, :class => "validate" %>
+                <%= f.label :postcode, "Code Postal"%>
+              </div>
+              <div class ="input-field col s4">
+                <%= f.text_field :town, :value => @order.invitation.town, :class => "validate" %>
+                <%= f.label :town, "Localité"%>
+              </div>
+              <div class ="input-field col s4">
+                <%= f.text_field :country, :value => @order.invitation.country, :class => "validate" %>
+                <%= f.label :country, "Pays"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s6">
+                <%= f.text_field :email, :value => @order.invitation.email, :class => "validate" %>
+                <%= f.label :email, "Adresse e-mail"%>
+              </div>
+              <div class ="input-field col s6">
+                <%= f.text_field :telephone, :value => @order.invitation.telephone, :class => "validate" %>
+                <%= f.label :telephone, "Téléphone"%>
+              </div>
+            </div>
+            </br>
+            <div class="row right-align">
+              <%= f.submit "Envoyer", :class => "btn", id: "order-form-submit"%>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_for @order, url: { action: "create" } do |f|%>
+            <div class="row">
+              <div class ="input-field col s2">
+                <%= f.select :title, options_for_select(['Monsieur','Madame']) %>
+                <label>Civilité</label>
+              </div>
+              <div class ="input-field col s5">
+                <%= f.text_field :first_name, :class => "validate"%>
+                <%= f.label :first_name, "Prénom"%>
+              </div>
+              <div class ="input-field col s5">
+                <%= f.text_field :last_name, :class => "validate"  %>
+                <%= f.label :last_name, "Nom"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s12">
+                <%= f.text_field :road, :class => "validate" %>
+                <%= f.label :road, "Adresse"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s4">
+                <%= f.text_field :postcode, :class => "validate" %>
+                <%= f.label :postcode, "Code postal"%>
+              </div>
+              <div class ="input-field col s4">
+                <%= f.text_field :town, :class => "validate" %>
+                <%= f.label :town, "Localité"%>
+              </div>
+              <div class ="input-field col s4">
+                <%= f.text_field :country, :class => "validate"%>
+                <%= f.label :country, "Pays"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class ="input-field col s6">
+                <%= f.text_field :email, :class => "validate" %>
+                <%= f.label :email, "Adresse e-mail"%>
+              </div>
+              <div class ="input-field col s6">
+                 <%= f.text_field :telephone, :class => "validate" %>
+                <%= f.label :telephone, "Téléphone"%>
+              </div>
+            </div>
+            	<%= f.submit "Envoyer", :class => "btn", id: "order-form-submit"%>
+          <% end %>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</main>
+
+  </div>
+</div>
