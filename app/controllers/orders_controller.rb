@@ -44,6 +44,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  def attentedepaiement
+  end
+
   def paymentform
 
     retrieve_order
