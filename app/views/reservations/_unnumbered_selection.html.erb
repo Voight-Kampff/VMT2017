@@ -12,7 +12,7 @@
   	</div>
 <div style="display:none">
 <%= form_tag("/concerts/#{concert.id}/reservations/unnumbered", remote: true) do %>
-	<label for="selection_count">Nombre de billets</label>
+	<label for="selection_count">Nombre d'abonnements</label>
 	<%= number_field_tag :selection_count, (@order.reservations.select{|reservation| reservation.seat.concert == @concert}).count %>
 	<%= submit_tag "Submit", :id => "selection_count_submit" %>
 <% end %>
