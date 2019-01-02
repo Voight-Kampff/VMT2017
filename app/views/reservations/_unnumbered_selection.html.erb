@@ -1,7 +1,7 @@
 
   	<div class="row">
   		<div class="col s3 m3 l3">
-  			<h7><b>Nombre de billets souhaités:</b></h7>
+  			<h7><b>Nombre d'abonnements souhaités:</b></h7>
   		</div>
   		<div class="col s9 m9 l9 right-align">
   			<button class="waves-effect waves-light btn-flat" style="padding: 0 1rem" onclick="submitvalue(this)" id="0">0</button>
@@ -12,7 +12,7 @@
   	</div>
 <div style="display:none">
 <%= form_tag("/concerts/#{concert.id}/reservations/unnumbered", remote: true) do %>
-	<label for="selection_count">Nombre d'abonnements</label>
+	<label for="selection_count">Nombre de billets</label>
 	<%= number_field_tag :selection_count, (@order.reservations.select{|reservation| reservation.seat.concert == @concert}).count %>
 	<%= submit_tag "Submit", :id => "selection_count_submit" %>
 <% end %>
