@@ -41,7 +41,7 @@ class TicketMailer < ApplicationMailer
 
 	end
 
-	def facture
+	def facture(order)
 		@order = order
 		@reservations=@order.reservations.joins(:seat => :concert).order("concerts.date")
 

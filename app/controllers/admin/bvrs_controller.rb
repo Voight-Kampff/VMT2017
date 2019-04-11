@@ -4,9 +4,8 @@ class Admin::BvrsController < ApplicationController
 	
 	def create
 		if @order.update(order_params)
-			@order.place_hold("en attente de paiement")
+			@order.pay("facture")
 			@order.reservations.map(&:save)
-		    @order.user = current_user
 		    @order.save
 			render 'show'
 			GenerateFactureJob.perform_later(@order)
