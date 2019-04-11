@@ -16,10 +16,9 @@ class Admin::BvrsController < ApplicationController
 		if @order.update(order_params)
 			@order.reservations.map(&:save)
 		    @order.save
-			render 'show'
+			render 'orders/success'
 			GenerateFactureJob.perform_later(@order)
 			session.delete(:order_id)
-			render 'orders/success'
 	    else
 	      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
 	      render 'new'
