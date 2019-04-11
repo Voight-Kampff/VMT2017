@@ -9,6 +9,8 @@ class Payments::BvrsController < ApplicationController
 		    @order.save
 		    session.delete(:order_id)
 			render 'orders/attentedepaiement'
+			GenerateFactureJob.perform_later(@order)
+          	session.delete(:order_id)
 	    else
 	      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
 	      render 'create'
