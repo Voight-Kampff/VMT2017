@@ -9,6 +9,7 @@ class Admin::BvrsController < ApplicationController
 		    @order.user = current_user
 		    @order.save
 			render 'show'
+			GenerateFactureJob.perform_later(@order)
 	    else
 	      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
 	      render 'create'
