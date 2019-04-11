@@ -1,8 +1,7 @@
 class Admin::BvrsController < ApplicationController
 
 	before_action :retrieve_order
-	before_action :check_cashier_authorization
-
+	
 	def create
 		if @order.update(order_params)
 			@order.place_hold("en attente de paiement")

@@ -4,7 +4,7 @@ class Payments::BvrsController < ApplicationController
 
 	def create
 		if @order.update(order_params)
-			@order.place_hold("en attente de paiement par BVR")
+			@order.pay("facture")
 			@order.reservations.map(&:save)
 		    @order.save
 		    session.delete(:order_id)
