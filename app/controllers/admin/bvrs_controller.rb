@@ -5,10 +5,6 @@ class Admin::BvrsController < ApplicationController
 	def create
 		if @order.update(order_params)
 			@order.pay("facture")
-			@order.reservations.map(&:save)
-		    @order.save
-			render 'show'
-			GenerateFactureJob.perform_later(@order)
 	    else
 	      flash[:alert] = "Votre forumlaire contient #{@order.errors.count} #{"erreur".pluralize(@order.errors.count)}"
 	      render 'create'
@@ -16,8 +12,12 @@ class Admin::BvrsController < ApplicationController
 	end
 
 	def update
-		@order.place_hold("en attente de paiement")
+		@order.pay("facture")
 		if @order.update(order_params)
+			@order.reservations.map(&:save)
+		    @order.save
+			render 'show'
+			GenerateFactureJob.perform_later(@order)
 			session.delete(:order_id)
 			render 'orders/success'
 	    else
