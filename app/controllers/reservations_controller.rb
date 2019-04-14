@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
 
 		unless @concert.unnumbered?
 
-			@rows=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S"]
+			@rows=["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T"]
 
 			@reservation = Reservation.new
 			@reservation.order_id=@order.id

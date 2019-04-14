@@ -82,7 +82,7 @@ gem 'devise'
 # Persistance for scheduled tasks
 gem 'resque', require: 'resque/server'
 
-gem 'redis'
+gem "redis", "~> 3.0" 
 
 gem 'sprockets', '~> 3.7.2'
 

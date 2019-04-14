@@ -23,7 +23,7 @@ class ConcertsController < ApplicationController
 
       else
 
-        rows=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S"]
+        rows=["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S", "T"]
         0..475.times do |i|
           s=Seat.new
 

@@ -22,7 +22,12 @@
 										<div class="row">
 											<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
 									<% elsif seat == 250  %>
-										</br>
+										<div class="row">
+											<button class="waves-effect waves-light btn-flat">K</button>
+											<% 0..13.times do |seat| %> 
+												<button class="waves-effect waves-light btn disabled" style="" id=""><%= seat + 1 %></button>
+											<% end %>
+										</div>
 										<div><b>Cat B: <%=@seats[seat].price%>.-</b></div>
 										<div class="row">
 											<button class="waves-effect waves-light  btn-flat"><%=@rows[seat/25]%></button>
