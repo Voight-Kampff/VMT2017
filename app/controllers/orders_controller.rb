@@ -59,9 +59,9 @@ class OrdersController < ApplicationController
 
     if @order.update(order_params)
       unless @order.invitation.nil?
-        render 'success'
         @order.pay('invitations uniquement')
         @order.save
+        render 'success'
         GenerateTicketJob.perform_later(@order)
         session.delete(:order_id)
       else

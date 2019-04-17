@@ -65,8 +65,14 @@ $(document).ready(function() {
 		<div class="row right-align">
 			<div class="col s12  m12 l12">
 				<button href="#" class="waves-effect waves-light btn hide-on-large-only" onclick="$('.button-collapse').sideNav('show')">Réserver d'autres billets</button>
-				<%= link_to("Payer par carte", '/paiement', :class => "waves-effect waves-light btn")%>
-				<%= link_to "Payer par facture", new_admin_bvrs_path , :class => "btn" %>
+				<% unless @order.invitations_only? %>
+					<%= link_to("Payer par carte", '/paiement', :class => "waves-effect waves-light btn")%>
+				<% end %>
+				<% if @order.invitations_only? %>
+					<%= link_to "Envoi", new_admin_bvrs_path , :class => "btn" %>
+				<% else %>
+					<%= link_to "Payer par facture", new_admin_bvrs_path , :class => "btn" %>
+				<% end %>
 			</div>
 		</div>
 		<% end %>
