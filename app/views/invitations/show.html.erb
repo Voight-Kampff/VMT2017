@@ -16,8 +16,9 @@
 					<p><%=@invitation.concert.footnote%></p>
 					<p>Vous pouvez également réserver d'autres billets, y compris des places gratuites pour les enfants, en passant par la <%=link_to('billetterie', concerts_path)%></p>
 				<% else %>
-					<p>Pour récupérer vos <%=@order.invitation.free_tickets%> billets invités, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
-					<p>Les <%=@order.invitation.free_tickets%> premières places seront gratuites. Si vous le souhaitez, vous pouvez ensuite selectionner des places supplémentaires et payer pour ces places par carte. Vous pourrez aussi attribuer les places entre invitaitons, places payantes et places pour enfants dans votre <%=link_to('panier', reservations_basket_path)%></p>
+					<p>Pour récupérer vos billets, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
+					<!--<p>Pour récupérer vos <%=@order.invitation.free_tickets%> billets invités, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
+					<p>Les <%=@order.invitation.free_tickets%> premières places seront gratuites. Si vous le souhaitez, vous pouvez ensuite selectionner des places supplémentaires et payer pour ces places par carte. Vous pourrez aussi attribuer les places entre invitaitons, places payantes et places pour enfants dans votre <%=link_to('panier', reservations_basket_path)%></p>-->
 				<%end%>
 				<p>Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie envoyant un mail à <%=mail_to('billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 584 55 94</p>
 			</div>
