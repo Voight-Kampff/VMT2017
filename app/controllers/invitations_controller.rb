@@ -2,6 +2,8 @@ class InvitationsController < ApplicationController
 
   before_action :check_admin_authorization, except: [:show]
 
+  include Secured
+
   def new
     @invitation=Invitation.new
     @concerts=Concert.all

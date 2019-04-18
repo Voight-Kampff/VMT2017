@@ -69,6 +69,8 @@ Rails.application.routes.draw do
   	resources :reservations
   end
 
+  get 'login' => 'sessions#login'
+
   #Auth0 routes
   get 'auth/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'

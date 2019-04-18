@@ -68,6 +68,10 @@ Rails.application.configure do
 
   ENV["DOCRAPTOR_API_KEY"] = Rails.application.secrets.docraptor_api_key
 
+  ENV['AUTH0_CLIENT_ID'] = Rails.application.secrets.auth0_client_id
+  ENV['AUTH0_CLIENT_SECRET'] = Rails.application.secrets.auth0_client_secret
+  ENV['AUTH0_DOMAIN'] = Rails.application.secrets.auth0_domain
+
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
