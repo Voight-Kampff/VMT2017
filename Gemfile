@@ -79,6 +79,10 @@ gem 'roadie-rails'
 # User authentication
 gem 'devise'
 
+# Login service
+gem 'omniauth', '~> 1.6.1'
+gem 'omniauth-auth0', '~> 2.0.0'
+
 # Persistance for scheduled tasks
 gem 'resque', require: 'resque/server'
 
