@@ -1,4 +1,4 @@
-class Admin::BvrsController < ApplicationController
+class BvrsController < ApplicationController
 
 	before_action :retrieve_order
 	

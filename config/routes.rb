@@ -50,8 +50,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :tags
-    resource :bvrs
   end
+
+  resource :bvrs
 
   resources :orders, only: [:show,:update]
 
