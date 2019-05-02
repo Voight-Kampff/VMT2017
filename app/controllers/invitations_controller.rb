@@ -2,7 +2,8 @@ class InvitationsController < ApplicationController
 
   before_action :check_admin_authorization, except: [:show]
 
-  include Secured
+  #disabled sec for obvious reasons! Was preventing people for using them!
+  #include Secured
 
   def new
     @invitation=Invitation.new
