@@ -1,0 +1,28 @@
+<div class="card-content">
+	<div class="outer-title" id="outer_card_title_<%= counter%>">
+		<span class="card-title" id="card_title_span_<%= counter%>"><%=concert.name%></span>
+	</div>
+	<div class="outer-subtitle" id="outer_card_subtitle_<%= counter%>">
+		<h6 id="card_subtitle_<%= counter%>"><%=(I18n.localize concert.date, format: :concert).capitalize%> <%=concert.location.preposition%> <%=concert.location.name%></h6>
+	</div>
+</div>
+<div class="card-action">
+	<% if concert.free_seats_count == 0 %>
+		<div class="right-align" style="text-transform:uppercase">
+			Complet
+		</div>
+	<%else%>
+		<div class="row">
+			<div class="col left-align">
+				<% if concert.free_seats_count <= 40 %>
+					Plus que <%=concert.free_seats_count%> places disponibles
+				<% else %>
+					<em>Billets à partir de CHF <%=concert.seats.last.price%>.-</em>
+				<% end %>
+			</div>
+			<div class="right-align" style="text-transform:uppercase">
+				<%=link_to("Réserver", new_concert_reservation_path(concert), :style => "color:#11216E", :class => "waves-effect")%>
+			</div>
+		</div>
+	<%end%>
+</div>

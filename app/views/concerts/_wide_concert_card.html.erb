@@ -1,0 +1,12 @@
+<div class="concert-card">
+	<div class="col l6 counter">
+		<div class="card hoverable">
+			<div class="card-image">
+				<% unless wide_concert_card.wide_image.default.url.nil? %>
+					<%= image_tag wide_concert_card.wide_image.default.url%>
+				<% end %>
+			</div>
+			<%= render partial: "card_content", locals: {concert: wide_concert_card, counter: wide_concert_card_counter}%>
+		</div>
+	</div>
+</div>

@@ -1,14 +1,21 @@
-<main>
-	<div class="container">
-		<h2>Billetterie</h2>
-		<%= render partial: "concert_card", collection: @concerts%>
-		<div class="divider" style="margin-bottom:20px"></div>
-<!-- 		<div>
-			<h5>Concours</h5>
-			<p>En partenariat avec le Centre commercial Manor Chavannes, les Variations Musicales de Tannay vous permettent de gagner des places pour cette 9ème édition !</p>
+<% content_for :section_title, "Billetterie"%>
 
-			</p><a href="https://centre-manor-chavannes.ch/evenements/cha-concours-variations-musicales-de-tannay-2018">Participez au tirage au sort sur le site de Manor Chavannes</a></p>
-		</div> -->
+	<div class="hide-on-med-and-down"> <!--LARGE-->
+		<div class="container">
+			<div class="row">
+				<%= render partial: "wide_concert_card", collection: @concerts%>
+			</div>
+		</div>
 	</div>
-
-</main>
+	<div class="hide-on-large-only hide-on-small-only"> <!--MEDIUM-->
+		<div class="container">
+				<%= render partial: "medium_concert_card", collection: @concerts%>
+		</div>
+	</div>
+	<div class="hide-on-med-and-up"> <!--SMALL-->
+		<div class="container">
+			<div class="row">
+				<%= render partial: "small_concert_card", collection: @concerts%>
+			</div>
+		</div>
+	</div>

@@ -5,6 +5,7 @@ class Concert < ApplicationRecord
 	has_and_belongs_to_many :reservation_types, optional: true
 
 	mount_uploader :image, ImageUploader
+	mount_uploader :wide_image, WideImageUploader
 
 	attr_accessor :cat_A_price
 	attr_accessor :cat_B_price

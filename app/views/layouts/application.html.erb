@@ -14,7 +14,18 @@
 
   <body>
   	<%= render 'layouts/header', :locals => @concerts=Concert.where(live: true).order(:date) %>
-    <%= yield %>
+    <main>
+      <div class="section-header">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m10">
+              <h2><%=yield(:section_title)%></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= yield %>
+    </main>
     <%= render 'layouts/footer'%>
   </body>
 </html>

@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   resources :invitations, param: :slug
 
   namespace :admin do
-    resource :tags
+    get 'dashboard', to: 'dashboard'
   end
 
   resource :bvrs

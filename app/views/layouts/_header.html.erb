@@ -1,6 +1,8 @@
+
 <header>
   <div class="navbar-fixed">
     <ul id="programme" class="dropdown-content">
+      <li><a href="https://www.musicales-tannay.ch/programme/programme-2019">PROGRAMME 2019</a></li>
       <li><a href="https://www.musicales-tannay.ch/programme/programme-2018">PROGRAMME 2018</a></li>
       <li><a href="https://www.musicales-tannay.ch/programme/programme-2017">PROGRAMME 2017</a></li>
       <li><a href="https://www.musicales-tannay.ch/programme/programme-2016">PROGRAMME 2016</a></li>
@@ -17,33 +19,49 @@
     </ul>
       <nav class="nav-extended">
         <div class="container">
-          <div class="nav-wrapper" style="height:78px">
-            <div style="padding-left:26px;height:78px" class="hide-on-large-only">
-              <a class="right-align" id="hamburger" style="color:#96a0a7;font-size:40px;padding-right:28px;font-weight:800;width:100%" onclick="toggleNav()" >
+          <div class="nav-wrapper">
+            <div style="height" class="hide-on-large-only" >
+              <div href="#" class="brand-logo left" style="margin-left:19px"><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "75x75")%></div>
+              <a class="right-align dropdown-trigger-small-menu right" id="hamburger" style="color:#96a0a7;font-size:40px;line-height:18px;padding:28px;font-weight:800;width:100%" data-target="small-med-menu" >
                 ≡
               </a>
           </div>
+          <div class="hide-on-med-and-down">
+              <div href="#" class="brand-logo left" style="margin-left:26px"><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "75x75")%></div>
 
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="https://musicales-tannay.ch">ACCUEIL</a></li>
-                <li><a class="dropdown-button" href="#" data-constrainwidth="false" data-beloworigin="true" data-hover="true" data-activates="programme">PROGRAMME</a></li>
+                <li><a class="dropdown-trigger" href="https://www.musicales-tannay.ch/programme/programme-2019"  tabindex="-1" data-target="programme">PROGRAMME</a></li>
                 <li class="active"><a href="/">BILLETTERIE</a></li>
                 <li><a href="https://www.musicales-tannay.ch/en-images">EN IMAGES</a></li>
-                <li><a class="dropdown-button" href="#" data-constrainwidth="false" data-beloworigin="true" data-hover="true" data-activates="association">L'ASSOCIATION</a></li>
+                <li><a class="dropdown-trigger" href="#" data-target="association">L'ASSOCIATION</a></li>
                 <li><a href="https://www.musicales-tannay.ch/presse">PRESSE</a></li>
                 <li><a href="https://www.musicales-tannay.ch/newsletter">ACTUALITÉS</a></li>
                 <li><a href="https://www.musicales-tannay.ch/contact">CONTACT</a></li>
               </ul>
             </div>
+          </div>
             <div class="hide-on-large-only">
-                <div class="nav-content" id="nav-content" >
-                  <div class="row right-align">
-                    <a href="https://www.musicales-tannay.ch">Acceuil</a>
+                <div class="nav-content dropdown-content" id="small-med-menu" style="height:280px;width:100pc">
+                  <div class="row fake-nav">
+                    <div class="brand-logo left" style="margin-left:19px;margin-top:-25px"><%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "75x75")%></div>
+                    <a class="right-align dropdown-trigger-small-menu right" id="hamburger" style="color:#96a0a7;font-size:40px;padding-top:3px;text-decoration:none" data-target="small-med-menu" >
+                    ≡
+                    </a>
                   </div>
                   <div class="row right-align">
-                   <a href="https://www.musicales-tannay.ch/programme/programme-2017">Programme</a>
+                    <a href="https://www.musicales-tannay.ch">Accueil</a>
+                  </div>
+                  <div class="row right-align">
+                   <a href="https://www.musicales-tannay.ch/programme/programme-2019">Programme</a>
                   </div>
                   <div class="child-list">
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2019">Programme 2019</a>
+                    </div>
+                    <div class="row child right-align">
+                      <a href="https://www.musicales-tannay.ch/programme/programme-2018">Programme 2018</a>
+                    </div>
                     <div class="row child right-align">
                       <a href="https://www.musicales-tannay.ch/programme/programme-2017">Programme 2017</a>
                     </div>
@@ -100,8 +118,8 @@
           </div>
           </nav>
         </div>
-              <div class="container">
-            <ul class="side-nav fixed" id="slide-out" style="transform:translate(-100%)">
+<!--               <div class="container">
+            <ul class="sidenav sidenav-fixed" id="slide-out">
               <li class="hide-on-med-and-down">
                   <%= image_tag("VariationsMusicalesTannay_FestivalMusiqueClassique_SuisseRomande.png", size: "150x150")%>
               </li>
@@ -115,31 +133,6 @@
             </li>
           <% end %>
           </ul>
-          </div>
-          <a href="#" data-activates="slide-out" class="button-collapse" style="display:none"></a>
-          <div class="buffer"></div>
+          </div> -->
+          <div class="buffer" style="display:none"></div>
 </header>
-
-<script>
-
-  $( document ).ready(function() {
-    $('#nav-content').hide()
-    $('.buffer').hide()
-  });
-
-
-  $(".button-collapse").sideNav({
-      menuWidth: 270, // Default is 300
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
-    });
-
-  function toggleNav() {
-    $('#nav-content').toggle()
-    $('.buffer').toggle()
-    return false
-  }
-
-
-</script>

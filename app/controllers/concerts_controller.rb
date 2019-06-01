@@ -23,7 +23,7 @@ class ConcertsController < ApplicationController
 
       else
 
-        rows=["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S", "T"]
+        rows=["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T"]
         0..475.times do |i|
           s=Seat.new
 
@@ -78,7 +78,7 @@ class ConcertsController < ApplicationController
   private
 
     def concert_params
-      params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :unnumbered, :number_of_seats,:single_price,:footnote,:subline,:location_id)
+      params.require(:concert).permit(:name, :shortname, :date, :location, :cat_A_price, :cat_B_price, :image, :wide_image, :unnumbered, :number_of_seats,:single_price,:footnote,:subline,:location_id)
     end
 
 end

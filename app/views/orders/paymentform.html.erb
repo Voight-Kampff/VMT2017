@@ -14,22 +14,22 @@
           
 </script>
 
+<% if @order.invitations_only? %>
+  <% content_for :section_title, "Envoi"%>
+<% else %>
+  <% content_for :section_title, "Paiement par facture"%>
+<% end %>
 <main>
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-        <% if @order.invitations_only? %>
-          <h2> Envoi </h2>
-        <% else %>
-          <h2>Paiement</h2>
-        <% end %>
         <% if flash[:alert] %>
           <div class="alert"><%= flash[:alert] %></div>
         <% end %>
+        <h6>Vos Coordonnées</h6>
         <div class="divider"></div>
       </div>
       <div class="col s12 m12 l12">
-        <h6>Vos Coordonnées</h6>
         <% if @order.invitations_only? %>
           <%= form_for @order, url: orders_invitationdelivery, method: "post" do |f|%>
             <div class="row">
@@ -154,8 +154,7 @@
           </br>
              <div class="row right-align">
               <!-- Modal Trigger -->
-            <button class="btn">Payer par carte</button>
-
+            <button class="btn indigo darken-4 waves-effect waves-light hoverable">Payer par carte</button>
               <!-- Modal Structure -->
               <div id="modal1" class="modal">
                 <div class="modal-content">

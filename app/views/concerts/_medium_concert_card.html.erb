@@ -1,0 +1,14 @@
+<div class="concert-card">
+	<div class="col m12">
+		<div class="card horizontal hoverable">
+			<div class="card-image">
+				<% unless medium_concert_card.image.medium.url.nil? %>
+					<%= image_tag medium_concert_card.image.medium.url%>
+				<% end %>
+			</div>
+			<div class="card-stacked">
+				<%= render partial: "card_content", locals: {concert: medium_concert_card, counter: 999}%>
+			</div>
+		</div>
+	</div>
+</div>
