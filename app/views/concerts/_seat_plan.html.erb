@@ -1,0 +1,49 @@
+<div class="container" id="seat-plan" style="transform: translateX(-150%);display:none;">
+	<div class="row">
+		<div class="col s12 m12 l12">
+			<div class="card hoverable">
+				<div class="card-content seats">
+					<span class="card-title" id="name">NAME GOES HERE</span>
+					<h6 id="dateloc"  style="margin-bottom:1rem">DATE AND LOCATION GOES HERE</h6>
+
+					<div>
+						<b id="catA_seat_price">Cat A: </b>
+					</div>
+					<% 0..475.times do |seat| %>
+						<% if seat % 25 ==0  && seat != 250 %>
+							<div class="row">
+								<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+						<% elsif seat == 250  %>
+							<div class="row"  style="margin-bottom:1rem">
+								<button class="waves-effect waves-light btn-flat">K</button>
+									<% 0..13.times do |seat| %> 
+										<button class="waves-effect waves-light btn disabled" style="" id="K<%= seat + 1 %>"><%= seat + 1 %></button>
+									<% end %>
+							</div>
+							<div>
+								<b id="catB_seat_price">Cat B: Bprice goes here.-</b>
+							</div>
+							<div class="row">
+								<button class="waves-effect waves-light  btn-flat"><%=@rows[seat/25]%></button>
+						<% else %>
+						<% end %>
+						<button class="waves-effect waves-light btn disabled" style="" id="<%=@rows[seat/25]%><%=(seat % 25) +1%>"><%=(seat % 25) +1%></button>
+						<% if seat % 25 == 24 %>
+							<button class="waves-effect waves-light btn-flat"><%=@rows[seat/25]%></button>
+							</div>
+						<% elsif seat % 25 == 12%>
+							<button class="waves-effect waves-light btn-flat">  </button>
+							<button class="waves-effect waves-light btn-flat">  </button>
+						<% else %>
+						<% end %>
+					<% end %>
+					</div>
+					<div class="card-action right-align">
+						<a onclick="revealBasket()">Panier</a>
+						<a href="#">This is a link</a>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+
+var name= ("<%= escape_javascript(raw @concert.name) %>")
+var catAprice=("testA")
+var catBprice=("testB")
+var dateloc=("<%= escape_javascript((I18n.localize @concert.date, format: :concert).capitalize+' '+@concert.location.preposition+' '+@concert.location.name)%>")
+var free_seats = []
+free_seats = <%=raw @free_seats.to_json%>
+
+
+
+//$("#name").text
+//$('#catA_seat_price').append
+//$("#dateloc").text

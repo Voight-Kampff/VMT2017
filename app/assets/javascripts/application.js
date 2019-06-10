@@ -17,3 +17,13 @@
 //= require_tree ./channels
 //= require_tree ./initializers
 //= require_tree .
+
+
+$(document).on('turbolinks:before-cache', function() {     // this approach corrects the select 2 to be duplicated when clicking the back button.
+	$(".select-wrapper").each(function (index, element) {
+		 if (index % 2 == 0) {alert('even') /* we are even */ }
+		 else {
+		 	alert('odd')
+		 }
+	})
+	    } );

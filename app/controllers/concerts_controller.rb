@@ -69,6 +69,7 @@ class ConcertsController < ApplicationController
 
   def index
     @concerts=Concert.where(live: true).order(:date)
+    @rows=["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T"]
   end
 
   def show

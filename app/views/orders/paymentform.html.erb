@@ -1,3 +1,4 @@
+<script src="https://js.stripe.com/v3/"></script>
 <script>
 
   $(document).ready(function() {
@@ -17,7 +18,7 @@
 <% if @order.invitations_only? %>
   <% content_for :section_title, "Envoi"%>
 <% else %>
-  <% content_for :section_title, "Paiement par facture"%>
+  <% content_for :section_title, "Paiement par carte"%>
 <% end %>
 <main>
   <div class="container">

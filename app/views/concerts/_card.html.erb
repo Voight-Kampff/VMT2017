@@ -1,0 +1,17 @@
+<div id="outer-wrapper">
+	<div id="card-wrapper">	
+		<div class="hide-on-small-only"> <!--LARGE-->
+			<div class="container">
+				<%= render partial: "wide_concert_card", locals: {concert: card, counter: card_counter}%>
+			</div>
+		</div>
+		<div class="hide-on-med-and-up"> <!--SMALL-->
+			<div class="container">
+				
+					<%= render partial: "medium_concert_card", locals: {concert: card, counter: card_counter}%>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="inflatable-container_<%=card_counter%>" class="col s12 m12 l12" style="height:652px;display:none"></div>	

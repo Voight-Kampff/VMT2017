@@ -13,16 +13,17 @@
 		</div>
 	<%else%>
 		<div class="row">
-			<div class="col left-align">
+			<div class="col left-align hide-on-small-only">
 				<% if concert.free_seats_count <= 40 %>
-					Plus que <%=concert.free_seats_count%> places disponibles
+					Plus que <%=concert.free_seats_count%> places
 				<% else %>
-					<em>Billets à partir de CHF <%=concert.seats.last.price%>.-</em>
+					<em>Billets dès <%=concert.seats.last.price%>.-</em>
 				<% end %>
 			</div>
 			<div class="right-align" style="text-transform:uppercase">
-				<%=link_to("Réserver", new_concert_reservation_path(concert), :style => "color:#11216E", :class => "waves-effect")%>
+				<%=link_to("Réserver", new_concert_reservation_path(concert), :style => "color:#11216E", :class => "waves-effect", :remote => true, :id => counter, :onclick => ("revealSeatPlan("+counter.to_s)+")" )%>
 			</div>
 		</div>
 	<%end%>
 </div>
+

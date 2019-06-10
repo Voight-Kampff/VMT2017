@@ -33,6 +33,16 @@ class ReservationsController < ApplicationController
 				end
 			end
 		end
+
+		@free_seats=Seat.free_seats_coordinates(@concert)
+
+		
+
+		respond_to do |format|
+				format.js {render layout: false} 
+				format.html
+		end
+
 	end
 
 	def create

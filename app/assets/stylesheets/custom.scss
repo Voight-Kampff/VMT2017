@@ -31,31 +31,58 @@ main {
   }
 }
 
-
-/* .concert-card {
-      .card-title {
-          height: 70px; 
-          overflow: hidden;
-      }
-}
-
-@media only screen and (max-width: 1083px) {
-  .concert-card {
-      .card-title {
-          height: 100px; 
-          overflow: hidden;
-      }
+.concert-card {
+  .outer-title {
+    .card-title{
+      line-height: 110%;
+      font-size: 16px
     }
   }
 
-@media only screen and (max-width: 992px) {
-  .concert-card {
-      .card-title {
-          height: auto;
-          overflow: hidden;
+  .card-action {
+    em {
+      font-size: 12px;
+    }
+  }
+  
+  h6 {
+  font-size: 12px
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-action {
+    padding: 8px 16px;
+  }
+  
+}
+
+#seat-plan {
+  -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
+#basket-card {
+  -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
+
+
+@media #{$medium-only} {
+    // styles for medium screens and down
+    #seat-plan {
+      .m6{
+      padding: 0;
       }
     }
-  } */
+  }
 
 
  nav {
@@ -142,10 +169,12 @@ nav ul li a:hover{
 
 footer {
   background-color: #F5F5F6;
+  z-index: 100;
   }
 
 .page-footer {
   background-color: #F5F5F6;
+  z-index: 100;
 }
 
  @media only screen and (max-width : 992px) {
