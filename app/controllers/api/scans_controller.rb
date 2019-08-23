@@ -5,9 +5,14 @@ class Api::ScansController < ApplicationController
 		@qrcode = params[:tid].split(/-/)
 		@scan=Scan.new(reservation_id: @qrcode[1] ,scanner_user_id: params[:userid])
 		@scan.check(@qrcode[2])
+		if @scan.status == true
+			status=1
+		else
+			status=0
+		end
 		
 		if @scan.save
-			render :xml => {:message => {:status => @scan.status, :text => @scan.message}}
+			render :xml => {:message => {:status => status, :text => @scan.message}}
 		end
 
 		# @reservation=Reservation.find(params[:id])
