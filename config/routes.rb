@@ -36,9 +36,9 @@ Rails.application.routes.draw do
 
   get '.well-known/acme-challenge/G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8', to: 'dashboards#G9w9_Y8mdSmC3HahDKs8J620nPih9_pdyA6IDKUYex8'
 
-  get 'api/reservations/:id/:code', to: 'api#scan'
-  get 'api/orders/:id/:code', to: 'api#scan_order'
-  get 'api/seatcodes/:id/:code', to: 'api#scan_seat_code'
+  # get 'api/scan/:code', to: 'api#scan'
+  # get 'api/orders/:id/:code', to: 'api#scan_order'
+  # get 'api/seatcodes/:id/:code', to: 'api#scan_seat_code'
 
 
   ##split controllers, correct method
@@ -46,10 +46,14 @@ Rails.application.routes.draw do
     resource :cashierpayments, only: [:create]
   end
 
+  namespace :api do
+    resources :scans, only: [:create]
+  end
+
   resources :invitations, param: :slug
 
   namespace :admin do
-    resource :tags
+    resources :concerts
   end
 
   resource :bvrs

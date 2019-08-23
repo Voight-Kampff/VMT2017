@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503223048) do
+ActiveRecord::Schema.define(version: 20190822155107) do
 
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180503223048) do
     t.string   "footnote"
     t.integer  "location_id"
     t.boolean  "live",        default: false
+    t.string   "wide_image"
   end
 
   create_table "concerts_reservation_types", id: false, force: :cascade do |t|
@@ -69,11 +70,13 @@ ActiveRecord::Schema.define(version: 20180503223048) do
     t.integer  "free_tickets"
     t.integer  "order_id"
     t.string   "slug"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.boolean  "used"
     t.integer  "reservation_type_id"
     t.integer  "concert_id"
+    t.integer  "limit_per_concert"
+    t.integer  "category",            default: 0
   end
 
   create_table "locations", force: :cascade do |t|
@@ -129,6 +132,15 @@ ActiveRecord::Schema.define(version: 20180503223048) do
     t.integer  "reservation_type_id"
     t.string   "code"
     t.boolean  "scanned"
+  end
+
+  create_table "scans", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "scanner_user_id"
+    t.boolean  "status"
+    t.string   "message"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "seat_codes", force: :cascade do |t|

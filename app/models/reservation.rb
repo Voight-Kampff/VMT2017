@@ -7,6 +7,8 @@ class Reservation < ApplicationRecord
 	before_save :check_invitation_count, if: :reservation_type_id_changed?
 	before_save :check_invitation_concert, if: :reservation_type_id_changed?
 
+	has_many :scans
+
 	validates :seat_id, uniqueness: true
 
 	def code_url
