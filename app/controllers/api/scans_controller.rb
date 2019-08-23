@@ -12,7 +12,13 @@ class Api::ScansController < ApplicationController
 		end
 		
 		if @scan.save
-			render :xml => {:message => {:status => status, :text => @scan.message}}
+
+			xml={:xml => {:message => {:status => status, :text => @scan.message}} }.to_xml
+			xml.slice!("<hash>")
+			xml.slice!("</hash>")
+
+			render :xml => xml
+
 		end
 
 		# @reservation=Reservation.find(params[:id])
