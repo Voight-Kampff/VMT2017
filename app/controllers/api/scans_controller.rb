@@ -7,7 +7,7 @@ class Api::ScansController < ApplicationController
 		@scan.check(@qrcode[2])
 		
 		if @scan.save
-			render :xml => {:message => {:status => 1, :text => "test"}}
+			render :xml => {:message => {:status => @scan.status, :text => @scan.message}}
 		end
 
 		# @reservation=Reservation.find(params[:id])
@@ -21,6 +21,9 @@ class Api::ScansController < ApplicationController
 		# else
 		# 	render json: 'invalid code'
 		# end
+
+		#curl -d "tid=r-18923-9BqZgA2uCxwo3T947_pGrpv0bBk userid=23213123" -X POST https://musicales-tannay.herokuapp.com/api/scans
+
 	end
 
 end
