@@ -2,7 +2,7 @@ class Api::ScansController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def create
-		@qrcode = params[:tid].split(/-/)
+		@qrcode = params[:tid].split("-",3)
 		@scan=Scan.new(reservation_id: @qrcode[1] ,scanner_user_id: params[:userid])
 		@scan.check(@qrcode[2])
 		if @scan.status == true
