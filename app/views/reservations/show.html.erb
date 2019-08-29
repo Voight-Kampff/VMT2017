@@ -21,7 +21,8 @@
 			</div>
 			<div class="col s4 m4 l4 left-align">
 				<h5><%=@reservation.reservation_type.name.humanize%></h5>
-				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=@reservation.seat.row%> <%=@reservation.seat.column%></h1>
+				<% unless @concert.unnumbered? %>
+				<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=@reservation.seat.row%> <%=@reservation.seat.column%></h1><%end%>
 				<% unless @reservation.order.title == nil && @reservation.order.first_name == nil && @reservation.order.last_name == nil && @reservation.order.email == nil %><p style="font-size:12px"><b>Envoyé à:</b></br><% end%>
 				<%=@reservation.order.title%> <%=@reservation.order.first_name%> <%=@reservation.order.last_name%></br>
 				<%=@reservation.order.email%></p>
@@ -51,6 +52,7 @@
 		</div>
 	</div>
 </main>
+<% unless @concert.unnumbered? %>
 <footer class="page-footer" stlye="background-color:#f5f5f6">
 	<div class="footer center-align" style="padding:10px">
 		<p style="text-align: center;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_1.png" alt="Mazda 1" style="vertical-align: bottom; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_2.png" alt="Mazda 2" style="vertical-align: bottom; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_3.png" alt="Mazda 3" style="vertical-align: bottom; margin: 10px;"></p>
@@ -73,3 +75,4 @@
 		</p>
 	</div>
 </footer>
+<%end%>

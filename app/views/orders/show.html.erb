@@ -22,7 +22,8 @@
 				</div>
 				<div class="col s4 m4 l4 left-align">
 					<h5><%=reservation.reservation_type.name.humanize%></h5>
-					<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=reservation.seat.row%> <%=reservation.seat.column%></h1>
+					<% unless reservation.seat.concert.unnumbered? %>
+					<h1 style="border-top:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB"><%=reservation.seat.row%> <%=reservation.seat.column%></h1><%end%>
 					<% unless reservation.order.title == nil && reservation.order.first_name == nil && reservation.order.last_name == nil && reservation.order.email == nil %><p style="font-size:12px"><b>Envoyé à:</b></br><% end%>
 					<%=reservation.order.title%> <%=reservation.order.first_name%> <%=reservation.order.last_name%></br>
 					<%=reservation.order.email%></p>
@@ -58,6 +59,7 @@
 			</div>
 		</div>
 	</main>
+	<% unless reservation.seat.concert.unnumbered? %>
 	<footer class="page-footer" stlye="background-color:#f5f5f6">
 		<div class="footer center-align" style="padding:10px">
 			<p><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_2.png" alt="Mazda 2" width="80" height="73" style="vertical-align: middle; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/Mazda_3.png" alt="Mazda 3" width="110" height="42" style="vertical-align: middle; margin: 10px;"><img src="https://www.musicales-tannay.ch/images/sponsors/LoterieRomande.png" alt="LoterieRomande" style="vertical-align: middle; margin: 10px;"> <img src="https://www.musicales-tannay.ch/images/sponsors/Aeschbach.png" alt="Aeschbach" style="vertical-align: middle; margin: 10px;"> <img src="https://www.musicales-tannay.ch/images/sponsors/FondationGandurPourLaJeunesse.png" alt="FondationGandurPourLaJeunesse" style="margin: 10px; vertical-align: middle;"> <img src="https://www.musicales-tannay.ch/images/sponsors/LaCote_2018.png" alt="LaCote2" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/Fondation_Juchum.png" alt="Fondation Juchum" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/CommunesDeTerreSainte.png" alt="CommunesDeTerreSainte" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/FondationEngelberts.png" alt="FondationEngelberts" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/FondationOtto.png" alt="FondationOtto" style="margin: 10px; vertical-align: middle;"><img src="https://www.musicales-tannay.ch/images/sponsors/CantonVaud.png" alt="CantonVaud" width="30" height="90" style="margin: 10px; vertical-align: middle;"><img src="https://musicales-tannay.ch/images/sponsors/FondationMinkoff.png" alt="FondationMinkoff" style="margin: 10px; vertical-align: middle" width="100" height="46"><img src="https://musicales-tannay.ch/images/sponsors/ErnstGohner.png" alt="ErnstGohner" style="vertical-align: middle; margin: 10px;"><img src="https://musicales-tannay.ch/images/sponsors/Regionyon_2018.png" alt="Regionyon 2018" width="100" height="39" style="margin: 10px; vertical-align: middle;"><img src="https://musicales-tannay.ch/images/sponsors/FondationGoblet.png" alt="FondationGoblet" width="100" height="28" style="vertical-align: middle; margin: 10px;"></p>
@@ -66,5 +68,6 @@
 			</p>
 		</div>
 	</footer>
+	<%end%>
 	<div class="page-break"></div>
 <% end %>
