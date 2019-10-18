@@ -4,7 +4,7 @@
 			<div class="col s12 m9 l10">
 				<h3><%=@concert.name%><h3><h5><%=(I18n.localize @concert.date, format: :concert).capitalize%></h5>
 				<% @keys.each do |n|%>
-					<p><%= @types[n-1].name%> <%=@stats[n]%></p>
+					<p><%= @types[n-1].name%> <%=@stats[n-1]%></p>
 				<% end %>
 			</div>
 		</div>
