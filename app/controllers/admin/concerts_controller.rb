@@ -7,12 +7,10 @@ class Admin::ConcertsController < ApplicationController
 
 	def show
 		@concert=Concert.find_by_id(params[:id])
-		@types=@concert.reservation_types
-		@keys= @types.map{|i| i.id}
+		@types=ReservationType.all
 		@stats=Array.new
-		@keys.each do |i|
-				@stats.push((@concert.reservations.where(reservation_type_id: @keys[i-1])).count)
-
+		@types.each do |i|
+			@stats.push(@concert.reservations.where(reservation_type_id: i.id).count)
 		end
 
 	end
