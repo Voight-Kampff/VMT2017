@@ -65,7 +65,7 @@ class TicketMailer < ApplicationMailer
 		attachments["#{@order.pdf_name}"]= tmp_file.read
 
 		
-    	mail(:to => "elwa.hauser@bluewin.ch", :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Facture et billets pour les Variations Musicales de Tannay")
+    	mail(:to => "claus.haessig@vtxnet.ch", :from => "Billetterie@musicales-tannay.ch", :bcc => "webmaster@musicales-tannay.ch", :subject => "Facture et billets pour les Variations Musicales de Tannay")
 	end
 
 
