@@ -71,7 +71,9 @@ $(document).ready(function() {
 				<% if @order.invitations_only? %>
 					<%= link_to "Envoi", new_bvrs_path , :class => "btn" %>
 				<% else %>
+				<% if (current_user.nil? == false) && (current_user.admin? == true) %>
 					<%= link_to "Payer par facture", new_bvrs_path , :class => "btn" %>
+				<%end%>
 				<% end %>
 			</div>
 		</div>
