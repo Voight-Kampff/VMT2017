@@ -2,21 +2,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<h4>Chers abonnés</h4>
+				<h4>Chers membre</h4>
 				<div class="divider"></div>
 				<% if @invitation.reservation_type == "Invitation membre"%>
 					<h6>Merci pour votre soutien!</h6>
 				<%end%>
 				<%if @invitation.used==true %>
-					<p>Vos billet ont été envoyés à <%=@order.invitation.email%></p>
-				<% elsif @invitation.concert.present? %>
-					<p>Les Variations Musicales de Tannay ont le plaisir de vous inviter au concert de <%=@invitation.concert.name%> <%=(I18n.localize @invitation.concert.date, format: :concert)%> <%=@invitation.concert.location.preposition%> <%=@invitation.concert.location.name%></p>
-					<p>Avant de récupérer vos invitations, merci d'indiquer si vous viendrez accompagné</p>
-					<%= render 'reservations/unnumbered_selection', concert: @invitation.concert, max_selection_count: @invitation.free_tickets%>
-					<p><%=@invitation.concert.footnote%></p>
-					<p>Vous pouvez également réserver d'autres billets, y compris des places gratuites pour les enfants, en passant par la <%=link_to('billetterie', concerts_path)%></p>
+					<p>Vos billet ont été envoyés à <%=@order.invitation.email%></p> d
 				<% else %>
-					<p>Pour récupérer vos billets, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
+					<p>Vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
 					<!--<p>Pour récupérer vos <%=@order.invitation.free_tickets%> billets invités, vous pouvez aller choisir vos places pour les concerts qui vous intéressent en passant par <%=link_to('billetterie', concerts_path)%> </p>
 					<p>Les <%=@order.invitation.free_tickets%> premières places seront gratuites. Si vous le souhaitez, vous pouvez ensuite selectionner des places supplémentaires et payer pour ces places par carte. Vous pourrez aussi attribuer les places entre invitaitons, places payantes et places pour enfants dans votre <%=link_to('panier', reservations_basket_path)%></p>-->
 				<%end%>

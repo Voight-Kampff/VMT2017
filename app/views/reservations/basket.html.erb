@@ -16,9 +16,6 @@ $(document).ready(function() {
 						</div>
 					</div>
 				<% else %>
-					<% unless @order.invitation.nil? %>
-						<h6>Vous avez le droit à <%= @order.invitation.free_tickets %> invitations</h6>
-					<% end %>
 					<table>
 					<% @reservations.each do |reservation| %>
 						<% if reservation.seat.concert.id != @this_concert %>
