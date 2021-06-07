@@ -537,7 +537,7 @@
                                     		<td align="left" valign="top" class="bodyContent" mc:edit="body_content" style="padding-top:20px;">
                                                 <h3>Chers membre de l’association du festival</h3>
 
-                                                <%=button_to('Réserver vos billets',invitation_url(@invitation.slug),:protocol => "https", class => "btn")%>
+                                                <%=link_to('Réservez vos billets en passant par ici',invitation_url(@invitation.slug),:protocol => "https", class => "btn")%>
                                                 
                                                 <p>Merci pour votre soutien. Comme vous le savez probablement déjà, votre soutien nous est plus important que jamais. Pour vous remercier, nous vous offrons la possibilité d’accéder aux préventes des billets pour l’édition de cette année. Si vous êtes membres bienfaiteur, vous avez également droit à deux billets offerts. Les invitations seront automatiquement ajoutées à votre commande. </p>
                                                 <p>Nous tenons aussi à vous transmettre nos excuses pour le retard dans l’ouverture des préventes dû à un problème technique. Si vous avez des questions ou des remarques, n'hésitez pas à contacter la billeterie en envoyant un courrier à <%=mail_to('la billetterie','billetterie@musicales-tannay.ch')%> ou en téléphonant au +41 79 682 08 74.</p>
