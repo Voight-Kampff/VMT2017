@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20190822155107) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "concerts", force: :cascade do |t|
     t.string   "name"
     t.string   "shortname"
@@ -24,14 +27,13 @@ ActiveRecord::Schema.define(version: 20190822155107) do
     t.string   "footnote"
     t.integer  "location_id"
     t.boolean  "live",        default: false
-    t.string   "wide_image"
   end
 
   create_table "concerts_reservation_types", id: false, force: :cascade do |t|
     t.integer "reservation_type_id"
     t.integer "concert_id"
-    t.index ["concert_id"], name: "index_concerts_reservation_types_on_concert_id"
-    t.index ["reservation_type_id"], name: "index_concerts_reservation_types_on_reservation_type_id"
+    t.index ["concert_id"], name: "index_concerts_reservation_types_on_concert_id", using: :btree
+    t.index ["reservation_type_id"], name: "index_concerts_reservation_types_on_reservation_type_id", using: :btree
   end
 
   create_table "contact_tags", force: :cascade do |t|
@@ -39,8 +41,8 @@ ActiveRecord::Schema.define(version: 20190822155107) do
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contact_id"], name: "index_contact_tags_on_contact_id"
-    t.index ["tag_id"], name: "index_contact_tags_on_tag_id"
+    t.index ["contact_id"], name: "index_contact_tags_on_contact_id", using: :btree
+    t.index ["tag_id"], name: "index_contact_tags_on_tag_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -70,13 +72,11 @@ ActiveRecord::Schema.define(version: 20190822155107) do
     t.integer  "free_tickets"
     t.integer  "order_id"
     t.string   "slug"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "used"
     t.integer  "reservation_type_id"
     t.integer  "concert_id"
-    t.integer  "limit_per_concert"
-    t.integer  "category",            default: 0
   end
 
   create_table "locations", force: :cascade do |t|
@@ -189,8 +189,8 @@ ActiveRecord::Schema.define(version: 20190822155107) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "telephone"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

@@ -1,8 +1,14 @@
 {
-	"folders":
+	/*"folders":
 	[
 		{
 			"path": "/Users/Voight-Kampff/Documents/VMT2017"
 		}
-	]
+	]*/
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
 }
