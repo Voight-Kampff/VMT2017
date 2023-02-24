@@ -77,7 +77,7 @@ gem 'roadie-rails'
 gem 'devise'
 
 # Login service
-gem 'omniauth', '~> 1.6.1'
+gem 'omniauth', '~> 2.0.0'
 gem 'omniauth-auth0', '~> 2.0.0'
 
 # Persistance for scheduled tasks
